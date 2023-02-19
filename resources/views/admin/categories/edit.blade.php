@@ -96,6 +96,7 @@
                     'label' => __('words.status'),
                     'name' => 'status',
                     'val' => old('status', $category->status),
+                    'required' => false,
                 ])
             </div>
 

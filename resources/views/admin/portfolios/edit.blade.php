@@ -158,6 +158,7 @@
                     'label' => __('words.status'),
                     'name' => 'status',
                     'val' => old('status', $portfolio->status),
+                    'required' => false,
                 ])
             </div>
 

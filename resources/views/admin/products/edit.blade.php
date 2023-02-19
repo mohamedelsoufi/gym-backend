@@ -176,6 +176,7 @@
                     'label' => __('words.status'),
                     'name' => 'status',
                     'val' => old('status', $product->status),
+                    'required' => false,
                 ])
             </div>
 

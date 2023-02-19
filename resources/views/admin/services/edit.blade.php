@@ -118,6 +118,7 @@
                     'label' => __('words.status'),
                     'name' => 'status',
                     'val' => old('status', $service->status),
+                    'required' => false,
                 ])
             </div>
 

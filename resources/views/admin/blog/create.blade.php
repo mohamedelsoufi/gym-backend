@@ -98,6 +98,7 @@
                     'label' => __('words.status'),
                     'name' => 'status',
                     'val' => old('status'),
+                    'required' => false,
                 ])
 
             </div>
