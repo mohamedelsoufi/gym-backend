@@ -101,7 +101,7 @@
                             <div class="card-title">
                                 <h5 class="font-weight-bolder text-dark">{{ __('words.created_at') }}:</h5>
                             </div>
-                            <p class="m-0">{{ createdAtFormat($page->created_at) }}</p>
+                            <p class="m-0">{{ formatDate($page->created_at) }}</p>
                         </div>
                     </div>
 
@@ -111,7 +111,7 @@
                                 <h5 class="font-weight-bolder text-dark">{{ __('words.updated_at') }}:</h5>
                             </div>
                             <p class="m-0">
-                                {{ createdAtFormat($page->created_at) == updatedAtFormat($page->updated_at) ? '--' : updatedAtFormat($page->updated_at) }}
+                                {{ formatDate($page->created_at) == formatDate($page->updated_at) ? '--' : formatDate($page->updated_at) }}
                             </p>
                         </div>
                     </div>

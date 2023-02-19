@@ -17,41 +17,56 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthController extends Controller
 {
-
     //login
     public function login()
     {
         $data = request()->username;
 
-        $fieldType = filter_var($data, FILTER_VALIDATE_EMAIL) ? 'email' : 'phone';
+        $fieldType = filter_var($data, FILTER_VALIDATE_EMAIL)
+            ? "email"
+            : "phone";
 
-        $credentials = [$fieldType => $data, 'password' => \request()->password, 'status' => 1];
+        $credentials = [
+            $fieldType => $data,
+            "password" => \request()->password,
+            "status" => 1,
+        ];
 
-        if (!$token = auth('api')->attempt($credentials)) {
-            return failureResponse( 'Unauthorized');
+        if (!($token = auth("api")->attempt($credentials))) {
+            return failureResponse([], "Unauthorized", 400);
         }
-        return successResponse('success', ['token' => $token, 'user' => \auth('api')->user()]);
+        return successResponse(
+            [
+                "token" => $token,
+                "user" => \auth("api")->user(),
+            ],
+            "success",
+            200
+        );
     }
 
     //logout
     public function logout()
     {
-        auth('api')->logout();
-        auth('api')->invalidate();
-        return successResponse(1, 'success');
+        auth("api")->logout();
+        auth("api")->invalidate();
+        return successResponse([], "success", 200);
     }
 
     public function refresh()
     {
-        return $this->respondWithToken(auth('api')->refresh());
+        return $this->respondWithToken(auth("api")->refresh());
     }
 
     protected function respondWithToken($token)
     {
         return response()->json([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth('api')->factory()->getTTL() * 60
+            "access_token" => $token,
+            "token_type" => "bearer",
+            "expires_in" =>
+                auth("api")
+                    ->factory()
+                    ->getTTL() * 60,
         ]);
     }
 
@@ -59,53 +74,70 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         try {
-            $validator = $request->except(['profile_image']);
-            $default_img = 'default-profile-image.png';
+            $validator = $request->except(["profile_image"]);
+            $default_img = "default-profile-image.png";
 
-            if ($request->has('profile_image')) {
-                $image = $request->profile_image->store('profile_images');
-                $validator['profile_image'] = $image;
+            if ($request->has("profile_image")) {
+                $image = $request->profile_image->store("profile_images");
+                $validator["profile_image"] = $image;
             }
-            $validator['profile_image'] = $default_img;
+            $validator["profile_image"] = $default_img;
 
             $user = User::create($validator);
             $token = JWTAuth::fromUser($user);
-            return successResponse('success', ['token' => $token, 'user' => $user]);
+            return successResponse(
+                [
+                    "token" => $token,
+                    "user" => $user,
+                ],
+                "success",
+                200
+            );
         } catch (\Exception $e) {
-            return failureResponse( 'error', __('message.something_wrong'));
+            return failureResponse(__("message.something_wrong"), "error", 400);
         }
-
     }
 
     //update
     public function update(Request $request)
     {
         try {
-            $user = auth('api')->user();
-            if (!$user)
-                return failureResponse(0, __('message.user_not_registered'));
+            $user = auth("api")->user();
+            if (!$user) {
+                return failureResponse(
+                    __("message.user_not_registered"),
+                    0,
+                    400
+                );
+            }
             $request->merge([
-                'id' => $user->id
+                "id" => $user->id,
             ]);
 
-            $validator = $request->except(['profile_image']);
+            $validator = $request->except(["profile_image"]);
 
-            if ($request->has('profile_image')) {
-                $image_path = public_path('uploads/');
-                if (File::exists($image_path . $user->getRawOriginal('profile_image'))) {
-                    File::delete($image_path . $user->getRawOriginal('profile_image'));
+            if ($request->has("profile_image")) {
+                $image_path = public_path("uploads/");
+                if (
+                    File::exists(
+                        $image_path . $user->getRawOriginal("profile_image")
+                    )
+                ) {
+                    File::delete(
+                        $image_path . $user->getRawOriginal("profile_image")
+                    );
                 }
-                $image = $request->profile_image->store('profile_images');
-                $validator['profile_image'] = $image;
+                $image = $request->profile_image->store("profile_images");
+                $validator["profile_image"] = $image;
             }
 
             $user->update($validator);
             $get_user = $user->refresh();
 
-            return successResponse('success', $get_user);
+            return successResponse($get_user, "success", 200);
         } catch (\Exception $e) {
             DB::rollBack();
-            return failureResponse( 'error', __('message.something_wrong'));
+            return failureResponse(__("message.something_wrong"), "error", 400);
         }
     }
 
@@ -113,25 +145,27 @@ class AuthController extends Controller
     public function changePassword(Request $request)
     {
         try {
-            $user = auth('api')->user();
+            $user = auth("api")->user();
             $check_pass = Hash::check($request->oldPassword, $user->password);
 
             if ($check_pass) {
                 $user->update([
-                    'password' => $request->new_password,
+                    "password" => $request->new_password,
                 ]);
-                return successResponse('success');
+                return successResponse([], "success", 200);
             }
-            return failureResponse( 'error');
+            return failureResponse([], "error", 400);
         } catch (\Exception $e) {
-            return failureResponse('error',__('message.something_wrong'));
+            return failureResponse(__("message.something_wrong"), "error", 400);
         }
     }
 
     //
     private function userInForgotPassword($request)
     {
-        $user = User::where('email', $request->email)->orWhere('phone', $request->phone)->first();
+        $user = User::where("email", $request->email)
+            ->orWhere("phone", $request->phone)
+            ->first();
         return $user;
     }
 
@@ -141,19 +175,22 @@ class AuthController extends Controller
         try {
             $user = $this->userInForgotPassword($request);
             $verification_code = mt_rand(132546, 978564);
-            DB::table('forget_password')->insert(['user_id' => $user->id, 'verification_code' => $verification_code]);
+            DB::table("forget_password")->insert([
+                "user_id" => $user->id,
+                "verification_code" => $verification_code,
+            ]);
 
-//            $details = [
-//                'name' => $user->first_name . ' ' . $user->last_name,
-//                'nickname' => $user->nickname,
-//                'verification_code' => $verification_code
-//            ];
-//
-//            Mail::to($user->email)->send(new APIForgetPasswordMail($details));
-            return successResponse('success', 'please check your email');
+            //            $details = [
+            //                'name' => $user->first_name . ' ' . $user->last_name,
+            //                'nickname' => $user->nickname,
+            //                'verification_code' => $verification_code
+            //            ];
+            //
+            //            Mail::to($user->email)->send(new APIForgetPasswordMail($details));
+            return successResponse("please check your email", "success", 200);
         } catch (\Exception $e) {
             DB::rollBack();
-            return failureResponse('error', __('message.something_wrong'));
+            return failureResponse(__("message.something_wrong"), "error", 400);
         }
     }
 
@@ -162,18 +199,28 @@ class AuthController extends Controller
     {
         try {
             $user = $this->userInForgotPassword($request);
-            $check_verification = DB::table('forget_password')->where('user_id', $user->id)
-                ->where('verification_code', $request->verification_code)->first();
+            $check_verification = DB::table("forget_password")
+                ->where("user_id", $user->id)
+                ->where("verification_code", $request->verification_code)
+                ->first();
             if ($check_verification) {
                 $user->update([
-                    'password' => $request->new_password
+                    "password" => $request->new_password,
                 ]);
-                return successResponse('success', __('message.updated_successfully'));
+                return successResponse(
+                    __("message.updated_successfully"),
+                    "success",
+                    200
+                );
             }
-            return failureResponse( 'error', 'verification code or email is wrong');
+            return failureResponse(
+                "verification code or email is wrong",
+                "error",
+                400
+            );
         } catch (\Exception $e) {
             DB::rollBack();
-            return failureResponse( 'error', __('message.something_wrong'));
+            return failureResponse(__("message.something_wrong"), "error", 400);
         }
     }
 
@@ -181,11 +228,11 @@ class AuthController extends Controller
     public function profile()
     {
         try {
-            $user = auth('api')->user();
-            return successResponse( 'success', $user);
-        }catch (\Exception $e) {
+            $user = auth("api")->user();
+            return successResponse($user, "success", 200);
+        } catch (\Exception $e) {
             DB::rollBack();
-            return failureResponse('error', __('message.something_wrong'));
+            return failureResponse(__("message.something_wrong"), "error", 400);
         }
     }
 }

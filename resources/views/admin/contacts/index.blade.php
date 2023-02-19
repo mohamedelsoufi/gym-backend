@@ -83,8 +83,8 @@
                                 @if ($contact->status === 1) badge-success text-white
                                 @else badge-secondary text-dark @endif">{{ $contact->getActive() }}</span>
                             </td>
-                            <td>{{ createdAtFormat($contact->created_at) }}</td>
-                            <td>{{ createdAtFormat($contact->created_at) == updatedAtFormat($contact->updated_at) ? '--' : updatedAtFormat($contact->updated_at) }}
+                            <td>{{ formatDate($contact->created_at) }}</td>
+                            <td>{{ formatDate($contact->created_at) == formatDate($contact->updated_at) ? '--' : formatDate($contact->updated_at) }}
                             </td>
                             <td nowrap="nowrap">
                                 @include('admin.components.form-controls', [

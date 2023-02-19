@@ -18,17 +18,16 @@ class CoursesExport implements FromCollection, WithMapping, WithHeadings
     public function headings(): array
     {
         return [
-            '#',
-            'Title In Arabic',
-            'Title In English',
-            'Description In Arabic',
-            'Description In English',
-            'Section ID',
-            'Category ID',
-            'Price',
-            'Created at',
-            'Updated at',
-
+            "#",
+            "Title In Arabic",
+            "Title In English",
+            "Description In Arabic",
+            "Description In English",
+            "Section ID",
+            "Category ID",
+            "Price",
+            "Created at",
+            "Updated at",
         ];
     }
 
@@ -36,16 +35,15 @@ class CoursesExport implements FromCollection, WithMapping, WithHeadings
     {
         return [
             $course->id,
-            $course->translate('ar')->title,
-            $course->translate('en')->title,
-            $course->translate('ar')->description,
-            $course->translate('en')->description,
+            $course->translate("ar")->title,
+            $course->translate("en")->title,
+            $course->translate("ar")->description,
+            $course->translate("en")->description,
             $course->section_id,
             $course->category_id,
             $course->price,
-            createdAtFormat($course->created_at),
-            createdAtFormat($course->updated_at),
+            formatDate($course->created_at),
+            formatDate($course->updated_at),
         ];
-
     }
 }

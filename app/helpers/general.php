@@ -4,25 +4,33 @@ use App\Models\Permission;
 
 const PAGINATION_COUNT = 15;
 
-function successResponse( $msg, $data = [])
+function successResponse($data = [], $message = "", $status = 200)
 {
-    return response()->json(['status' => 200, 'msg' => $msg, 'data' => $data], 200);
+    return response()->json(
+        [
+            "status" => $status,
+            "message" => $message,
+            "data" => $data,
+        ],
+        $status
+    );
 }
 
-function failureResponse( $msg, $data = [])
+function failureResponse($data = [], $message = "", $status = 400)
 {
-    return response()->json(['status' => 400, 'msg' => $msg, 'data' => $data], 400);
+    return response()->json(
+        [
+            "status" => $status,
+            "message" => $message,
+            "data" => $data,
+        ],
+        $status
+    );
 }
 
-
-function createdAtFormat($model)
+function formatDate($model)
 {
-    return date('d/m/Y - h:i A', strtotime($model));
-}
-
-function updatedAtFormat($model)
-{
-    return date('d/m/Y - h:i A', strtotime($model));
+    return date("d/m/Y - h:i A", strtotime($model));
 }
 
 function permissionName()
@@ -30,14 +38,16 @@ function permissionName()
     $permissions = Permission::all();
     $data = [];
     foreach ($permissions as $permission) {
-        $data [] = $permission->name;
+        $data[] = $permission->name;
     }
-    return implode('|', $data);
+    return implode("|", $data);
 }
 
-function settings(){
+function settings()
+{
     $setting = \App\Models\Setting::first();
-    if ($setting)
+    if ($setting) {
         return $setting;
-    return '';
+    }
+    return "";
 }
