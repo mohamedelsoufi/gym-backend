@@ -11,6 +11,9 @@
     <link href="{{ asset('dashboard/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet"
         type="text/css" />
 
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css" />
+
+
     @if (app()->getLocale() == 'ar')
         <!--begin::Page Vendors Styles(used by this page)-->
         <link href="{{ asset('dashboard/plugins/custom/fullcalendar/fullcalendar.bundle.rtl.css') }}" rel="stylesheet"
