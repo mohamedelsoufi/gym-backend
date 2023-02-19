@@ -101,6 +101,7 @@
                 @include('admin.components.icon', [
                     'label' => __('words.icon'),
                     'value' => old('icon', $service->icon),
+                    'required' => false,
                 ])
             </div>
 

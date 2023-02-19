@@ -76,6 +76,7 @@
                 @include('admin.components.icon', [
                     'label' => __('words.icon'),
                     'value' => old('icon', 'fab fa-github'),
+                    'required' => false,
                 ])
             </div>
 
