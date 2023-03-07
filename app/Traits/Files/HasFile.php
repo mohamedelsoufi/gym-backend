@@ -6,6 +6,7 @@ namespace App\Traits\Files;
 
 use App\Models\File;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 trait HasFile
 {
