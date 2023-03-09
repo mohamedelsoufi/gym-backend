@@ -24,6 +24,16 @@ class SettingSeeder extends Seeder
 
         $setting->file()->create([
             'path' => 'favicon.ico',
+            'type' => 'white_logo'
+        ]);
+
+        $setting->file()->create([
+            'path' => 'favicon.ico',
+            'type' => 'favicon'
+        ]);
+
+        $setting->file()->create([
+            'path' => 'favicon.ico',
             'type' => 'contact_img'
         ]);
 

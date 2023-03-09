@@ -63,6 +63,25 @@
                         </div>
 
                         <div class="col form-group">
+                            <label>{{ __('words.meta_keywords') }} - {{ __('words.locale-' . $locale) }}<span
+                                    class="text-danger"> * </span></label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="flaticon-edit"></i></span>
+                                </div>
+                                <input type="text" name="{{ $locale . '[meta_keywords]' }}"
+                                    placeholder="{{ __('words.meta_keywords') }}"
+                                    class="form-control  pl-5 min-h-40px @error($locale . '.meta_keywords') is-invalid @enderror"
+                                    value="{{ old($locale . '.meta_keywords', $setting->translate($locale)->meta_keywords) }}">
+                                @error($locale . '[meta_keywords]')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col form-group">
                             <label>{{ __('words.meta_title') }} - {{ __('words.locale-' . $locale) }}<span
                                     class="text-danger"> * </span></label>
                             <div class="input-group">
@@ -79,6 +98,18 @@
                                     </span>
                                 @enderror
                             </div>
+                        </div>
+
+                        <div class="col form-group">
+                            <label>{{ __('words.meta_description') }} - {{ __('words.locale-' . $locale) }}<span
+                                    class="text-danger">*</span></label>
+                            <input class="form-control ckeditor @error($locale . '.meta_description') is-invalid @enderror " type="text"
+                                   name="{{ $locale . '[meta_description]' }}" value="{{ old($locale . '.meta_description', $setting->translate($locale)->meta_description) }}" />
+                            @error($locale . '[meta_description]')
+                            <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
                         <div class="col form-group">
@@ -101,7 +132,7 @@
                         </div>
 
                         <div class="col form-group">
-                            <label>{{ __('words.address') }}({{ __('words.locale-' . $locale) }})<span
+                            <label>{{ __('words.address') }} - {{ __('words.locale-' . $locale) }}<span
                                     class="text-danger">*</span></label>
                             <textarea class="form-control @error($locale . '.address') is-invalid @enderror " type="text"
                                 name="{{ $locale . '[address]' }}" rows="4">{{ old($locale . '.address', $setting->translate($locale)->address) }} </textarea>
@@ -113,19 +144,7 @@
                         </div>
 
                         <div class="col form-group">
-                            <label>{{ __('words.meta_description') }}({{ __('words.locale-' . $locale) }})<span
-                                    class="text-danger">*</span></label>
-                            <textarea class="form-control ckeditor @error($locale . '.meta_description') is-invalid @enderror " type="text"
-                                name="{{ $locale . '[meta_description]' }}" rows="4">{{ old($locale . '.meta_description', $setting->translate($locale)->meta_description) }} </textarea>
-                            @error($locale . '[meta_description]')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-
-                        <div class="col form-group">
-                            <label>{{ __('words.footer_description') }}({{ __('words.locale-' . $locale) }})<span
+                            <label>{{ __('words.footer_description') }} - {{ __('words.locale-' . $locale) }}<span
                                     class="text-danger">*</span></label>
                             <textarea class="form-control ckeditor @error($locale . '.footer_description') is-invalid @enderror " type="text"
                                 name="{{ $locale . '[footer_description]' }}" rows="4">{{ old($locale . '.footer_description', $setting->translate($locale)->footer_description) }} </textarea>
@@ -145,219 +164,37 @@
 
     <div class="card card-custom">
         <div class="card-body">
-            {{--            <div class="form-group row"> --}}
-            {{--                <div class="input-group col-6"> --}}
-            {{--                    <label>{{__('words.facebook')}}</label> --}}
-            {{--                    <div class="input-group"> --}}
-            {{--                        <div class="input-group-prepend"> --}}
-            {{--                            <span class="input-group-text"><i class="fab fa-facebook-square"></i></span> --}}
-            {{--                        </div> --}}
-            {{--                        <input type="text" name="facebook" class="form-control link @error('facebook') is-invalid @enderror" --}}
-            {{--                               value="{{ old('facebook',$setting->facebook) }}" placeholder="{{__('words.facebook')}}"> --}}
-
-            {{--                        @error('facebook') --}}
-            {{--                        <span class="invalid-feedback" role="alert"> --}}
-            {{--                            <strong>{{ $message }}</strong> --}}
-            {{--                        </span> --}}
-            {{--                        @enderror --}}
-            {{--                    </div> --}}
-            {{--                </div> --}}
-
-            {{--                <div class="input-group col-6"> --}}
-            {{--                    <label>{{__('words.instagram')}}</label> --}}
-            {{--                    <div class="input-group"> --}}
-            {{--                        <div class="input-group-prepend"> --}}
-            {{--                            <span class="input-group-text"><i class="fab fa-instagram"></i></span> --}}
-            {{--                        </div> --}}
-            {{--                        <input type="text" name="instagram" --}}
-            {{--                               class="form-control link @error('instagram') is-invalid @enderror" --}}
-            {{--                               value="{{ old('instagram',$setting->instagram) }}" --}}
-            {{--                               placeholder="{{__('words.instagram')}}"> --}}
-
-            {{--                        @error('instagram') --}}
-            {{--                        <span class="invalid-feedback" role="alert"> --}}
-            {{--                        <strong>{{ $message }}</strong> --}}
-            {{--                    </span> --}}
-            {{--                        @enderror --}}
-            {{--                    </div> --}}
-            {{--                </div> --}}
-
-            {{--            </div> --}}
-            {{--            <div class="form-group row"> --}}
-            {{--                <div class="input-group col-6"> --}}
-            {{--                    <label>{{__('words.twitter')}}</label> --}}
-            {{--                    <div class="input-group"> --}}
-            {{--                        <div class="input-group-prepend"> --}}
-            {{--                            <span class="input-group-text"><i class="fab fa-twitter-square"></i></span> --}}
-            {{--                        </div> --}}
-            {{--                        <input type="text" name="twitter" class="form-control link @error('twitter') is-invalid @enderror" --}}
-            {{--                               value="{{ old('twitter',$setting->twitter) }}" placeholder="{{__('words.twitter')}}"> --}}
-
-            {{--                        @error('twitter') --}}
-            {{--                        <span class="invalid-feedback" role="alert"> --}}
-            {{--                        <strong>{{ $message }}</strong> --}}
-            {{--                    </span> --}}
-            {{--                        @enderror --}}
-            {{--                    </div> --}}
-            {{--                </div> --}}
-
-            {{--                <div class="input-group col-6"> --}}
-            {{--                    <label>{{__('words.linkedin')}}</label> --}}
-            {{--                    <div class="input-group"> --}}
-            {{--                        <div class="input-group-prepend"> --}}
-            {{--                            <span class="input-group-text"><i class="fab fa-linkedin"></i></span> --}}
-            {{--                        </div> --}}
-            {{--                        <input type="text" name="linkedin" class="form-control link @error('linkedin') is-invalid @enderror" --}}
-            {{--                               value="{{ old('linkedin',$setting->linkedin) }}" placeholder="{{__('words.linkedin')}}"> --}}
-
-            {{--                        @error('linkedin') --}}
-            {{--                        <span class="invalid-feedback" role="alert"> --}}
-            {{--                        <strong>{{ $message }}</strong> --}}
-            {{--                    </span> --}}
-            {{--                        @enderror --}}
-            {{--                    </div> --}}
-            {{--                </div> --}}
-            {{--            </div> --}}
-            {{--            <div class="form-group row"> --}}
-            {{--                <div class="input-group col-6"> --}}
-            {{--                    <label>{{__('words.youtube')}}</label> --}}
-            {{--                    <div class="input-group"> --}}
-            {{--                        <div class="input-group-prepend"> --}}
-            {{--                            <span class="input-group-text"><i class="fab fa-youtube"></i></span> --}}
-            {{--                        </div> --}}
-            {{--                        <input type="text" name="youtube" class="form-control link @error('youtube') is-invalid @enderror" --}}
-            {{--                               value="{{ old('youtube',$setting->youtube) }}" placeholder="{{__('words.youtube')}}"> --}}
-
-            {{--                        @error('youtube') --}}
-            {{--                        <span class="invalid-feedback" role="alert"> --}}
-            {{--                        <strong>{{ $message }}</strong> --}}
-            {{--                    </span> --}}
-            {{--                        @enderror --}}
-            {{--                    </div> --}}
-            {{--                </div> --}}
-            {{--            </div> --}}
-
-
-            {{--            <div class="row mb-3"> --}}
-            {{--                <div class="col-4"> --}}
-            {{--                    <label>{{__('words.phone')}}</label> --}}
-            {{--                    <div class="input-group"> --}}
-            {{--                        <div class="input-group-prepend"> --}}
-            {{--                            <span class="input-group-text"><i class="fas fa-phone"></i></span> --}}
-            {{--                        </div> --}}
-            {{--                        <input type="text" name="phone" class="form-control @error('phone') is-invalid @enderror" --}}
-            {{--                               value="{{ old('phone',$setting->phone) }}" placeholder="{{__('words.phone')}}"> --}}
-
-            {{--                        @error('phone') --}}
-            {{--                        <span class="invalid-feedback" role="alert"> --}}
-            {{--                                <strong>{{ $message }}</strong> --}}
-            {{--                            </span> --}}
-            {{--                        @enderror --}}
-            {{--                    </div> --}}
-            {{--                </div> --}}
-
-            {{--                <div class="col-4"> --}}
-            {{--                    <label>{{__('words.phone')}}</label> --}}
-            {{--                    <div class="input-group"> --}}
-            {{--                        <div class="input-group-prepend"> --}}
-            {{--                            <span class="input-group-text"><i class="fas fa-phone"></i></span> --}}
-            {{--                        </div> --}}
-            {{--                        <input type="text" name="phone2" class="form-control @error('phone2') is-invalid @enderror" --}}
-            {{--                               value="{{ old('phone2',$setting->phone2) }}" placeholder="{{__('words.phone')}}"> --}}
-
-            {{--                        @error('phone2') --}}
-            {{--                        <span class="invalid-feedback" role="alert"> --}}
-            {{--                                <strong>{{ $message }}</strong> --}}
-            {{--                            </span> --}}
-            {{--                        @enderror --}}
-            {{--                    </div> --}}
-            {{--                </div> --}}
-
-            {{--                <div class="col-4"> --}}
-            {{--                    <label>{{__('words.phone')}}</label> --}}
-            {{--                    <div class="input-group"> --}}
-            {{--                        <div class="input-group-prepend"> --}}
-            {{--                            <span class="input-group-text"><i class="fas fa-phone"></i></span> --}}
-            {{--                        </div> --}}
-            {{--                        <input type="text" name="phone3" class="form-control @error('phone3') is-invalid @enderror" --}}
-            {{--                               value="{{ old('phone3',$setting->phone3) }}" placeholder="{{__('words.phone')}}"> --}}
-
-            {{--                        @error('phone3') --}}
-            {{--                        <span class="invalid-feedback" role="alert"> --}}
-            {{--                                <strong>{{ $message }}</strong> --}}
-            {{--                            </span> --}}
-            {{--                        @enderror --}}
-            {{--                    </div> --}}
-            {{--                </div> --}}
-            {{--            </div> --}}
-
-
-            {{--            <div class="row mb-3"> --}}
-            {{--                <div class="col-4"> --}}
-            {{--                    <label>{{__('words.email')}}</label> --}}
-            {{--                    <div class="input-group"> --}}
-            {{--                        <div class="input-group-prepend"> --}}
-            {{--                            <span class="input-group-text"><i class="fas fa-envelope"></i></span> --}}
-            {{--                        </div> --}}
-            {{--                        <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" --}}
-            {{--                               value="{{ old('email',$setting->email) }}" placeholder="{{__('words.email')}}"> --}}
-            {{--                        @error('email') --}}
-            {{--                        <span class="invalid-feedback" role="alert"> --}}
-            {{--                                <strong>{{ $message }}</strong> --}}
-            {{--                            </span> --}}
-            {{--                        @enderror --}}
-            {{--                    </div> --}}
-            {{--                </div> --}}
-
-            {{--                <div class="col-4"> --}}
-            {{--                    <label>{{__('words.email')}}</label> --}}
-            {{--                    <div class="input-group"> --}}
-            {{--                        <div class="input-group-prepend"> --}}
-            {{--                            <span class="input-group-text"><i class="fas fa-envelope"></i></span> --}}
-            {{--                        </div> --}}
-            {{--                        <input type="text" name="email2" class="form-control @error('email1') is-invalid @enderror" --}}
-            {{--                               value="{{ old('email2',$setting->email2) }}" placeholder="{{__('words.email')}}"> --}}
-            {{--                        @error('email2') --}}
-            {{--                        <span class="invalid-feedback" role="alert"> --}}
-            {{--                                <strong>{{ $message }}</strong> --}}
-            {{--                            </span> --}}
-            {{--                        @enderror --}}
-            {{--                    </div> --}}
-            {{--                </div> --}}
-
-            {{--                <div class="col-4"> --}}
-            {{--                    <label>{{__('words.email')}}</label> --}}
-            {{--                    <div class="input-group"> --}}
-            {{--                        <div class="input-group-prepend"> --}}
-            {{--                            <span class="input-group-text"><i class="fas fa-envelope"></i></span> --}}
-            {{--                        </div> --}}
-            {{--                        <input type="text" name="email3" class="form-control @error('email3') is-invalid @enderror" --}}
-            {{--                               value="{{ old('email3',$setting->email3) }}" placeholder="{{__('words.email')}}"> --}}
-            {{--                        @error('email3') --}}
-            {{--                        <span class="invalid-feedback" role="alert"> --}}
-            {{--                                <strong>{{ $message }}</strong> --}}
-            {{--                            </span> --}}
-            {{--                        @enderror --}}
-            {{--                    </div> --}}
-            {{--                </div> --}}
-            {{--            </div> --}}
-
-            <hr>
 
             <div class="form-group row">
                 @include('admin.components.image', [
                     'label' => __('words.logo'),
                     'value' => $setting->logo,
                     'name' => 'logo',
-                    'id' => 'kt_image_3',
+                    'id' => 'kt_image_1',
                     'required' => false,
                 ])
+
+                @include('admin.components.image', [
+                   'label' => __('words.white_logo'),
+                   'value' => $setting->white_logo,
+                   'name' => 'white_logo',
+                   'id' => 'kt_image_2',
+                   'required' => false,
+               ])
+
+                @include('admin.components.image', [
+                   'label' => __('words.favicon'),
+                   'value' => $setting->favicon,
+                   'name' => 'favicon',
+                   'id' => 'kt_image_3',
+                   'required' => false,
+               ])
 
                 @include('admin.components.image', [
                     'label' => __('words.contact_img'),
                     'value' => $setting->contact_img,
                     'name' => 'contact_img',
-                    'id' => 'kt_image_2',
+                    'id' => 'kt_image_4',
                     'required' => false,
                 ])
 
@@ -365,7 +202,7 @@
                     'label' => __('words.footer_img'),
                     'value' => $setting->footer_img,
                     'name' => 'footer_img',
-                    'id' => 'kt_image_1',
+                    'id' => 'kt_image_5',
                     'required' => false,
                 ])
             </div>

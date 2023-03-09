@@ -44,6 +44,16 @@ trait HasFile
             $this->file()->create(['path' => $image, 'type' => 'logo']);
         }
 
+        if (request()->hasFile('white_logo')) {
+            $image = request()->white_logo->store('logos');
+            $this->file()->create(['path' => $image, 'type' => 'white_logo']);
+        }
+
+        if (request()->hasFile('favicon')) {
+            $image = request()->favicon->store('logos');
+            $this->file()->create(['path' => $image, 'type' => 'favicon']);
+        }
+
         if (request()->hasFile('file')) {
             $image = request()->file->store('files');
             $this->file()->create(['path' => $image, 'type' => 'file']);
@@ -129,6 +139,32 @@ trait HasFile
 
             $image = request()->logo->store('logos');
             $this->file()->create(['path' => $image, 'type' => 'logo']);
+        }
+
+        if (request()->hasFile('white_logo')) {
+            $file = $this->file()->where('type', 'white_logo')->first();
+            if (isset($file)) {
+                if ($this->file && is_object($this->file)) {
+                    Storage::delete($file->getRawOriginal('path'));
+                }
+                $file->delete();
+            }
+
+            $image = request()->white_logo->store('logos');
+            $this->file()->create(['path' => $image, 'type' => 'white_logo']);
+        }
+
+        if (request()->hasFile('favicon')) {
+            $file = $this->file()->where('type', 'favicon')->first();
+            if (isset($file)) {
+                if ($this->file && is_object($this->file)) {
+                    Storage::delete($file->getRawOriginal('path'));
+                }
+                $file->delete();
+            }
+
+            $image = request()->favicon->store('logos');
+            $this->file()->create(['path' => $image, 'type' => 'favicon']);
         }
 
         if (request()->hasFile('file')) {

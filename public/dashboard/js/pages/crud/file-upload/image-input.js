@@ -16,6 +16,9 @@ var KTImageInputDemo = function () {
 		// Example 4
 		var avatar4 = new KTImageInput('kt_image_4');
 
+		// Example 5
+		var avatar5 = new KTImageInput('kt_image_5');
+
 		// avatar4.on('cancel', function(imageInput) {
 		// 	swal.fire({
         //         title: 'Image successfully canceled !',

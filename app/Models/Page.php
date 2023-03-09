@@ -33,7 +33,7 @@ class Page extends Model
     public function getImageAttribute()
     {
         $image = $this->file()->first();
-        return $image->path;
+        return $image ? $image->path : asset('uploads/default_image.png');
     }
 
     public function getActive()

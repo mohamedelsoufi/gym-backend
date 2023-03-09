@@ -17,7 +17,7 @@ class Setting extends Model
 
     protected $guarded = [];
 
-    protected $appends = ["logo", "contact_img", "footer_img"];
+    protected $appends = ["logo", "white_logo", "favicon", "contact_img", "footer_img"];
 
     public $translatedAttributes = [
         "website_title",
@@ -35,23 +35,39 @@ class Setting extends Model
         $logo = $this->file()
             ->where("type", "logo")
             ->first();
-        return $logo->path;
+        return $logo ? $logo->path : asset('uploads/default_image.png');
+    }
+
+    public function getWhiteLogoAttribute()
+    {
+        $white_logo = $this->file()
+            ->where("type", "white_logo")
+            ->first();
+        return $white_logo ? $white_logo->path : asset('uploads/default_image.png');
+    }
+
+    public function getFaviconAttribute()
+    {
+        $favicon = $this->file()
+            ->where("type", "favicon")
+            ->first();
+        return $favicon ? $favicon->path : asset('uploads/default_image.png');
     }
 
     public function getFooterImgAttribute()
     {
-        $img = $this->file()
+        $footer_img = $this->file()
             ->where("type", "footer_img")
             ->first();
-        return $img->path;
+        return $footer_img ? $footer_img->path : asset('uploads/default_image.png');
     }
 
     public function getContactImgAttribute()
     {
-        $img = $this->file()
+        $contact_img = $this->file()
             ->where("type", "contact_img")
             ->first();
-        return $img->path;
+        return $contact_img ? $contact_img->path : asset('uploads/default_image.png');
     }
 
     public function getWebsiteTitleAttribute($val)

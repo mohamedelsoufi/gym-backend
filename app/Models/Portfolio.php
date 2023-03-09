@@ -39,7 +39,7 @@ class Portfolio extends Model
     public function getImageAttribute()
     {
         $image = $this->files->where('type', 'image')->first();
-        return $image->path;
+        return $image ? $image->path : asset('uploads/default_image.png');
     }
 
     public function getActive()

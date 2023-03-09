@@ -61,7 +61,7 @@
         <!--end::Layout Themes-->
     @endif
 
-    <link rel="shortcut icon" href="{{ settings()->logo }}" />
+    <link rel="shortcut icon" href="{{ settings()->favicon }}" />
 
     @yield('styles')
 

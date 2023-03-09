@@ -39,9 +39,7 @@ class Category extends Model
     public function getImageAttribute()
     {
         $image = $this->file()->first();
-        if ($image)
-            return $image->path;
-        return '';
+        return $image ? $image->path : asset('uploads/default_image.png');
     }
 
     public function getActive()

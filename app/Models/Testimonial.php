@@ -32,8 +32,8 @@ class Testimonial extends Model
     // accessors & Mutator start
     public function getImageAttribute()
     {
-        $cover = $this->file()->first();
-        return $cover->path;
+        $image = $this->file()->first();
+        return $image ? $image->path : asset('uploads/default_image.png');
     }
 
     public function getActive()

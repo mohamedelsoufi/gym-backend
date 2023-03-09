@@ -91,6 +91,8 @@ return [
     "address" => "Address",
     "copyrights" => "Copyrights",
     "logo" => "Logo",
+    "white_logo" => "Logo With Transparent Background",
+    "favicon" => "أيقونة اللسان",
     "phone" => "Phone",
     "mobile" => "Mobile",
     "telephone" => "Telephone",
@@ -105,6 +107,7 @@ return [
     "release_date" => "Release Date",
     "select_date" => "Select date",
 
+    "meta_keywords" => "Meta Keywords",
     "meta_title" => "Meta Title",
     "meta_description" => "Meta Description",
     "footer_description" => "Footer Description",

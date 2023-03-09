@@ -33,7 +33,7 @@ class Project extends Model
     public function getCoverAttribute()
     {
         $cover = $this->files->where('type', 'cover')->first();
-        return $cover->path;
+        return $cover ? $cover->path : asset('uploads/default_image.png');
     }
 
     public function getActive()
