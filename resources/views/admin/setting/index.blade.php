@@ -103,7 +103,7 @@
                         <div class="col form-group">
                             <label>{{ __('words.meta_description') }} - {{ __('words.locale-' . $locale) }}<span
                                     class="text-danger">*</span></label>
-                            <input class="form-control ckeditor @error($locale . '.meta_description') is-invalid @enderror " type="text"
+                            <input class="form-control @error($locale . '.meta_description') is-invalid @enderror " type="text"
                                    name="{{ $locale . '[meta_description]' }}" value="{{ old($locale . '.meta_description', $setting->translate($locale)->meta_description) }}" />
                             @error($locale . '[meta_description]')
                             <span class="invalid-feedback" role="alert">
@@ -165,6 +165,19 @@
     <div class="card card-custom">
         <div class="card-body">
 
+            <div class="form-group row">
+                <div class="col form-group">
+                    <label>{{ __('words.map') }}<span
+                            class="text-danger">*</span></label>
+                    <input class="form-control @error('map') is-invalid @enderror " type="text"
+                              name="{{'map'}}" value="{{ old('map', $setting->map) }}" />
+                    @error('map')
+                    <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                    @enderror
+                </div>
+            </div>
             <div class="form-group row">
                 @include('admin.components.image', [
                     'label' => __('words.logo'),

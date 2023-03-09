@@ -92,10 +92,11 @@ return [
     "copyrights" => "Copyrights",
     "logo" => "Logo",
     "white_logo" => "Logo With Transparent Background",
-    "favicon" => "أيقونة اللسان",
+    "favicon" => "Favicon",
     "phone" => "Phone",
     "mobile" => "Mobile",
     "telephone" => "Telephone",
+    "map" => "Map Link",
 
     "title" => "Title",
     "sub_title" => "Sub Title",

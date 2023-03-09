@@ -15,17 +15,7 @@ class CreateSettingsTable extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('facebook')->nullable();
-            $table->string('instagram')->nullable();
-            $table->string('twitter')->nullable();
-            $table->string('linkedin')->nullable();
-            $table->string('youtube')->nullable();
-            $table->string('email')->nullable();
-            $table->string('email2')->nullable();
-            $table->string('email3')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('phone2')->nullable();
-            $table->string('phone3')->nullable();
+            $table->string('map')->nullable();
             $table->timestamps();
         });
     }
