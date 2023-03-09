@@ -72,7 +72,7 @@
                             <td>{{ $key + 1 }}</td>
                             <td>
                                 @if (!$page->image)
-                                    <img class="index_image" src="{{ asset('uploads/default_image.png') }}" alt="logo">
+                                    <img class="index_image" src="{{ asset('uploads/default_image.png') }}" onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="logo">
                                 @else
                                     <img class="index_image" src="{{ $page->image }}"
                                         onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="logo">

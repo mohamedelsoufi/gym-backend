@@ -72,7 +72,7 @@
                             <td>{{ $key + 1 }}</td>
                             <td>
                                 @if (!$team->image)
-                                    <img class="index_image" src="{{ asset('uploads/default_image.png') }}" alt="logo">
+                                    <img class="index_image" src="{{ asset('uploads/default_image.png') }}" onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="logo">
                                 @else
                                     <img class="index_image" src="{{ $team->image }}"
                                         onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="logo">
@@ -81,7 +81,7 @@
                             <td>{{ $team->title }}</td>
                             <td>{{ $team->sub_title }}</td>
                             <td>{!! Str::limit($team->description, 100) !!}</td>
-                            <td>{{ $team->getActive() }}</td>
+                            <td><span class="badge rounded-pill text-white {{$user->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $user->getActive() }}</span></td>
                             <td>{{ formatDate($team->created_at) }}</td>
                             <td>{{ formatDate($team->created_at) == formatDate($team->updated_at) ? '--' : formatDate($team->updated_at) }}
                             </td>

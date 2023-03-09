@@ -71,7 +71,7 @@
                             <td>{{ $key + 1 }}</td>
                             <td>
                                 @if (!$service->image)
-                                    <img class="index_image" src="{{ asset('uploads/default_image.png') }}" alt="logo">
+                                    <img class="index_image" src="{{ asset('uploads/default_image.png') }}" onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="logo">
                                 @else
                                     <img class="index_image" src="{{ $service->image }}"
                                         onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="logo">
@@ -79,7 +79,7 @@
                             </td>
                             <td>{{ $service->title }}</td>
                             <td>{!! $service->short_description !!}</td>
-                            <td>{{ $service->getActive() }}</td>
+                            <td><span class="badge rounded-pill text-white {{$user->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $user->getActive() }}</span></td>
                             <td>{{ formatDate($service->created_at) }}</td>
                             <td>{{ formatDate($service->created_at) == formatDate($service->updated_at) ? '--' : formatDate($service->updated_at) }}
                             </td>

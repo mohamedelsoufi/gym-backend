@@ -70,7 +70,7 @@
                             <td>{{ $user->last_name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->roles()->first() ? $user->roles()->first()->name : '' }}</td>
-                            <td>{{ $user->getActive() }}</td>
+                            <td><span class="badge rounded-pill text-white {{$user->active == 1 ? 'bg-success' : 'bg-danger'}}">{{ $user->getActive() }}</span></td>
                             <td>{{ formatDate($user->created_at) }}</td>
                             <td>{{ formatDate($user->created_at) == formatDate($user->updated_at) ? '--' : formatDate($user->updated_at) }}
                             </td>

@@ -70,14 +70,14 @@
                             <td>{{ $key + 1 }}</td>
                             <td>
                                 @if (!$portfolio->image)
-                                    <img class="index_image" src="{{ asset('uploads/default_image.png') }}" alt="logo">
+                                    <img class="index_image" src="{{ asset('uploads/default_image.png') }}" onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="logo">
                                 @else
                                     <img class="index_image" src="{{ $portfolio->image }}"
                                         onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="logo">
                                 @endif
                             </td>
                             <td>{{ $portfolio->title }}</td>
-                            <td>{{ $portfolio->getActive() }}</td>
+                            <td><span class="badge rounded-pill text-white {{$user->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $user->getActive() }}</span></td>
                             <td>{{ formatDate($portfolio->created_at) }}</td>
                             <td>{{ formatDate($portfolio->created_at) == formatDate($portfolio->updated_at) ? '--' : formatDate($portfolio->updated_at) }}
                             </td>
