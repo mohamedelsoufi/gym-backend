@@ -20,37 +20,46 @@ class AuthController extends Controller
     //login
     public function login()
     {
-        $data = request()->username;
+        try {
+//        $data = request()->username;
 
-        $fieldType = filter_var($data, FILTER_VALIDATE_EMAIL)
-            ? "email"
-            : "phone";
+//        $fieldType = filter_var($data, FILTER_VALIDATE_EMAIL)
+//            ? "email"
+//            : "phone";
 
-        $credentials = [
-            $fieldType => $data,
-            "password" => \request()->password,
-            "status" => 1,
-        ];
+            $credentials = [
+//            $fieldType => $data,
+                "email" => \request()->email,
+                "password" => \request()->password,
+                "status" => 1,
+            ];
 
-        if (!($token = auth("api")->attempt($credentials))) {
-            return failureResponse([], "Unauthorized", 400);
+            if (!($token = auth("api")->attempt($credentials))) {
+                return failureResponse([], "Unauthorized", 400);
+            }
+            return successResponse(
+                [
+                    "token" => $token,
+                    "user" => \auth("api")->user(),
+                ],
+                "success",
+                200
+            );
+        } catch (\Exception $e) {
+            return failureResponse([], __('message.something_wrong'), 400);
         }
-        return successResponse(
-            [
-                "token" => $token,
-                "user" => \auth("api")->user(),
-            ],
-            "success",
-            200
-        );
     }
 
     //logout
     public function logout()
     {
-        auth("api")->logout();
-        auth("api")->invalidate();
-        return successResponse([], "success", 200);
+        try {
+            auth("api")->logout();
+            auth("api")->invalidate();
+            return successResponse([], "success", 200);
+        } catch (\Exception $e) {
+            return failureResponse([], __('message.something_wrong'), 400);
+        }
     }
 
     public function refresh()
@@ -119,9 +128,9 @@ class AuthController extends Controller
             if ($request->has("profile_image")) {
                 $image_path = public_path("uploads/");
                 if (
-                    File::exists(
-                        $image_path . $user->getRawOriginal("profile_image")
-                    )
+                File::exists(
+                    $image_path . $user->getRawOriginal("profile_image")
+                )
                 ) {
                     File::delete(
                         $image_path . $user->getRawOriginal("profile_image")
