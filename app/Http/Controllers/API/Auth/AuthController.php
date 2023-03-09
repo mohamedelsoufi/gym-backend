@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\API\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\API\UserRegisterRequest;
+use App\Http\Requests\API\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -80,7 +82,7 @@ class AuthController extends Controller
     }
 
     //register
-    public function register(Request $request)
+    public function register(UserRegisterRequest $request)
     {
         try {
             $validator = $request->except(["profile_image"]);
@@ -103,12 +105,12 @@ class AuthController extends Controller
                 200
             );
         } catch (\Exception $e) {
-            return failureResponse(__("message.something_wrong"), "error", 400);
+            return failureResponse([], __("message.something_wrong"), 400);
         }
     }
 
     //update
-    public function update(Request $request)
+    public function update(UserRequest $request)
     {
         try {
             $user = auth("api")->user();
@@ -146,7 +148,7 @@ class AuthController extends Controller
             return successResponse($get_user, "success", 200);
         } catch (\Exception $e) {
             DB::rollBack();
-            return failureResponse(__("message.something_wrong"), "error", 400);
+            return failureResponse([], __("message.something_wrong"), 400);
         }
     }
 
@@ -165,7 +167,7 @@ class AuthController extends Controller
             }
             return failureResponse([], "error", 400);
         } catch (\Exception $e) {
-            return failureResponse(__("message.something_wrong"), "error", 400);
+            return failureResponse([], __("message.something_wrong"), 400);
         }
     }
 
@@ -199,7 +201,7 @@ class AuthController extends Controller
             return successResponse("please check your email", "success", 200);
         } catch (\Exception $e) {
             DB::rollBack();
-            return failureResponse(__("message.something_wrong"), "error", 400);
+            return failureResponse([], __("message.something_wrong"), 400);
         }
     }
 
@@ -229,7 +231,7 @@ class AuthController extends Controller
             );
         } catch (\Exception $e) {
             DB::rollBack();
-            return failureResponse(__("message.something_wrong"), "error", 400);
+            return failureResponse([], __("message.something_wrong"), 400);
         }
     }
 
@@ -241,7 +243,7 @@ class AuthController extends Controller
             return successResponse($user, "success", 200);
         } catch (\Exception $e) {
             DB::rollBack();
-            return failureResponse(__("message.something_wrong"), "error", 400);
+            return failureResponse([], __("message.something_wrong"), 400);
         }
     }
 }
