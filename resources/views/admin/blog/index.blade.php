@@ -79,7 +79,7 @@
                             </td>
                             <td>{{ $blog->title }}</td>
                             <td>{!! $blog->description !!}</td>
-                            <td>{{ $blog->getActive() }}</td>
+                            <td><span class="badge rounded-pill text-white {{$blog->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $blog->getActive() }}</span></td>
                             <td>{{ formatDate($blog->created_at) }}</td>
                             <td>{{ formatDate($blog->created_at) == formatDate($blog->updated_at) ? '--' : formatDate($blog->updated_at) }}
                             </td>

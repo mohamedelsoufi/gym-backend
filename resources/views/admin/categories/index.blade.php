@@ -77,7 +77,7 @@
                                 @endif
                             </td>
                             <td>{{ $category->title }}</td>
-                            <td><span class="badge rounded-pill text-white {{$user->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $user->getActive() }}</span></td>
+                            <td><span class="badge rounded-pill text-white {{$category->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $category->getActive() }}</span></td>
                             <td>{{ formatDate($category->created_at) }}</td>
                             <td>{{ formatDate($category->created_at) == formatDate($category->updated_at) ? '--' : formatDate($category->updated_at) }}
                             </td>

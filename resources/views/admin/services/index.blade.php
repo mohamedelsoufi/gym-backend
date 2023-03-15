@@ -79,7 +79,7 @@
                             </td>
                             <td>{{ $service->title }}</td>
                             <td>{!! $service->short_description !!}</td>
-                            <td><span class="badge rounded-pill text-white {{$user->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $user->getActive() }}</span></td>
+                            <td><span class="badge rounded-pill text-white {{$service->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $service->getActive() }}</span></td>
                             <td>{{ formatDate($service->created_at) }}</td>
                             <td>{{ formatDate($service->created_at) == formatDate($service->updated_at) ? '--' : formatDate($service->updated_at) }}
                             </td>

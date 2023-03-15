@@ -79,7 +79,7 @@
                             </td>
                             <td>{{ $product->title }}</td>
                             <td>{{ $product->category ? $product->category->name : '' }}</td>
-                            <td><span class="badge rounded-pill text-white {{$user->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $user->getActive() }}</span></td>
+                            <td><span class="badge rounded-pill text-white {{$product->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $product->getActive() }}</span></td>
                             <td>{{ formatDate($product->created_at) }}</td>
                             <td>{{ formatDate($product->created_at) == formatDate($product->updated_at) ? '--' : formatDate($product->updated_at) }}
                             </td>

@@ -79,7 +79,7 @@
                             </td>
                             <td>{{ $slider->title }}</td>
                             <td>{!! $slider->description !!}</td>
-                            <td><span class="badge rounded-pill text-white {{$user->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $user->getActive() }}</span></td>
+                            <td><span class="badge rounded-pill text-white {{$slider->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $slider->getActive() }}</span></td>
                             <td>{{ formatDate($slider->created_at) }}</td>
                             <td>{{ formatDate($slider->created_at) == formatDate($slider->updated_at) ? '--' : formatDate($slider->updated_at) }}
                             </td>

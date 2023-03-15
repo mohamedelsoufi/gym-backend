@@ -79,7 +79,7 @@
                             </td>
                             <td>{{ $project->title }}</td>
                             <td>{!! Str::limit($project->description, 100) !!}</td>
-                            <td><span class="badge rounded-pill text-white {{$user->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $user->getActive() }}</span></td>
+                            <td><span class="badge rounded-pill text-white {{$project->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $project->getActive() }}</span></td>
                             <td>{{ formatDate($project->created_at) }}</td>
                             <td>{{ formatDate($project->created_at) == formatDate($project->updated_at) ? '--' : formatDate($project->updated_at) }}
                             </td>

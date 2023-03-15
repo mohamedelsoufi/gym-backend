@@ -81,7 +81,7 @@
                             <td>{{ $team->title }}</td>
                             <td>{{ $team->sub_title }}</td>
                             <td>{!! Str::limit($team->description, 100) !!}</td>
-                            <td><span class="badge rounded-pill text-white {{$user->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $user->getActive() }}</span></td>
+                            <td><span class="badge rounded-pill text-white {{$team->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $team->getActive() }}</span></td>
                             <td>{{ formatDate($team->created_at) }}</td>
                             <td>{{ formatDate($team->created_at) == formatDate($team->updated_at) ? '--' : formatDate($team->updated_at) }}
                             </td>

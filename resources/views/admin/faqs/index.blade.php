@@ -70,7 +70,7 @@
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $faq->question }}</td>
                             <td>{!! $faq->answer !!}</td>
-                            <td><span class="badge rounded-pill text-white {{$user->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $user->getActive() }}</span></td>
+                            <td><span class="badge rounded-pill text-white {{$faq->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $faq->getActive() }}</span></td>
                             <td>{{ formatDate($faq->created_at) }}</td>
                             <td>{{ formatDate($faq->created_at) == formatDate($faq->updated_at) ? '--' : formatDate($faq->updated_at) }}
                             </td>

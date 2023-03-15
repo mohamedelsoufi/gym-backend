@@ -81,7 +81,7 @@
                             <td>{{ $testimonial->title }}</td>
                             <td>{{ $testimonial->job_title }}</td>
                             <td>{!! Str::limit($testimonial->description, 100) !!}</td>
-                            <td>{{ $testimonial->getActive() }}</td>
+                            <td><span class="badge rounded-pill text-white {{$testimonial->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $testimonial->getActive() }}</span></td>
                             <td>{{ formatDate($testimonial->created_at) }}</td>
                             <td>{{ formatDate($testimonial->created_at) == formatDate($testimonial->updated_at) ? '--' : formatDate($testimonial->updated_at) }}
                             </td>

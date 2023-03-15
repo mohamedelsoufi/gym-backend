@@ -77,7 +77,7 @@
                                 @endif
                             </td>
                             <td>{{ $portfolio->title }}</td>
-                            <td><span class="badge rounded-pill text-white {{$user->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $user->getActive() }}</span></td>
+                            <td><span class="badge rounded-pill text-white {{$portfolio->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $portfolio->getActive() }}</span></td>
                             <td>{{ formatDate($portfolio->created_at) }}</td>
                             <td>{{ formatDate($portfolio->created_at) == formatDate($portfolio->updated_at) ? '--' : formatDate($portfolio->updated_at) }}
                             </td>

@@ -98,7 +98,7 @@
                             <div class="card-title">
                                 <h5 class="font-weight-bolder text-dark">{{ __('words.activity') }}:</h5>
                             </div>
-                            <p class="m-0">{{ $blog->getActive() }}</p>
+                            <p class="m-0"><span class="badge rounded-pill text-white {{$blog->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $blog->getActive() }}</p>
                         </div>
                     </div>
 

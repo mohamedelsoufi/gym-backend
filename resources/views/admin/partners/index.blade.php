@@ -75,7 +75,7 @@
                                         onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="logo">
                                 @endif
                             </td>
-                            <td><span class="badge rounded-pill text-white {{$user->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $user->getActive() }}</span></td>
+                            <td><span class="badge rounded-pill text-white {{$partner->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $partner->getActive() }}</span></td>
                             <td>{{ formatDate($partner->created_at) }}</td>
                             <td>{{ formatDate($partner->created_at) == formatDate($partner->updated_at) ? '--' : formatDate($partner->updated_at) }}
                             </td>

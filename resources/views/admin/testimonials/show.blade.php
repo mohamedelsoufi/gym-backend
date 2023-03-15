@@ -113,7 +113,7 @@
                             <div class="card-title">
                                 <h5 class="font-weight-bolder text-dark">{{ __('words.activity') }}:</h5>
                             </div>
-                            <p class="m-0">{{ $testimonial->getActive() }}</p>
+                            <p class="m-0"><span class="badge rounded-pill text-white {{$testimonial->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $testimonial->getActive() }}</span></p>
                         </div>
                     </div>
 
