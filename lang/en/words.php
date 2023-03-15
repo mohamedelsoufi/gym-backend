@@ -73,6 +73,10 @@ return [
     "answer" => "Answer",
     "has_link" => "Has Link",
     "has_sub_title" => "Has Sub Title",
+    "has_description" => "Has Description",
+    "has_image" => "Has Image",
+    "has_video" => "Has Video",
+    "video" => "Video",
     "link" => "Link",
     "yes" => "Yes",
     "no" => "No",
@@ -138,12 +142,12 @@ return [
     "edit_testimonial" => "Edit Testimonial member",
     "create_testimonial" => "Create Testimonial member",
 
-    "categories" => "Categories",
-    "category" => "Category",
-    "show_categories" => "Show Categories",
-    "show_category" => "Show Category",
-    "edit_category" => "Edit Category",
-    "create_category" => "Create Category",
+    "categories" => "Catalogs",
+    "category" => "Catalog",
+    "show_categories" => "Show Catalogs",
+    "show_category" => "Show Catalog",
+    "edit_category" => "Edit Catalog",
+    "create_category" => "Create Catalog",
 
     "products" => "Products",
     "show_products" => "Show Products",
@@ -223,6 +227,7 @@ return [
     "contact_request" => "Contact request from: ",
     "message" => "Message",
     "rights" => "All Rights Reserved By ",
+    "download" => "Click here to download",
 
     "ar" => [
         "title" => "Title In Arabic",
@@ -247,5 +252,5 @@ return [
         "phone " => "Phone In English",
         "email " => "Email In English",
     ],
-    "developed" => "Designed and programmed by Marwan Tech",
+    "developed" => "Designed and programmed by HANSM BILL",
 ];
