@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::group(['namespace' => 'API', 'middleware' => 'APILocalization'], function () {
+Route::group(['middleware' => 'APILocalization'], function () {
     Route::group(['namespace' => 'Auth'], function () {
         Route::post('register', 'AuthController@register');
         Route::get('user/verify/{verification_code}', 'AuthController@verifyUser')->name('user.verify');
