@@ -15,8 +15,10 @@ class PageRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'image' => 'required_without:id|max:900|image',
+            'image' => 'nullable|max:900|image',
             'identifier' => 'required_without:id',
+            'link' => 'nullable|url',
+            'video' => 'nullable|url',
         ];
         foreach (config('translatable.locales') as $locale) {
             $rules += [$locale . '.title' => ['required', 'string', Rule::unique('page_translations', 'title')->ignore($this->id, 'page_id')]];

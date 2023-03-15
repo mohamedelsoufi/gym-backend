@@ -30,7 +30,7 @@
                     @foreach (config('translatable.locales') as $key => $locale)
                         <li class="nav-item">
                             <a class="nav-link  @if ($key == 0) active @endif" data-toggle="tab"
-                                href="{{ '#' . $locale }}">{{ __('words.locale-' . $locale) }}</a>
+                               href="{{ '#' . $locale }}">{{ __('words.locale-' . $locale) }}</a>
                         </li>
                     @endforeach
                 </ul>
@@ -40,7 +40,7 @@
             <div class="tab-content">
                 @foreach (config('translatable.locales') as $key => $locale)
                     <div class="tab-pane fade show @if ($key == 0) active @endif" id="{{ $locale }}"
-                        role="tabpanel">
+                         role="tabpanel">
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <div class="mb-7 bg-light p-5 rounded h-100">
@@ -65,18 +65,19 @@
                             @endif
                         </div>
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="mb-7 bg-light p-5 rounded h-100">
-                                    <div class="card-title">
-                                        <h5 class="font-weight-bolder text-dark">{{ __('words.description') }}
-                                            - {{ __('words.locale-' . $locale) }}:</h5>
+                        @if ($page->has_description == true)
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="mb-7 bg-light p-5 rounded h-100">
+                                        <div class="card-title">
+                                            <h5 class="font-weight-bolder text-dark">{{ __('words.description') }}
+                                                - {{ __('words.locale-' . $locale) }}:</h5>
+                                        </div>
+                                        {!! $page->translate($locale)->description !!}
                                     </div>
-                                    {!! $page->translate($locale)->description !!}
                                 </div>
                             </div>
-
-                        </div>
+                        @endif
                     </div>
                 @endforeach
             </div>
@@ -86,57 +87,68 @@
             <div class="card-body">
                 <div class="row mb-3">
                     @if ($page->has_link == true)
-                        <div class="col-md-4">
+                        <div class="col-md-2">
                             <div class="mb-7 bg-light p-5 rounded h-100">
                                 <div class="card-title">
                                     <h5 class="font-weight-bolder text-dark">{{ __('words.link') }}:</h5>
                                 </div>
-                                <p class="m-0">{{ $page->link }}</p>
+                                <p class="m-0"><a href="{{ $page->link }}" target="_blank">{{ $page->link }}</a></p>
                             </div>
                         </div>
                     @endif
 
-                    <div class="col-md-4">
-                        <div class="mb-7 bg-light p-5 rounded h-100">
-                            <div class="card-title">
-                                <h5 class="font-weight-bolder text-dark">{{ __('words.created_at') }}:</h5>
+                    @if ($page->has_video == true)
+                        <div class="col-md-2">
+                            <div class="mb-7 bg-light p-5 rounded h-100">
+                                <div class="card-title">
+                                    <h5 class="font-weight-bolder text-dark">{{ __('words.video') }}:</h5>
+                                </div>
+                                <p class="m-0"><a href="{{ $page->video }}" target="_blank">{{ $page->video }}</a></p>
                             </div>
-                            <p class="m-0">{{ formatDate($page->created_at) }}</p>
                         </div>
-                    </div>
+                    @endif
 
-                    <div class="col-md-4">
-                        <div class="mb-7 bg-light p-5 rounded h-100">
-                            <div class="card-title">
-                                <h5 class="font-weight-bolder text-dark">{{ __('words.updated_at') }}:</h5>
+                        <div class="col-md-4">
+                            <div class="mb-7 bg-light p-5 rounded h-100">
+                                <div class="card-title">
+                                    <h5 class="font-weight-bolder text-dark">{{ __('words.created_at') }}:</h5>
+                                </div>
+                                <p class="m-0">{{ formatDate($page->created_at) }}</p>
                             </div>
-                            <p class="m-0">
-                                {{ formatDate($page->created_at) == formatDate($page->updated_at) ? '--' : formatDate($page->updated_at) }}
-                            </p>
                         </div>
-                    </div>
 
+                        <div class="col-md-4">
+                            <div class="mb-7 bg-light p-5 rounded h-100">
+                                <div class="card-title">
+                                    <h5 class="font-weight-bolder text-dark">{{ __('words.updated_at') }}:</h5>
+                                </div>
+                                <p class="m-0">
+                                    {{ formatDate($page->created_at) == formatDate($page->updated_at) ? '--' : formatDate($page->updated_at) }}
+                                </p>
+                            </div>
+                        </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-8">
-                        <img src="{{ $page->image }}" class="img-fluid mb-2 image-galley"
-                            onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="page image" />
+                @if ($page->has_image == true)
+                    <div class="row">
+                        <div class="col-8">
+                            <img src="{{ $page->image }}" class="img-fluid mb-2 image-galley"
+                                 onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="page image"/>
+                        </div>
                     </div>
-                </div>
-
+                @endif
             </div>
 
             @permission('update-pages')
-                <div class="card-footer">
-                    <div class="row">
-                        <div class="col-4">
-                            <a href="{{ route('pages.edit', $page->id) }}" class="btn btn-block btn-outline-info">
-                                {{ __('words.edit') }}
-                            </a>
-                        </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-4">
+                        <a href="{{ route('pages.edit', $page->id) }}" class="btn btn-block btn-outline-info">
+                            {{ __('words.edit') }}
+                        </a>
                     </div>
                 </div>
+            </div>
             @endpermission
         </div>
     </div>
