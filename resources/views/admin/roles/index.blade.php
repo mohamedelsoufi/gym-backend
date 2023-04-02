@@ -27,6 +27,7 @@
                 <!--begin::Dropdown-->
                 <div class="dropdown dropdown-inline mr-2">
                     <!--begin::Button-->
+                    @permission('create-roles')
                     <a href="{{ route('roles.create') }}" class="btn btn-primary font-weight-bolder">
                         <span class="svg-icon svg-icon-md">
                             <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
@@ -42,6 +43,7 @@
                             </svg>
                             <!--end::Svg Icon-->
                         </span>{{ __('words.add_new_record') }}</a>
+                    @endpermission
                     <!--end::Button-->
                 </div>
             </div>

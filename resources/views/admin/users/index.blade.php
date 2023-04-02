@@ -25,6 +25,7 @@
 
             <div class="card-toolbar">
                 <!--begin::Dropdown-->
+                @permission('create-admins')
                 <div class="dropdown dropdown-inline mr-2">
                     <!--begin::Button-->
                     <a href="{{ route('admin-users.create') }}" class="btn btn-primary font-weight-bolder">
@@ -44,6 +45,7 @@
                         </span>{{ __('words.add_new_record') }}</a>
                     <!--end::Button-->
                 </div>
+                @endpermission
             </div>
         </div>
         <div class="card-body">
