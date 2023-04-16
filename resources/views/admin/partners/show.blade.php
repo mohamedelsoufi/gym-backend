@@ -22,6 +22,11 @@
 @section('content')
     <div class="card card-custom card-stretch gutter-b">
         <div class="card card-custom">
+            <div class="card-header card-header-tabs-line">
+                <div class="card-title">
+                    <h3 class="card-label">{{ __('words.show_partner') }}</h3>
+                </div>
+            </div>
             <div class="card-body">
                 <div class="row mb-3">
                     <div class="col-8">

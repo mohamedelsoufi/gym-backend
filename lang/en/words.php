@@ -252,5 +252,5 @@ return [
         "phone " => "Phone In English",
         "email " => "Email In English",
     ],
-    "developed" => "Designed and programmed by HANSM BILL",
+    "developed" => "Designed and programmed by Marwan Group",
 ];

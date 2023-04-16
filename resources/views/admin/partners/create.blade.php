@@ -26,6 +26,12 @@
 @section('form_content')
     @method('post')
     <div class="card card-custom">
+        <div class="card-header card-header-tabs-line">
+            <div class="card-title">
+                <h3 class="card-label">{{ __('words.create_partner') }}</h3>
+            </div>
+        </div>
+
         <div class="card-body">
             <div class="form-group row">
                 @include('admin.components.image', [
