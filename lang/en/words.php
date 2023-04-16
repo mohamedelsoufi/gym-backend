@@ -253,4 +253,13 @@ return [
         "email " => "Email In English",
     ],
     "developed" => "Designed and programmed by Marwan Group",
+    "dt_search" => "Search:",
+    "dt_no_data_available" => "No data available in table",
+    "dt_Showing" => "Showing",
+    "dt_Showing_page" => "Showing page",
+    "dt_Showing_zero_page" => "Showing 0 to 0 of 0 entries",
+    "to" => "to",
+    "of" => "of",
+    "dt_entries" => "entries",
+    "dt_show" => "عرض",
 ];
