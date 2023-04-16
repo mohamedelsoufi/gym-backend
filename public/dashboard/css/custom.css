@@ -40,6 +40,10 @@ body[dir="rtl"] {
     margin-right: 2.5rem;
 }
 
+[dir="rtl"] #toast-container > div{
+    padding: 15px 15px 15px 15px !important;
+}
+
 [dir="rtl"] .ki-double-arrow-back::before {
     content: "\f100";
 }
