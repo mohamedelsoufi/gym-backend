@@ -17,6 +17,10 @@ class SettingRequest extends FormRequest
     {
         $rules = [
             'logo' => 'required_without:id|max:900|image',
+            'white_logo' => 'required_without:id|max:900|image',
+            'favicon' => 'required_without:id|max:900|image',
+            'footer_img' => 'required_without:id|max:900|image',
+            'breadcrumb' => 'required_without:id|max:900|image',
             'phone' => 'nullable|string',
             'email' => 'nullable|email|unique:admins,email,'.$this->id,
 

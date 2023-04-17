@@ -17,7 +17,7 @@ class Setting extends Model
 
     protected $guarded = [];
 
-    protected $appends = ["logo", "white_logo", "favicon", "contact_img", "footer_img"];
+    protected $appends = ["logo", "white_logo", "favicon", "contact_img", "footer_img","breadcrumb"];
 
     public $translatedAttributes = [
         "website_title",
@@ -32,41 +32,37 @@ class Setting extends Model
 
     public function getLogoAttribute()
     {
-        $logo = $this->file()
-            ->where("type", "logo")
-            ->first();
+        $logo = $this->file()->where("type", "logo")->first();
         return $logo ? $logo->path : asset('uploads/default_image.png');
     }
 
     public function getWhiteLogoAttribute()
     {
-        $white_logo = $this->file()
-            ->where("type", "white_logo")
-            ->first();
+        $white_logo = $this->file()->where("type", "white_logo")->first();
         return $white_logo ? $white_logo->path : asset('uploads/default_image.png');
     }
 
     public function getFaviconAttribute()
     {
-        $favicon = $this->file()
-            ->where("type", "favicon")
-            ->first();
+        $favicon = $this->file()->where("type", "favicon")->first();
         return $favicon ? $favicon->path : asset('uploads/default_image.png');
     }
 
     public function getFooterImgAttribute()
     {
-        $footer_img = $this->file()
-            ->where("type", "footer_img")
-            ->first();
+        $footer_img = $this->file()->where("type", "footer_img")->first();
         return $footer_img ? $footer_img->path : asset('uploads/default_image.png');
     }
 
     public function getContactImgAttribute()
     {
-        $contact_img = $this->file()
-            ->where("type", "contact_img")
-            ->first();
+        $contact_img = $this->file()->where("type", "contact_img")->first();
+        return $contact_img ? $contact_img->path : asset('uploads/default_image.png');
+    }
+
+    public function getBreadcrumbAttribute()
+    {
+        $contact_img = $this->file()->where("type", "breadcrumb")->first();
         return $contact_img ? $contact_img->path : asset('uploads/default_image.png');
     }
 
