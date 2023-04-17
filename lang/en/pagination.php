@@ -15,5 +15,11 @@ return [
 
     'previous' => 'Previous',
     'next' => 'Next',
+    'first' => 'First',
+    'last' => 'Last',
+    'first_page' => 'First page',
+    'last_page' => 'Last page',
+    'next_page' => 'Next page',
+    'previous_page' => 'Previous page',
 
 ];

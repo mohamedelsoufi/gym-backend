@@ -1,6 +1,7 @@
 <script>var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";</script>
 <!--begin::Global Config(global config for global JS scripts)-->
-<script>var KTAppSettings = {"breakpoints": {"sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1400},
+<script>var KTAppSettings = {
+        "breakpoints": {"sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1400},
         "colors": {
             "theme": {
                 "base": {
@@ -123,12 +124,34 @@
     $(document).ready(function () {
         $('#custom_datatable').dataTable({
             "language": {
-                "search": "{{__('words.dt_search')}}",
+                {{--"search": "{{__('words.filter_records')}}",--}}
+                "sSearch": "{{__('words.dt_search')}}",
                 "emptyTable": "{{__('words.dt_no_data_available')}}",
                 "info": "{{__('words.dt_Showing_page')}} _PAGE_ {{__('words.of')}} _PAGES_",
                 "sInfo": "{{__('words.dt_Showing')}} _START_ {{__('words.to')}} _END_ {{__('words.of')}} _TOTAL_ entries",
                 "sInfoEmpty": "{{__('words.dt_Showing_zero_page')}}",
                 "sLengthMenu": "{{__('words.dt_show')}} _MENU_ {{__('words.dt_entries')}}",
+                "paginate": {
+                    "first": "{{__('pagination.first_page')}}",
+                    "last": "{{__('pagination.last_page')}}",
+                    "next": "{{__('pagination.next_page')}}",
+                    "previous": "{{__('pagination.previous_page')}}"
+                },
+                "sFirst": "{{__('pagination.first')}}",
+                "sLast": "{{__('pagination.last')}}",
+                "sNext": "{{__('pagination.next')}}",
+                "sPrevious": "{{__('pagination.previous')}}",
+                {{--"infoEmpty": "{{__('words.dt_no_entries')}}",--}}
+                {{--"infoFiltered": "{{__('words.dt_filtering_from')}} _MAX_ {{__('words.dt_records')}}",--}}
+                {{--"sInfoFiltered": "({{__('words.dt_filtered_from')}} _MAX_ {{__('words.dt_total_entries')}})",--}}
+                {{--"infoPostFix": "{{__('words.dt_infoPostFix')}}",--}}
+                "lengthMenu": "{{__('words.dt_display')}} _MENU_ {{__('words.dt_records')}}",
+                "loadingRecords": "{{__('words.loadingRecords')}}",
+                "sLoadingRecords": "{{__('words.sLoadingRecords')}}",
+                {{--"processing": "{{__('words.processing')}}",--}}
+                "sProcessing": "{{__('words.sProcessing')}}",
+                "zeroRecords": "{{__('words.zeroRecords')}}",
+                "sZeroRecords": "{{__('words.sZeroRecords')}}",
             }
         });
     });
