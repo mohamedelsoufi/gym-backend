@@ -71,10 +71,20 @@
                             <td>{{ $key + 1 }}</td>
                             <td>
                                 @if (!$blog->image)
-                                    <img class="index_image" src="{{ asset('uploads/default_image.png') }}" alt="logo">
+                                    <a href="{{asset('uploads/default_image.png')}}"
+                                       data-toggle="lightbox" data-title="{{$blog->title}}"
+                                       data-gallery="gallery">
+                                        <img class="index_image" src="{{ asset('uploads/default_image.png') }}"
+                                             onerror="this.src='{{ asset('uploads/default_image.png') }}'"
+                                             alt="default-image">
+                                    </a>
                                 @else
+                                    <a href="{{$blog->image}}"
+                                       data-toggle="lightbox" data-title="{{$blog->title}}"
+                                       data-gallery="gallery">
                                     <img class="index_image" src="{{ $blog->image }}"
-                                        onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="logo">
+                                        onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="blog-image">
+                                    </a>
                                 @endif
                             </td>
                             <td>{{ $blog->title }}</td>

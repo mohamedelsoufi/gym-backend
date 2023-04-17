@@ -80,7 +80,9 @@
                             <div class="card-title">
                                 <h5 class="font-weight-bolder text-dark">{{__('words.activity')}}:</h5>
                             </div>
-                            <p class="m-0"><span class="badge rounded-pill text-white {{$product->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $product->getActive() }}</span></p>
+                            <p class="m-0"><span
+                                    class="badge rounded-pill text-white {{$product->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $product->getActive() }}</span>
+                            </p>
                         </div>
                     </div>
 
@@ -101,10 +103,14 @@
                             <div class="card-title">
                                 <h5 class="font-weight-bolder text-dark">{{__('words.image')}}:</h5>
                             </div>
-                            <img src="{{$product->image}}"
-                                 class="img-fluid mb-2 image-galley"
-                                 onerror="this.src='{{asset('uploads/default_image.png')}}'"
-                                 alt="category image"/>
+                            <a href="{{$product->image}}"
+                               data-toggle="lightbox" data-title="{{$product->title}}"
+                               data-gallery="gallery">
+                                <img src="{{$product->image}}"
+                                     class="img-fluid mb-2 image-galley"
+                                     onerror="this.src='{{asset('uploads/default_image.png')}}'"
+                                     alt="category image"/>
+                            </a>
                         </div>
                     </div>
                 </div>

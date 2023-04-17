@@ -67,8 +67,6 @@
 <script src="{{asset('dashboard/js/pages/widgets.js')}}"></script>
 <!--end::Page Scripts-->
 
-{{--<script src="{{asset('dashboard/js/pages/features/miscellaneous/toastr.js')}}"></script>--}}
-
 <!--end::Page Vendors-->
 <!--begin::Page Scripts(used by this page)-->
 <script src="{{asset('dashboard/js/pages/crud/datatables/basic/paginations.js')}}"></script>
@@ -153,6 +151,13 @@
                 "zeroRecords": "{{__('words.zeroRecords')}}",
                 "sZeroRecords": "{{__('words.sZeroRecords')}}",
             }
+        });
+    });
+
+    $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+        event.preventDefault();
+        $(this).ekkoLightbox({
+            alwaysShowClose: true
         });
     });
 </script>

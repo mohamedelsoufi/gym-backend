@@ -70,10 +70,20 @@
                             <td>{{ $key + 1 }}</td>
                             <td>
                                 @if (!$portfolio->image)
-                                    <img class="index_image" src="{{ asset('uploads/default_image.png') }}" onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="logo">
+                                    <a href="{{asset('uploads/default_image.png')}}"
+                                       data-toggle="lightbox" data-title="{{$portfolio->title}}"
+                                       data-gallery="gallery">
+                                        <img class="index_image" src="{{ asset('uploads/default_image.png') }}"
+                                             onerror="this.src='{{ asset('uploads/default_image.png') }}'"
+                                             alt="default-image">
+                                    </a>
                                 @else
+                                    <a href="{{$portfolio->image}}"
+                                       data-toggle="lightbox" data-title="{{$portfolio->title}}"
+                                       data-gallery="gallery">
                                     <img class="index_image" src="{{ $portfolio->image }}"
-                                        onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="logo">
+                                        onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="portfolio-image">
+                                    </a>
                                 @endif
                             </td>
                             <td>{{ $portfolio->title }}</td>

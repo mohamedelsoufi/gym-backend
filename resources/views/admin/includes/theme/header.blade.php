@@ -30,7 +30,6 @@
             type="text/css" />
         <link href="{{ asset('dashboard/css/themes/layout/brand/dark.rtl.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('dashboard/css/themes/layout/aside/dark.rtl.css') }}" rel="stylesheet" type="text/css" />
-{{--        <link href="{{ asset('dashboard/css/custom.ar.css') }}" rel="stylesheet" type="text/css" />--}}
         <!-- Ekko Lightbox -->
         <link rel="stylesheet" href="{{ asset('Dashboard/plugins/ekko-lightbox/ekko-lightboxAr.css') }}">
         <!--end::Layout Themes-->

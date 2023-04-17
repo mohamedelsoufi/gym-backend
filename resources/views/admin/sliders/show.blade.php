@@ -30,7 +30,7 @@
                     @foreach (config('translatable.locales') as $key => $locale)
                         <li class="nav-item">
                             <a class="nav-link  @if ($key == 0) active @endif" data-toggle="tab"
-                                href="{{ '#' . $locale }}">{{ __('words.locale-' . $locale) }}</a>
+                               href="{{ '#' . $locale }}">{{ __('words.locale-' . $locale) }}</a>
                         </li>
                     @endforeach
                 </ul>
@@ -40,7 +40,7 @@
             <div class="tab-content">
                 @foreach (config('translatable.locales') as $key => $locale)
                     <div class="tab-pane fade show @if ($key == 0) active @endif" id="{{ $locale }}"
-                        role="tabpanel">
+                         role="tabpanel">
                         <div class="row mb-3">
                             <div class="col-md-12">
                                 <div class="mb-7 bg-light p-5 rounded h-100">
@@ -98,7 +98,9 @@
                             <div class="card-title">
                                 <h5 class="font-weight-bolder text-dark">{{ __('words.activity') }}:</h5>
                             </div>
-                            <p class="m-0"><span class="badge rounded-pill text-white {{$slider->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $slider->getActive() }}</span></p>
+                            <p class="m-0"><span
+                                    class="badge rounded-pill text-white {{$slider->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $slider->getActive() }}</span>
+                            </p>
                         </div>
                     </div>
 
@@ -107,23 +109,27 @@
 
                 <div class="row">
                     <div class="col-8">
-                        <img src="{{ $slider->image }}" class="img-fluid mb-2 image-galley"
-                            onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="slider image" />
+                        <a href="{{$slider->image}}"
+                           data-toggle="lightbox" data-title="{{$slider->title}}"
+                           data-gallery="gallery">
+                            <img src="{{ $slider->image }}" class="img-fluid mb-2 image-galley"
+                                 onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="slider image"/>
+                        </a>
                     </div>
                 </div>
 
             </div>
 
             @permission('update-sliders')
-                <div class="card-footer">
-                    <div class="row">
-                        <div class="col-4">
-                            <a href="{{ route('sliders.edit', $slider->id) }}" class="btn btn-block btn-outline-info">
-                                {{ __('words.edit') }}
-                            </a>
-                        </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-4">
+                        <a href="{{ route('sliders.edit', $slider->id) }}" class="btn btn-block btn-outline-info">
+                            {{ __('words.edit') }}
+                        </a>
                     </div>
                 </div>
+            </div>
             @endpermission
         </div>
     </div>

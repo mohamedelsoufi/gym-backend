@@ -30,8 +30,12 @@
             <div class="card-body">
                 <div class="row mb-3">
                     <div class="col-8">
-                        <img src="{{ $partner->image }}" class="img-fluid mb-2 image-galley"
-                            onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="partner image" />
+                        <a href="{{$partner->image}}"
+                           data-toggle="lightbox"
+                           data-gallery="gallery">
+                            <img src="{{ $partner->image }}" class="img-fluid mb-2 image-galley"
+                                 onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="partner image"/>
+                        </a>
                     </div>
                 </div>
 
@@ -61,7 +65,9 @@
                             <div class="card-title">
                                 <h5 class="font-weight-bolder text-dark">{{ __('words.activity') }}:</h5>
                             </div>
-                            <p class="m-0"><span class="badge rounded-pill text-white {{$partner->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $partner->getActive() }}</span></p>
+                            <p class="m-0"><span
+                                    class="badge rounded-pill text-white {{$partner->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $partner->getActive() }}</span>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -69,15 +75,15 @@
             </div>
 
             @permission('update-partners')
-                <div class="card-footer">
-                    <div class="row">
-                        <div class="col-4">
-                            <a href="{{ route('partners.edit', $partner->id) }}" class="btn btn-block btn-outline-info">
-                                {{ __('words.edit') }}
-                            </a>
-                        </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-4">
+                        <a href="{{ route('partners.edit', $partner->id) }}" class="btn btn-block btn-outline-info">
+                            {{ __('words.edit') }}
+                        </a>
                     </div>
                 </div>
+            </div>
             @endpermission
         </div>
     </div>

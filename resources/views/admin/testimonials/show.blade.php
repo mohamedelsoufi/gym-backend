@@ -30,7 +30,7 @@
                     @foreach (config('translatable.locales') as $key => $locale)
                         <li class="nav-item">
                             <a class="nav-link  @if ($key == 0) active @endif" data-toggle="tab"
-                                href="{{ '#' . $locale }}">{{ __('words.locale-' . $locale) }}</a>
+                               href="{{ '#' . $locale }}">{{ __('words.locale-' . $locale) }}</a>
                         </li>
                     @endforeach
                 </ul>
@@ -40,7 +40,7 @@
             <div class="tab-content">
                 @foreach (config('translatable.locales') as $key => $locale)
                     <div class="tab-pane fade show @if ($key == 0) active @endif" id="{{ $locale }}"
-                        role="tabpanel">
+                         role="tabpanel">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mb-7 bg-light p-5 rounded h-100">
@@ -113,7 +113,9 @@
                             <div class="card-title">
                                 <h5 class="font-weight-bolder text-dark">{{ __('words.activity') }}:</h5>
                             </div>
-                            <p class="m-0"><span class="badge rounded-pill text-white {{$testimonial->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $testimonial->getActive() }}</span></p>
+                            <p class="m-0"><span
+                                    class="badge rounded-pill text-white {{$testimonial->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $testimonial->getActive() }}</span>
+                            </p>
                         </div>
                     </div>
 
@@ -122,24 +124,28 @@
 
                 <div class="row">
                     <div class="col-8">
-                        <img src="{{ $testimonial->image }}" class="img-fluid mb-2 image-galley"
-                            onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="testimonial image" />
+                        <a href="{{$testimonial->image}}"
+                           data-toggle="lightbox" data-title="{{$testimonial->title}}"
+                           data-gallery="gallery">
+                            <img src="{{ $testimonial->image }}" class="img-fluid mb-2 image-galley"
+                                 onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="testimonial image"/>
+                        </a>
                     </div>
                 </div>
 
             </div>
 
             @permission('update-testimonials')
-                <div class="card-footer">
-                    <div class="row">
-                        <div class="col-4">
-                            <a href="{{ route('testimonials.edit', $testimonial->id) }}"
-                                class="btn btn-block btn-outline-info">
-                                {{ __('words.edit') }}
-                            </a>
-                        </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-4">
+                        <a href="{{ route('testimonials.edit', $testimonial->id) }}"
+                           class="btn btn-block btn-outline-info">
+                            {{ __('words.edit') }}
+                        </a>
                     </div>
                 </div>
+            </div>
             @endpermission
         </div>
     </div>

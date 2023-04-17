@@ -107,8 +107,12 @@
 
                 <div class="row">
                     <div class="col-8">
+                        <a href="{{$blog->image}}"
+                           data-toggle="lightbox" data-title="{{$blog->title}}"
+                           data-gallery="gallery">
                         <img src="{{ $blog->image }}" class="img-fluid mb-2 image-galley"
                             onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="blog image" />
+                        </a>
                     </div>
                 </div>
 

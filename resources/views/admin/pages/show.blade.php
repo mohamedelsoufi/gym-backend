@@ -108,32 +108,36 @@
                         </div>
                     @endif
 
-                        <div class="col-md-4">
-                            <div class="mb-7 bg-light p-5 rounded h-100">
-                                <div class="card-title">
-                                    <h5 class="font-weight-bolder text-dark">{{ __('words.created_at') }}:</h5>
-                                </div>
-                                <p class="m-0">{{ formatDate($page->created_at) }}</p>
+                    <div class="col-md-4">
+                        <div class="mb-7 bg-light p-5 rounded h-100">
+                            <div class="card-title">
+                                <h5 class="font-weight-bolder text-dark">{{ __('words.created_at') }}:</h5>
                             </div>
+                            <p class="m-0">{{ formatDate($page->created_at) }}</p>
                         </div>
+                    </div>
 
-                        <div class="col-md-4">
-                            <div class="mb-7 bg-light p-5 rounded h-100">
-                                <div class="card-title">
-                                    <h5 class="font-weight-bolder text-dark">{{ __('words.updated_at') }}:</h5>
-                                </div>
-                                <p class="m-0">
-                                    {{ formatDate($page->created_at) == formatDate($page->updated_at) ? '--' : formatDate($page->updated_at) }}
-                                </p>
+                    <div class="col-md-4">
+                        <div class="mb-7 bg-light p-5 rounded h-100">
+                            <div class="card-title">
+                                <h5 class="font-weight-bolder text-dark">{{ __('words.updated_at') }}:</h5>
                             </div>
+                            <p class="m-0">
+                                {{ formatDate($page->created_at) == formatDate($page->updated_at) ? '--' : formatDate($page->updated_at) }}
+                            </p>
                         </div>
+                    </div>
                 </div>
 
                 @if ($page->has_image == true)
                     <div class="row">
                         <div class="col-8">
-                            <img src="{{ $page->image }}" class="img-fluid mb-2 image-galley"
-                                 onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="page image"/>
+                            <a href="{{$page->image}}"
+                               data-toggle="lightbox" data-title="{{$page->title}}"
+                               data-gallery="gallery">
+                                <img src="{{ $page->image }}" class="img-fluid mb-2 image-galley"
+                                     onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="page image"/>
+                            </a>
                         </div>
                     </div>
                 @endif

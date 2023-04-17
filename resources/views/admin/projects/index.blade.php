@@ -71,10 +71,20 @@
                             <td>{{ $key + 1 }}</td>
                             <td>
                                 @if (!$project->cover)
-                                    <img class="index_image" src="{{ asset('uploads/default_image.png') }}" onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="logo">
+                                    <a href="{{asset('uploads/default_image.png')}}"
+                                       data-toggle="lightbox" data-title="{{$project->title}}"
+                                       data-gallery="gallery">
+                                        <img class="index_image" src="{{ asset('uploads/default_image.png') }}"
+                                             onerror="this.src='{{ asset('uploads/default_image.png') }}'"
+                                             alt="default-image">
+                                    </a>
                                 @else
+                                    <a href="{{$project->cover}}"
+                                       data-toggle="lightbox" data-title="{{$project->title}}"
+                                       data-gallery="gallery">
                                     <img class="index_image" src="{{ $project->cover }}"
-                                        onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="logo">
+                                        onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="project-cover-image">
+                                    </a>
                                 @endif
                             </td>
                             <td>{{ $project->title }}</td>

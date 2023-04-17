@@ -92,10 +92,14 @@
                             <div class="card-title">
                                 <h5 class="font-weight-bolder text-dark">{{__('words.image')}}:</h5>
                             </div>
+                            <a href="{{$portfolio->image}}"
+                               data-toggle="lightbox" data-title="{{$portfolio->title}}"
+                               data-gallery="gallery">
                             <img src="{{$portfolio->image}}"
                                  class="img-fluid mb-2 image-galley"
                                  onerror="this.src='{{asset('uploads/default_image.png')}}'"
                                  alt="category image"/>
+                            </a>
                         </div>
                     </div>
                 </div>

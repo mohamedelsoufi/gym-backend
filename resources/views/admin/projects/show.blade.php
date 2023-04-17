@@ -80,7 +80,9 @@
                             <div class="card-title">
                                 <h5 class="font-weight-bolder text-dark">{{__('words.activity')}}:</h5>
                             </div>
-                            <p class="m-0"><span class="badge rounded-pill text-white {{$project->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $project->getActive() }}</span></p>
+                            <p class="m-0"><span
+                                    class="badge rounded-pill text-white {{$project->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $project->getActive() }}</span>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -100,9 +102,13 @@
                                             <div class="row">
                                                 @foreach($project->files as $file)
                                                     <div class="col-sm-3 ">
-                                                        <img src="{{$file->path}}"
-                                                             class="img-fluid mb-2 image-galley"
-                                                             alt="product image"/>
+                                                        <a href="{{$project->cover}}"
+                                                           data-toggle="lightbox" data-title="{{$project->title}}"
+                                                           data-gallery="gallery">
+                                                            <img src="{{$file->path}}"
+                                                                 class="img-fluid mb-2 image-galley"
+                                                                 alt="product image"/>
+                                                        </a>
                                                     </div>
                                                 @endforeach
                                             </div>
