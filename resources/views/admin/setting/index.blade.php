@@ -218,6 +218,14 @@
                     'id' => 'kt_image_5',
                     'required' => false,
                 ])
+
+                @include('admin.components.image', [
+                    'label' => __('words.breadcrumb'),
+                    'value' => $setting->breadcrumb,
+                    'name' => 'breadcrumb',
+                    'id' => 'kt_image_6',
+                    'required' => false,
+                ])
             </div>
 
         </div>
@@ -238,19 +246,19 @@
 
 @endsection
 
-@section('scripts')
-    <script>
-        $("#form").submit(function(e) {
-            e.preventDefault();
-            let links = document.querySelectorAll('.link');
-            links.forEach(function(link) {
-                let position = link.value.includes('https');
-                if (position > -1) {
-                    let enhancedLink = link.value.replace("https://", "http://");
-                    link.value = enhancedLink;
-                }
-            });
-            this.submit();
-        });
-    </script>
-@endsection
+{{--@section('scripts')--}}
+{{--    <script>--}}
+{{--        $("#form").submit(function(e) {--}}
+{{--            e.preventDefault();--}}
+{{--            let links = document.querySelectorAll('.link');--}}
+{{--            links.forEach(function(link) {--}}
+{{--                let position = link.value.includes('https');--}}
+{{--                if (position > -1) {--}}
+{{--                    let enhancedLink = link.value.replace("https://", "http://");--}}
+{{--                    link.value = enhancedLink;--}}
+{{--                }--}}
+{{--            });--}}
+{{--            this.submit();--}}
+{{--        });--}}
+{{--    </script>--}}
+{{--@endsection--}}

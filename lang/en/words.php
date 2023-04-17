@@ -228,6 +228,7 @@ return [
     "message" => "Message",
     "rights" => "All Rights Reserved By ",
     "download" => "Click here to download",
+    "breadcrumb" => "Breadcrumb image",
 
     "ar" => [
         "title" => "Title In Arabic",
@@ -252,6 +253,7 @@ return [
         "phone " => "Phone In English",
         "email " => "Email In English",
     ],
+
     "developed" => "Designed and programmed by Marwan Group",
     "dt_search" => "Search:",
     "dt_no_data_available" => "No data available in table",

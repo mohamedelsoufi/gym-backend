@@ -68,6 +68,11 @@ trait HasFile
             $image = request()->contact_img->store('images');
             $this->file()->create(['path' => $image, 'type' => 'contact_img']);
         }
+
+        if (request()->hasFile('breadcrumb')) {
+            $image = request()->breadcrumb->store('images');
+            $this->file()->create(['path' => $image, 'type' => 'breadcrumb']);
+        }
     }
 
     public function updateFile()
@@ -204,6 +209,19 @@ trait HasFile
 
             $image = request()->contact_img->store('images');
             $this->file()->create(['path' => $image, 'type' => 'contact_img']);
+        }
+
+        if (request()->hasFile('breadcrumb')) {
+            $file = $this->file()->where('type', 'breadcrumb')->first();
+            if (isset($file)) {
+                if ($this->file && is_object($this->file)) {
+                    Storage::delete($file->getRawOriginal('path'));
+                }
+                $file->delete();
+            }
+
+            $image = request()->breadcrumb->store('images');
+            $this->file()->create(['path' => $image, 'type' => 'breadcrumb']);
         }
     }
 

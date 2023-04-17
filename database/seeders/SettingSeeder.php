@@ -41,5 +41,10 @@ class SettingSeeder extends Seeder
             'path' => 'favicon.ico',
             'type' => 'footer_img'
         ]);
+
+        $setting->file()->create([
+            'path' => 'favicon.ico',
+            'type' => 'breadcrumb'
+        ]);
     }
 }
