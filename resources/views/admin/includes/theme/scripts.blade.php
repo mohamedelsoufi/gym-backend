@@ -121,6 +121,8 @@
 
     $(document).ready(function () {
         $('#custom_datatable').dataTable({
+            pagingType: 'full_numbers',
+            responsive: true,
             "language": {
                 {{--"search": "{{__('words.filter_records')}}",--}}
                 "sSearch": "{{__('words.dt_search')}}",
@@ -129,16 +131,6 @@
                 "sInfo": "{{__('words.dt_Showing')}} _START_ {{__('words.to')}} _END_ {{__('words.of')}} _TOTAL_ entries",
                 "sInfoEmpty": "{{__('words.dt_Showing_zero_page')}}",
                 "sLengthMenu": "{{__('words.dt_show')}} _MENU_ {{__('words.dt_entries')}}",
-                "paginate": {
-                    "first": "{{__('pagination.first_page')}}",
-                    "last": "{{__('pagination.last_page')}}",
-                    "next": "{{__('pagination.next_page')}}",
-                    "previous": "{{__('pagination.previous_page')}}"
-                },
-                "sFirst": "{{__('pagination.first')}}",
-                "sLast": "{{__('pagination.last')}}",
-                "sNext": "{{__('pagination.next')}}",
-                "sPrevious": "{{__('pagination.previous')}}",
                 {{--"infoEmpty": "{{__('words.dt_no_entries')}}",--}}
                 {{--"infoFiltered": "{{__('words.dt_filtering_from')}} _MAX_ {{__('words.dt_records')}}",--}}
                 {{--"sInfoFiltered": "({{__('words.dt_filtered_from')}} _MAX_ {{__('words.dt_total_entries')}})",--}}
