@@ -25,8 +25,8 @@ class NewsLetterMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            from: new Address($this->mail_body->email, $this->mail_body->name),
-            subject: 'ail From Queue',
+            from: new Address(env("MAIL_FROM_ADDRESS"), env('MAIL_FROM_NAME')),
+            subject: 'Mail From Queue',
         );
     }
 

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\NewsLetterRequest;
 use App\Jobs\NewsLetterJob;
-use App\Models\Faq;
 use App\Models\NewsLetter;
 use App\Models\NewsLetterMessage;
 use Illuminate\Http\Request;
@@ -47,8 +46,8 @@ class NewsLetterController extends Controller
     {
         try {
             $mail_body = $request->message;
-
             $emails = $this->news_letter->chunk(100,function ($data) use ($mail_body){
+
                 dispatch(new NewsLetterJob($data,$mail_body));
             });
 
