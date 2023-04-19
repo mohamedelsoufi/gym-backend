@@ -94,12 +94,10 @@ class NewsLetterController extends Controller
 
     public function subscribedUsers(){
         try {
-            $users = $this->news_letter->latest('id')->chunk(200,function($data){
-                return $data->toArray();
-            });
+            $users = $this->news_letter->latest('id')->get();
             return view('admin.news_letters.subscribed',compact('users'));
         } catch (\Exception $e) {
-            return redirect()->back()->with(['error' => $e->getMessage()]);
+            return redirect()->back()->with(['error' => __('message.something_wrong')]);
         }
     }
 }
