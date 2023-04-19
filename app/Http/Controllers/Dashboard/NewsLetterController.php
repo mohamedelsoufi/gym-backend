@@ -29,7 +29,9 @@ class NewsLetterController extends Controller
     public function index()
     {
         try {
-            $news_letters = $this->message->latest('id')->get();
+            $news_letters = $this->message->latest('id')->chanck(200,function($data){
+                return $data;
+            });
             return view('admin.news_letters.index', compact('news_letters'));
         } catch (\Exception $e) {
             return redirect()->back()->with(['error' => __('message.something_wrong')]);
