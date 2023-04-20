@@ -94,7 +94,7 @@ class NewsLetterController extends Controller
 
     public function subscribedUsers(){
         try {
-            $users = $this->news_letter->latest('id')->get();
+            $users = $this->news_letter->latest('id')->paginate(PAGINATION_COUNT);
             return view('admin.news_letters.subscribed',compact('users'));
         } catch (\Exception $e) {
             return redirect()->back()->with(['error' => __('message.something_wrong')]);

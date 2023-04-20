@@ -2,7 +2,7 @@
 
 use App\Models\Permission;
 
-const PAGINATION_COUNT = 15;
+const PAGINATION_COUNT = 10;
 
 function successResponse($data = [], $message = "", $status = 200)
 {
