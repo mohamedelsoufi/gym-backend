@@ -21,7 +21,7 @@ class SettingRequest extends FormRequest
             'favicon' => 'required_without:id|max:900|image',
             'footer_img' => 'required_without:id|max:900|image',
             'breadcrumb' => 'required_without:id|max:900|image',
-            'phone' => 'nullable|string',
+            'phone' => 'nullable|string|regex:/^[0-9+]+/|min:6|max:30',
             'email' => 'nullable|email|unique:admins,email,'.$this->id,
 
         ];
