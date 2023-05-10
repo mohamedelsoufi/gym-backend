@@ -58,7 +58,7 @@
                             <div class="card-title">
                                 <h5 class="font-weight-bolder text-dark">{{ __('words.contact') }}:</h5>
                             </div>
-                            <p class="m-0">
+                            <p class="m-0" dir="ltr" style="text-align: match-parent;">
                                 {{ $contact->contact }}
                             </p>
                         </div>

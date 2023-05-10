@@ -69,7 +69,7 @@
                         <tr>
 
                             <td>{{ $key + 1 }}</td>
-                            <td>{{ $contact->contact }}</td>
+                            <td dir="ltr" style="text-align: match-parent;">{{ $contact->contact }}</td>
                             <td><span
                                     class="badge
                                 @if ($contact->type === 'telephone') badge-success

@@ -63,7 +63,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-handshake"></i></span>
                         </div>
-                        <input type="text" name="contact" class="form-control @error('contact') is-invalid @enderror"
+                        <input type="text" name="contact" dir="ltr" style="text-align: match-parent;" class="form-control @error('contact') is-invalid @enderror"
                             value="{{ old('contact', $contact->contact) }}" placeholder="{{ __('words.contact') }}">
 
                         @error('contact')
