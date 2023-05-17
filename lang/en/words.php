@@ -278,4 +278,5 @@ return [
     "filter_records" => "Filter records:",
     "sZeroRecords" => "No matching records found",
     "zeroRecords" => "No records to display",
+    "not_selected" => "Nothing selected",
 ];

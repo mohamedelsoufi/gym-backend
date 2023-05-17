@@ -127,8 +127,14 @@
                     'val' => old('status'),
                     'required' => false,
                 ])
-            </div>
 
+
+            </div>
+            @include('admin.components.multiSelect', [
+               'label' => __('words.status'),
+               'name' => 'multiSelect[]',
+               'options' => $categories,
+           ])
         </div>
 
     </div>

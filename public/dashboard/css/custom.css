@@ -68,3 +68,8 @@ body[dir="rtl"] {
     -webkit-transform: rotateZ(-90deg) !important;
     transform: rotateZ(-90deg) !important;
 }
+
+.bootstrap-select .dropdown-toggle .filter-option * {
+    text-align: initial !important;
+}
+

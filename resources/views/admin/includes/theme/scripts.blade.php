@@ -83,6 +83,9 @@
 <script src="{{ asset('dashboard/js/iconpicker-1.5.0.js') }}"></script>
 <!--end::Page Scripts-->
 
+<!--begin::Page Scripts(used by this page)-->
+<script src="{{asset('dashboard/js/pages/crud/forms/widgets/bootstrap-select.js')}}"></script>
+<!--end::Page Scripts-->
 
 <script>
     $.fn.dataTable.ext.errMode = 'none';
@@ -143,6 +146,13 @@
                 "zeroRecords": "{{__('words.zeroRecords')}}",
                 "sZeroRecords": "{{__('words.sZeroRecords')}}",
             }
+        });
+
+        // multi select
+        $(".filter-option-inner-inner").each(function() {
+            var text = $(this).text();
+            text = text.replace("Nothing selected", "{{__('words.not_selected')}}");
+            $(this).text(text);
         });
     });
 

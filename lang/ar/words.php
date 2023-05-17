@@ -280,4 +280,5 @@ return [
     "filter_records" => "تصفية السجلات:",
     "sZeroRecords" => "لا توجد سجلات متطابقة",
     "zeroRecords" => "لا يوجد سجلات للعرض",
+    "not_selected" => "لا شيء محدد",
 ];

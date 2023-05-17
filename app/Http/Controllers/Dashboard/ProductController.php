@@ -47,6 +47,7 @@ class ProductController extends Controller
 
     public function store(ProductRequest $request)
     {
+        return $request;
         try {
             if (!$request->has('status'))
                 $request->request->add(['status' => 0]);
