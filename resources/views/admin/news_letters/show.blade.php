@@ -27,6 +27,17 @@
                     <div class="col-md-12">
                         <div class="mb-7 bg-light p-5 rounded h-100">
                             <div class="card-title">
+                                <h5 class="font-weight-bolder text-dark">{{ __('words.subject') }}:</h5>
+                            </div>
+                            <p class="m-0">{!! $newsLetter->subject !!}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <div class="mb-7 bg-light p-5 rounded h-100">
+                            <div class="card-title">
                                 <h5 class="font-weight-bolder text-dark">{{ __('words.message') }}:</h5>
                             </div>
                             <p class="m-0">{!! $newsLetter->message !!}</p>
@@ -57,12 +68,12 @@
 
             </div>
 
-            @permission('update-news_letters')
+            @permission('resend-news_letters')
                 <div class="card-footer">
                     <div class="row">
                         <div class="col-4">
                             <a href="{{ route('news-letters.edit', $newsLetter->id) }}" class="btn btn-block btn-outline-info">
-                                {{ __('words.edit') }}
+                                {{ __('words.resend') }}
                             </a>
                         </div>
                     </div>

@@ -18,12 +18,7 @@ return [
         "contacts" => ["read", "create", "update", "delete"],
         "settings" => ["read", "update"],
         "courses" => ["read", "create", "export"],
-        "news_letters" => [
-            "read",
-            "show_subscribed_users",
-            "create",
-            "update",
-            "delete",
-        ],
+        "news_letters" => ["read", "show_subscribed_users", "delete_subscribed_users", "create", "resend", "delete",
+        ]
     ],
 ];

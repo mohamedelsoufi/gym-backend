@@ -15,6 +15,7 @@ class CreateNewsLetterMessagesTable extends Migration
     {
         Schema::create('news_letter_messages', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('subject')->nullable();
             $table->longText('message')->nullable();
             $table->timestamps();
         });

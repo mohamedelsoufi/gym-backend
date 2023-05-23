@@ -16,6 +16,8 @@ class SettingSeeder extends Seeder
             'en' => [
                 'website_title' => 'Dashboard',
             ],
+            'contact_email' => 'mohamed@app.com',
+            'newsletter_email' => 'mohamed@app.com',
         ]);
         $setting->file()->create([
             'path' => 'favicon.ico',

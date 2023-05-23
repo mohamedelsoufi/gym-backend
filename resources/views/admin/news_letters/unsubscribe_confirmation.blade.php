@@ -49,13 +49,14 @@
         <!--end::Layout Themes-->
     @endif
 
-    <link rel="shortcut icon" href="{{settings()->logo}}" />
+    <link rel="shortcut icon" href="{{settings()->favicon}}" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link href="{{asset('dashboard/css/custom.css')}}" rel="stylesheet" type="text/css"/>
+
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -68,7 +69,7 @@
     <!--begin::Login-->
     <div class="login login-5 login-signin-on d-flex flex-row-fluid" id="kt_login">
         <div class="d-flex flex-center bgi-size-cover bgi-no-repeat flex-row-fluid"
-             style="background-image: url({{asset('dashboard/media/bg/bg-2.jpg')}});">
+             style="background:linear-gradient(to bottom,rgba(29, 46, 64,0.2),rgba(29, 46, 64, 0.6)),url({{asset('dashboard/media/bg/bg-2.jpg')}})">
             <div class="login-form text-center text-white p-7 position-relative overflow-hidden">
                 <!--begin::Login Header-->
                 <div class="d-flex flex-center mb-15">
@@ -76,68 +77,22 @@
                         <img src="{{settings()->logo}}" class="max-h-75px" alt=""/>
                     </a>
                 </div>
-                <!--end::Login Header-->
 
-
-            <!--begin::Login Sign in form-->
                 <div class="n">
                     <div class="mb-20">
-                        <h3 class="opacity-40 font-weight-normal">{{__('words.sign_in_to_admin')}}</h3>
-                        <p class="opacity-40">{{__('words.sign_in_desc')}}</p>
+                        <h1>{{settings()->website_title}}</h1>
+                        <h3>Your newsletter has been cancelled.</h3>
+                        <p></p>
                     </div>
-                    <form class="form" action="{{route('authenticate')}}" method="post">
-                        @csrf
-                        <div class="form-group">
-                            <input class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8 @error('email') is-invalid @enderror"
-                                   type="text" placeholder="{{__('words.email')}}" name="email" autocomplete="off"/>
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8 @error('email') is-invalid @enderror"
-                                   type="password" placeholder="{{__('words.password')}}" name="password"/>
-                            @error('password')
-                            <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                            @enderror
-                        </div>
-                        <div
-                            class="form-group d-flex flex-wrap justify-content-between align-items-center px-8 opacity-60">
-                            <div class="checkbox-inline">
-                                <label class="checkbox checkbox-outline checkbox-white text-white m-0">
-                                    <input type="checkbox" name="remember_me"/>
-                                    <span></span>{{__('words.remember_me')}}</label>
-                            </div>
-                        </div>
-                        <div class="form-group text-center mt-10">
-                            <button type="submit"
-                                    class="btn btn-pill btn-primary opacity-90 px-15 py-3">{{__('words.sign_in')}}</button>
-                        </div>
-                    </form>
+
                 </div>
-                <!--end::Login Sign in form-->
-                <div class="">
-                    <div class="mb-20">
-                        <p class="opacity-40">{{__('words.choose_lang')}}
-                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                                <a class="text-warning {{LaravelLocalization::getCurrentLocaleNative() == $properties['native'] ? 'd-none' : '' }}"
-                                   rel="alternate" hreflang="{{ $localeCode }}"
-                                   href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                                    <span class="symbol symbol-30"> {{ $properties['native'] }}
-                                </span>
-                                </a>
-                            @endforeach
-                        </p>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
-    <!--end::Login-->
+    <footer class="fixed-bottom">
+        <div class="text-center text-white" style="background:linear-gradient(to bottom,rgba(29, 46, 64,0.8),rgba(29, 46, 64, 0.8));padding: 0.5rem;">{{settings()->copyrights}}</div>
+    </footer>
 </div>
 <!--end::Main-->
 @include('admin.includes.theme.scripts')

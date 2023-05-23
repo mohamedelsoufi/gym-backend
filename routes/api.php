@@ -24,4 +24,7 @@ Route::group(['middleware' => 'APILocalization'], function () {
             Route::post('change-password', 'AuthController@changePassword');
         });
     });
+
+    // newsletter route
+    Route::post('newsletter','NewsletterController');
 });

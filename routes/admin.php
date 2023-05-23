@@ -70,6 +70,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
             //news-letter routes
             Route::resource('news-letters', 'NewsLetterController');
             Route::get('subscribed-users', 'NewsLetterController@subscribedUsers')->name('news-letters.subscribed');
+            Route::post('subscribed-users/delete/{id}', 'NewsLetterController@deleteSubscribedUsers')->name('news-letters.delete_subscribed_users');
 
             //setting routes
             Route::resource('settings', 'SettingController');
@@ -83,3 +84,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         });
     });
 });
+
+Route::get('unsubscribe/{id}', 'NewsLetterController@unsubscribe')->name('news-letters.unsubscribe');
+Route::post('unsubscribe/action', 'NewsLetterController@unsubscribeAction')->name('news-letters.unsubscribe_action');
+Route::get('unsubscribe/confirmation', function (){
+    return view('admin.news_letters.unsubscribe_confirmation');
+})->name('news-letters.unsubscribe_confirmation');

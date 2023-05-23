@@ -43,6 +43,9 @@
                             <option value="mobile" {{ old('type', $contact->type) == 'mobile' ? 'selected' : '' }}>
                                 {{ __('words.mobile') }}
                             </option>
+                            <option value="whatsapp" {{ old('type', $contact->type) == 'whatsapp' ? 'selected' : '' }}>
+                                {{ __('words.whatsapp') }}
+                            </option>
                             <option value="email" {{ old('type', $contact->type) == 'email' ? 'selected' : '' }}>
                                 {{ __('words.email') }}
                             </option>

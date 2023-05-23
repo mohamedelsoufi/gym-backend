@@ -43,6 +43,9 @@
                             <option value="mobile" {{ old('type') == 'mobile' ? 'selected' : '' }}>
                                 {{ __('words.mobile') }}
                             </option>
+                            <option value="whatsapp" {{ old('type') == 'whatsapp' ? 'selected' : '' }}>
+                                {{ __('words.whatsapp') }}
+                            </option>
                             <option value="email" {{ old('type') == 'email' ? 'selected' : '' }}>
                                 {{ __('words.email') }}
                             </option>

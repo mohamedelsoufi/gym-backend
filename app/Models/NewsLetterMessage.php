@@ -14,4 +14,10 @@ class NewsLetterMessage extends Model
     protected $guarded = [];
 
     public $timestamps = true;
+
+    // accessors & Mutator start
+    public function setSubjectAttribute($val){
+        $this->attributes['subject'] = ucwords($val);
+    }
+    // accessors & Mutator end
 }

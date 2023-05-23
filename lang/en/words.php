@@ -279,4 +279,19 @@ return [
     "sZeroRecords" => "No matching records found",
     "zeroRecords" => "No records to display",
     "not_selected" => "Nothing selected",
+
+    "quotations" => "Quotations",
+    "show_quotations" => "Show Quotations",
+    "show_quotation" => "Show Quotation",
+    "reply" => "Reply",
+    "subject" => "Subject",
+    "attachment" => "Attachment: pdf Only.",
+    "send" => "Send",
+    "resend" => "Resend",
+    "update_resend" => "Update and resend newsletter",
+    "delete_subscribed_users" => "Delete subscribed users",
+    "contact_email" => "Default sending and receiving contact emails",
+    "newsletter_email" => "Default sending and receiving newsletter emails",
+    "whatsapp" => "WhatsApp",
+
 ];

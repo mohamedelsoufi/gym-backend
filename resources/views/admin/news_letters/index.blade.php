@@ -55,7 +55,7 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>{{ __('words.message') }}</th>
+                        <th>{{ __('words.subject') }}</th>
                         <th>{{ __('words.created_at') }}</th>
                         <th>{{ __('words.updated_at') }}</th>
                         <th>{{ __('words.actions') }}</th>
@@ -65,7 +65,7 @@
                     @foreach ($news_letters as $key => $news_letter)
                         <tr>
                             <td>{{ $key + 1 }}</td>
-                            <td>{!! $news_letter->message !!}</td>
+                            <td>{!! $news_letter->subject !!}</td>
                             <td>{{ formatDate($news_letter->created_at) }}</td>
                             <td>{{ formatDate($news_letter->created_at) == formatDate($news_letter->updated_at) ? '--' : formatDate($news_letter->updated_at) }}
                             </td>

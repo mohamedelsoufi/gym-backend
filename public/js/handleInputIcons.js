@@ -4,6 +4,9 @@ $(document).ready(function () {
             case "mobile":
                 $(element).html('<i class="fas fa-mobile-alt"></i>');
                 break;
+            case "whatsapp":
+                $(element).html('<i class="fab fa-whatsapp"></i>');
+                break;
             case "telephone":
                 $(element).html('<i class="fas fa-phone-alt"></i>');
                 break;

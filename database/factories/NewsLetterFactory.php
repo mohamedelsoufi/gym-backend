@@ -14,7 +14,7 @@ class NewsLetterFactory extends Factory
     public function definition()
     {
         return [
-            'email' => 'mohamedelsofy1@gmail.com',
+            'email' => 'mohamed@app.com',
         ];
     }
 }

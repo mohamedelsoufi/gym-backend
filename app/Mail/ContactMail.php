@@ -40,13 +40,17 @@ class ContactMail extends Mailable
 
     public function attachments()
     {
-        $file = $this->contact->file()->first();
-        if ($file) {
-            $path = $file->getRawOriginal('path');
-            return [
-                Attachment::fromStorage($path),
-            ];
-        }
+//        $file = $this->contact->file()->first();
+//        if ($file) {
+//            $path = $file->getRawOriginal('path');
+//            return [
+//                Attachment::fromStorage($path),
+//            ];
+//        }
+
+        //for attaching from request direct
+//        if(isset($this->request_data['file']))
+//            return Attachment::fromData(fn() => file_get_contents($this->request_data['file']), $this->request_data['file']->getClientOriginalName())->withMime($this->request_data['file']->getClientMimeType());
         return [
         ];
     }

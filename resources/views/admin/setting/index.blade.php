@@ -177,6 +177,30 @@
                                 </span>
                     @enderror
                 </div>
+
+                <div class="col form-group">
+                    <label>{{ __('words.contact_email') }}<span
+                            class="text-danger">*</span></label>
+                    <input class="form-control @error('contact_email') is-invalid @enderror " type="email"
+                           name="{{'contact_email'}}" value="{{ old('contact_email', $setting->contact_email) }}"/>
+                    @error('contact_email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+
+                <div class="col form-group">
+                    <label>{{ __('words.newsletter_email') }}<span
+                            class="text-danger">*</span></label>
+                    <input class="form-control @error('newsletter_email') is-invalid @enderror " type="email"
+                           name="{{'newsletter_email'}}" value="{{ old('newsletter_email', $setting->newsletter_email) }}"/>
+                    @error('newsletter_email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
             </div>
             <div class="form-group row">
                 @include('admin.components.image', [
