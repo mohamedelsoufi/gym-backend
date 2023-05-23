@@ -60,14 +60,15 @@ body[dir="rtl"] {
     content: "\f106";
 }
 
-[dir="rtl"] .aside-menu .menu-nav > .menu-item > .menu-heading .menu-arrow::before, .aside-menu .menu-nav > .menu-item > .menu-link .menu-arrow::before {
+[dir="rtl"] .aside-menu .menu-nav > .menu-item > .menu-link .menu-arrow::before {
     content: "\f106";
 }
 
-[dir="rtl"] .aside-menu .menu-nav .menu-item.menu-item-open > .menu-heading > .menu-arrow::before, .aside-menu .menu-nav .menu-item.menu-item-open > .menu-link > .menu-arrow::before {
+[dir="rtl"] .aside-menu .menu-nav .menu-item.menu-item-open > .menu-link > .menu-arrow::before {
     -webkit-transform: rotateZ(-90deg) !important;
     transform: rotateZ(-90deg) !important;
 }
+
 
 .bootstrap-select .dropdown-toggle .filter-option * {
     text-align: initial !important;
