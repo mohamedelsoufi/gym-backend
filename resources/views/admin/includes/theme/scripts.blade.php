@@ -53,13 +53,6 @@
         "font-family": "Poppins"
     };</script>
 <!--end::Global Config-->
-
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-
-
-
-
 <!--begin::Global Theme Bundle(used by all pages)-->
 <script src="{{asset('dashboard/plugins/global/plugins.bundle.js')}}"></script>
 <script src="{{asset('dashboard/plugins/custom/prismjs/prismjs.bundle.js')}}"></script>
@@ -76,12 +69,10 @@
 
 <!--end::Page Vendors-->
 <!--begin::Page Scripts(used by this page)-->
-<script src="{{asset('dashboard/plugins/datatables/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('dashboard/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-<script src="{{asset('dashboard/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
-<script src="{{asset('dashboard/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
-<script src="{{asset('dashboard/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
-<script src="{{asset('dashboard/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
+<script src="{{asset('dashboard/js/pages/crud/datatables/basic/paginations.js')}}"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script src="{{asset('dashboard/plugins/custom/datatables/datatables.bundle.js')}}"></script>
+{{--<script src="{{asset('dashboard/js/pages/crud/file-upload/dropzonejs.js')}}"></script>--}}
 <script src="{{asset('dashboard/plugins/ckeditor/ckeditor.js')}}"></script>
 <!-- Ekko Lightbox -->
 <script src="{{asset('dashboard/plugins/ekko-lightbox/ekko-lightbox.min.js')}}"></script>
@@ -96,7 +87,10 @@
 <script src="{{asset('dashboard/js/pages/crud/forms/widgets/bootstrap-select.js')}}"></script>
 <!--end::Page Scripts-->
 
-{{--start for select all start like in roles--}}
+<script>
+    $.fn.dataTable.ext.errMode = 'none';
+</script>
+
 <script>
     $('#check_all').click(function (event) {
         if (this.checked) {
@@ -111,7 +105,6 @@
         }
     });
 </script>
-{{--end for select all start like in roles--}}
 
 
 <script>
@@ -126,75 +119,46 @@
         format: 'yyyy/mm/dd'
     });
 
-    $(window).resize(function(){
-        //Redraw datable
-        // $('#example1').dataTable().fnAdjustColumnSizing();//Automatically sets header size
-    });
-    $(function () {
-        $.fn.dataTable.ext.errMode = 'none';
-        $("#example1").DataTable({
-            "responsive": false, "lengthChange": false, "autoWidth": false, "bPaginate": true,
-            // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
-            "oLanguage": {
-                "sSearch": "{{__('words.dt_search')}}",
-                "sLoadingRecords": "{{__('words.loading')}}",
-                "sInfo": "{{__('words.dt_Showing')}} _START_ {{__('words.to')}} _END_ {{__('words.of')}} _TOTAL_ {{__('words.dt_entries')}}",
-                "sInfoEmpty": "{{__('words.dt_Showing_zero_page')}}",
-                "sEmptyTable": "{{__('words.zeroRecords')}}"
-            },
-
-            'buttons': [
-                {
-                    extend: 'copy', text: '{{__('words.copy')}}'
-                },
-                {
-                    extend: 'csv', text: '{{__('words.csv')}}'
-                },
-                {
-                    extend: 'excel', text: '{{__('words.excel')}}'
-                },
-                {
-                    extend: 'pdf', text: '{{__('words.pdf')}}'
-                },
-                {
-                    extend: 'print', text: '{{__('words.print')}}'
-                },
-                {
-                    extend: 'colvis', text: '{{__('words.column_visibility')}}'
-                },
-            ],
+    $(document).ready(function () {
+        $('#custom_datatable').dataTable({
+            pagingType: 'full_numbers',
+            responsive: false,
             "language": {
-                "paginate": {
-                    "previous": "{{__('pagination.previous')}}",
-                    "next": "{{__('pagination.next')}}",
-                }
+                {{--"search": "{{__('words.filter_records')}}",--}}
+                "sSearch": "{{__('words.dt_search')}}",
+                "emptyTable": "{{__('words.dt_no_data_available')}}",
+                "info": "{{__('words.dt_Showing_page')}} _PAGE_ {{__('words.of')}} _PAGES_",
+                "sInfo": "{{__('words.dt_Showing')}} _START_ {{__('words.to')}} _END_ {{__('words.of')}} _TOTAL_ entries",
+                "sInfoEmpty": "{{__('words.dt_Showing_zero_page')}}",
+                "sLengthMenu": "{{__('words.dt_show')}} _MENU_ {{__('words.dt_entries')}}",
+                {{--"infoEmpty": "{{__('words.dt_no_entries')}}",--}}
+                    {{--"infoFiltered": "{{__('words.dt_filtering_from')}} _MAX_ {{__('words.dt_records')}}",--}}
+                    {{--"sInfoFiltered": "({{__('words.dt_filtered_from')}} _MAX_ {{__('words.dt_total_entries')}})",--}}
+                    {{--"infoPostFix": "{{__('words.dt_infoPostFix')}}",--}}
+                "lengthMenu": "{{__('words.dt_display')}} _MENU_ {{__('words.dt_records')}}",
+                "loadingRecords": "{{__('words.loadingRecords')}}",
+                "sLoadingRecords": "{{__('words.sLoadingRecords')}}",
+                {{--"processing": "{{__('words.processing')}}",--}}
+                "sProcessing": "{{__('words.sProcessing')}}",
+                "zeroRecords": "{{__('words.zeroRecords')}}",
+                "sZeroRecords": "{{__('words.sZeroRecords')}}",
             }
-        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-        $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
         });
 
-        $('.modal').on('shown.bs.modal', function () {
-            //Get the datatable which has previously been initialized
-            var dataTable = $('#example1').DataTable();
-            //recalculate the dimensions
-            dataTable.columns.adjust().responsive.recalc();
-
-        });
-
-        $(".filter-option-inner-inner").each(function () {
+        // multi select
+        $(".filter-option-inner-inner").each(function() {
             var text = $(this).text();
             text = text.replace("Nothing selected", "{{__('words.not_selected')}}");
             $(this).text(text);
         });
     });
 
+    $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+        event.preventDefault();
+        $(this).ekkoLightbox({
+            alwaysShowClose: true
+        });
+    });
 </script>
 
 @yield('scripts')

@@ -51,7 +51,7 @@
         </div>
         <div class="card-body">
             <!--begin: Datatable-->
-            <table class="table table-separate table-head-custom table-checkable" id="example1">م                <thead>
+            <table class="table table-separate table-head-custom table-checkable" id="custom_datatable">م                <thead>
                 <tr>
                     <th>#</th>
                     <th>{{ __('words.image') }}</th>
