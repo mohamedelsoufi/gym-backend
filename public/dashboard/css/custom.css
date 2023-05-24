@@ -8,12 +8,12 @@ body[dir="rtl"] {
     }
 }
 
-@media (max-width: 992px) {
-    .dataTables_wrapper {
-        max-width: 300px;
-        overflow-x: auto
-    }
-}
+/*@media (max-width: 992px) {*/
+/*    .dataTables_wrapper {*/
+/*        max-width: 300px;*/
+/*        overflow-x: auto*/
+/*    }*/
+/*}*/
 
 .index_image {
     width: 100px;
@@ -74,3 +74,44 @@ body[dir="rtl"] {
     text-align: initial !important;
 }
 
+/*datatable responsive start*/
+[dir="ltr"] table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before{
+    right:5px !important;
+    left: unset !important;
+}
+[dir="rtl"] table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before{
+    left:5px !important;
+    right: unset !important;
+}
+@media only screen and (max-width: 788px) , only screen and (min-width: 992px) and (max-width: 1111px) {
+    #kt_body .card-body {
+        padding-right: 0 !important;
+    }
+
+    #kt_body[dir='rtl'] .card-body {
+        padding-right: 2.25rem !important;
+        padding-left: 0 !important;
+    }
+
+    #example1_wrapper table tbody > tr:not(.child) td:last-child,
+    #example1_wrapper table thead > tr:not(.child) th:last-child{
+        display: inline-block !important;
+        visibility: hidden;
+        width: 0 !important;
+    }
+
+    #example1_wrapper table tbody > tr:not(.child) td:last-child > a,
+    #example1_wrapper table thead > tr:not(.child) th:last-child > a{
+        display: none !important;
+    }
+
+    #example1_wrapper table tbody > tr:not(.child) td:last-child form {
+        visibility: visible;
+    }
+
+    #example1_wrapper table tbody > tr:not(.child) td:last-child form>button {
+        visibility: hidden;
+    }
+
+}
+/*datatable responsive start*/
