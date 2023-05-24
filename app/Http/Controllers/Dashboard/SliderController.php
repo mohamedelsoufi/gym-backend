@@ -40,6 +40,10 @@ class SliderController extends Controller
     public function store(SliderRequest $request)
     {
         try {
+            if (!$request->has('status'))
+                $request->request->add(['status' => 0]);
+            else
+                $request->request->add(['status' => 1]);
             $requested_data = $request->except(['_token', 'profile_avatar_remove', 'image']);
             $slider = $this->slider->create($requested_data);
             $slider->uploadFile();
@@ -63,6 +67,10 @@ class SliderController extends Controller
     public function update(SliderRequest $request, Slider $slider)
     {
         try {
+            if (!$request->has('status'))
+                $request->request->add(['status' => 0]);
+            else
+                $request->request->add(['status' => 1]);
             $requested_data = $request->except(['_token', 'profile_avatar_remove', 'image']);
             $requested_data['updated_at'] = Carbon::now();
             $slider->update($requested_data);

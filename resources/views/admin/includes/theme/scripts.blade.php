@@ -128,12 +128,12 @@
 
     $(window).resize(function(){
         //Redraw datable
-        $('#example1').dataTable().fnAdjustColumnSizing();//Automatically sets header size
+        // $('#example1').dataTable().fnAdjustColumnSizing();//Automatically sets header size
     });
     $(function () {
         $.fn.dataTable.ext.errMode = 'none';
         $("#example1").DataTable({
-            "responsive": true, "lengthChange": false, "autoWidth": false, "bPaginate": true,
+            "responsive": false, "lengthChange": false, "autoWidth": false, "bPaginate": true,
             // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
             "oLanguage": {
                 "sSearch": "{{__('words.dt_search')}}",

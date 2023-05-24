@@ -51,7 +51,7 @@
         </div>
         <div class="card-body">
             <!--begin: Datatable-->
-            <table class="table table-separate table-head-custom table-checkable" id="custom_datatable">
+            <table class="table table-separate table-head-custom table-checkable" id="example1">
                 <thead>
                 <tr>
                     <th>#</th>

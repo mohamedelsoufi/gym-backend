@@ -29,72 +29,72 @@
                 <div class="dropdown dropdown-inline mr-2">
                     <!--begin::Button-->
                     @permission('create-contacts')
-                        <a href="{{ route('contacts.create') }}" class="btn btn-primary font-weight-bolder">
+                    <a href="{{ route('contacts.create') }}" class="btn btn-primary font-weight-bolder">
                             <span class="svg-icon svg-icon-md">
                                 <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                     width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <rect x="0" y="0" width="24" height="24" />
-                                        <circle fill="#000000" cx="9" cy="15" r="6" />
+                                        <rect x="0" y="0" width="24" height="24"/>
+                                        <circle fill="#000000" cx="9" cy="15" r="6"/>
                                         <path
                                             d="M8.8012943,7.00241953 C9.83837775,5.20768121 11.7781543,4 14,4 C17.3137085,4 20,6.6862915 20,10 C20,12.2218457 18.7923188,14.1616223 16.9975805,15.1987057 C16.9991904,15.1326658 17,15.0664274 17,15 C17,10.581722 13.418278,7 9,7 C8.93357256,7 8.86733422,7.00080962 8.8012943,7.00241953 Z"
-                                            fill="#000000" opacity="0.3" />
+                                            fill="#000000" opacity="0.3"/>
                                     </g>
                                 </svg>
                                 <!--end::Svg Icon-->
                             </span>{{ __('words.add_new_record') }}</a>
-                        <!--end::Button-->
+                    <!--end::Button-->
                     @endpermission
                 </div>
             </div>
         </div>
         <div class="card-body">
             <!--begin: Datatable-->
-            <table class="table table-separate table-head-custom table-checkable" id="custom_datatable">
+            <table class="table table-separate table-head-custom table-checkable" id="example1">
                 <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>{{ __('words.contact') }}</th>
-                        <th>{{ __('words.type') }}</th>
-                        <th>{{ __('words.icon') }}</th>
-                        <th>{{ __('words.status') }}</th>
-                        <th>{{ __('words.created_at') }}</th>
-                        <th>{{ __('words.updated_at') }}</th>
-                        <th>{{ __('words.actions') }}</th>
-                    </tr>
+                <tr>
+                    <th>#</th>
+                    <th>{{ __('words.contact') }}</th>
+                    <th>{{ __('words.type') }}</th>
+                    <th>{{ __('words.icon') }}</th>
+                    <th>{{ __('words.status') }}</th>
+                    <th>{{ __('words.created_at') }}</th>
+                    <th>{{ __('words.updated_at') }}</th>
+                    <th>{{ __('words.actions') }}</th>
+                </tr>
                 </thead>
                 <tbody>
-                    @foreach ($contacts as $key => $contact)
-                        <tr>
+                @foreach ($contacts as $key => $contact)
+                    <tr>
 
-                            <td>{{ $key + 1 }}</td>
-                            <td dir="ltr" style="text-align: match-parent;">{{ $contact->contact }}</td>
-                            <td><span
-                                    class="badge
+                        <td>{{ $key + 1 }}</td>
+                        <td dir="ltr" style="text-align: match-parent;">{{ $contact->contact }}</td>
+                        <td><span
+                                class="badge
                                 @if ($contact->type === 'telephone') badge-success
                                 @elseif($contact->type === 'mobile') badge-danger
                                 @elseif($contact->type === 'email') badge-warning
                                 @else badge-primary @endif">{{ __('words.' . $contact->type) }}</span>
-                            </td>
-                            <td><i id="IconPreview" style="font-size:40px" class="{{ $contact->icon }}"></i></td>
-                            <td> <span
-                                    class="badge
+                        </td>
+                        <td><i id="IconPreview" style="font-size:40px" class="{{ $contact->icon }}"></i></td>
+                        <td> <span
+                                class="badge
                                 @if ($contact->status === 1) badge-success text-white
                                 @else badge-secondary text-dark @endif">{{ $contact->getActive() }}</span>
-                            </td>
-                            <td>{{ formatDate($contact->created_at) }}</td>
-                            <td>{{ formatDate($contact->created_at) == formatDate($contact->updated_at) ? '--' : formatDate($contact->updated_at) }}
-                            </td>
-                            <td nowrap="nowrap">
-                                @include('admin.components.form-controls', [
-                                    'name' => 'contacts',
-                                    'value' => $contact,
-                                    'role' => 'contacts',
-                                ])
-                            </td>
-                        </tr>
-                    @endforeach
+                        </td>
+                        <td>{{ formatDate($contact->created_at) }}</td>
+                        <td>{{ formatDate($contact->created_at) == formatDate($contact->updated_at) ? '--' : formatDate($contact->updated_at) }}
+                        </td>
+                        <td nowrap="nowrap">
+                            @include('admin.components.form-controls', [
+                                'name' => 'contacts',
+                                'value' => $contact,
+                                'role' => 'contacts',
+                            ])
+                        </td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
             <!--end: Datatable-->
