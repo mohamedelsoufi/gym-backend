@@ -9,14 +9,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 //    Auth::routes();
 
     Route::get('/', function () {
-        return view('welcome');
+        return redirect()->route('admin.home');
     })->name('home');
 });
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

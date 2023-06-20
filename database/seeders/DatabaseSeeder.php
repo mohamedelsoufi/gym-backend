@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\NewsLetter;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,7 +16,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call(LaratrustSeeder::class);
         $this->call(AdminSeeder::class);
+        $this->call(SliderSeeder::class);
         $this->call(SettingSeeder::class);
-        NewsLetter::factory(6000)->create();
     }
 }

@@ -65,6 +65,25 @@
                             </div>
                         </div>
 
+                        <div class="col form-group">
+                            <label>{{ __('words.sub_title') }} - {{ __('words.locale-' . $locale) }}<span class="text-danger">
+                                    * </span></label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="flaticon-edit"></i></span>
+                                </div>
+                                <input type="text" name="{{ $locale . '[sub_title]' }}"
+                                    placeholder="{{ __('words.sub_title') }}"
+                                    class="form-control  pl-5 min-h-40px @error($locale . '.sub_title') is-invalid @enderror"
+                                    value="{{ old($locale . '.sub_title') }}">
+                                @error($locale . '[sub_title]')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
 
                         <div class="col form-group">
                             <label>{{ __('words.description') }}({{ __('words.locale-' . $locale) }})<span

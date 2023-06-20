@@ -11,41 +11,35 @@ class SettingSeeder extends Seeder
     {
         $setting = Setting::create([
             'ar' => [
-                'website_title' => 'لوحة التحكم',
+                'website_title' => 'ترانسفورمر جيم',
             ],
             'en' => [
-                'website_title' => 'Dashboard',
+                'website_title' => 'Transformer Gym',
             ],
-            'contact_email' => 'mohamed@app.com',
-            'newsletter_email' => 'mohamed@app.com',
+            'contact_email' => 'contact@app.com',
         ]);
         $setting->file()->create([
-            'path' => 'favicon.ico',
+            'path' => 'seeder/logo.png',
             'type' => 'logo'
         ]);
 
         $setting->file()->create([
-            'path' => 'favicon.ico',
+            'path' => 'seeder/logo.png',
             'type' => 'white_logo'
         ]);
 
         $setting->file()->create([
-            'path' => 'favicon.ico',
+            'path' => 'seeder/favicon.ico',
             'type' => 'favicon'
         ]);
 
         $setting->file()->create([
-            'path' => 'favicon.ico',
-            'type' => 'contact_img'
-        ]);
-
-        $setting->file()->create([
-            'path' => 'favicon.ico',
+            'path' => 'seeder/slider&footer.jpg',
             'type' => 'footer_img'
         ]);
 
         $setting->file()->create([
-            'path' => 'favicon.ico',
+            'path' => 'seeder/breadcrumb.jpg',
             'type' => 'breadcrumb'
         ]);
     }

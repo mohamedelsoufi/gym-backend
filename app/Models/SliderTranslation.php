@@ -20,5 +20,10 @@ class SliderTranslation extends Model
     {
         return $this->attributes['title'] = ucwords($val);
     }
+
+    public function getSubTitleAttribute($val)
+    {
+        return $this->attributes['sub_title'] = ucfirst($val);
+    }
     // accessors & Mutator end
 }

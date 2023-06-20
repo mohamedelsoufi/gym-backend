@@ -42,13 +42,23 @@
                     <div class="tab-pane fade show @if ($key == 0) active @endif" id="{{ $locale }}"
                          role="tabpanel">
                         <div class="row mb-3">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="mb-7 bg-light p-5 rounded h-100">
                                     <div class="card-title">
                                         <h5 class="font-weight-bolder text-dark">{{ __('words.title') }}
                                             - {{ __('words.locale-' . $locale) }}:</h5>
                                     </div>
                                     <p class="m-0">{{ $slider->translate($locale)->title }}</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="mb-7 bg-light p-5 rounded h-100">
+                                    <div class="card-title">
+                                        <h5 class="font-weight-bolder text-dark">{{ __('words.sub_title') }}
+                                            - {{ __('words.locale-' . $locale) }}:</h5>
+                                    </div>
+                                    <p class="m-0">{{ $slider->translate($locale)->sub_title }}</p>
                                 </div>
                             </div>
                         </div>
