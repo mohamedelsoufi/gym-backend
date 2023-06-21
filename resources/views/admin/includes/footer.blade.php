@@ -3,7 +3,7 @@
     <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
         <!--begin::Copyright-->
         <div class="text-dark order-2 order-md-1">
-            {{ settings()->copyrights }}
+            {!! settings()->copyrights !!}
         </div>
         <!--end::Copyright-->
         <!--begin::Nav-->
