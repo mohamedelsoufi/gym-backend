@@ -207,6 +207,8 @@ return [
             "email " => "Email In Arabic",
             "question" => "Question In Arabic",
             "answer" => "Answer In Arabic",
+            "day" => "Day In Arabic",
+            "time" => "Time In Arabic",
         ],
 
         "en" => [
@@ -221,6 +223,8 @@ return [
             "email " => "Email In English",
             "question" => "Question In English",
             "answer" => "Answer In English",
+            "day" => "Day In English",
+            "time" => "Time In English",
         ],
         "images" => "images",
     ],

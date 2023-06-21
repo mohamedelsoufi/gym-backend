@@ -5,6 +5,8 @@ return [
         "admins" => ["read", "create", "update", "delete", "updateProfile"],
         "sliders" => ["read", "create", "update", "delete"],
         "features" => ["read", "create", "update", "delete"],
+        "gym_classes" => ["read", "create", "update", "delete"],
+        "days" => ["read", "create", "update", "delete"],
         "categories" => ["read", "create", "update", "delete"],
         "products" => ["read", "create", "update", "delete"],
         "projects" => ["read", "create", "update", "delete"],

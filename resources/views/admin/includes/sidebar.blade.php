@@ -147,6 +147,90 @@
                 @endpermission
                 {{-- feature routes end --}}
 
+                {{-- day routes start --}}
+                @permission('read-days')
+                <li class="menu-item menu-item-submenu {{ request()->routeIs('days.*') ? 'menu-item-open menu-item-here' : '' }}"
+                    aria-haspopup="true" data-menu-toggle="hover">
+                    <a href="javascript:;" class="menu-link menu-toggle">
+                        <i class="fas fa-calendar-day svg-icon menu-icon"></i>
+                        <span class="menu-text">{{__('words.days')}}</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="menu-submenu">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav">
+
+                            @permission('read-days')
+                            <li class="menu-item  {{ request()->routeIs('days.index') ? 'menu-item-active' : '' }}"
+                                aria-haspopup="true">
+                                <a href="{{route('days.index')}}" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">{{__('words.show_all')}}</span>
+                                </a>
+                            </li>
+                            @endpermission
+
+                            @permission('create-days')
+                            <li class="menu-item  {{ request()->routeIs('days.create') ? 'menu-item-active' : '' }}"
+                                aria-haspopup="true">
+                                <a href="{{route('days.create')}}" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">{{__('words.create')}}</span>
+                                </a>
+                            </li>
+                            @endpermission
+                        </ul>
+                    </div>
+                </li>
+                @endpermission
+                {{-- day routes end --}}
+
+                {{-- classes routes start --}}
+                @permission('read-gym_classes')
+                <li class="menu-item menu-item-submenu {{ request()->routeIs('classes.*') ? 'menu-item-open menu-item-here' : '' }}"
+                    aria-haspopup="true" data-menu-toggle="hover">
+                    <a href="javascript:;" class="menu-link menu-toggle">
+                        <i class="fas fa-dumbbell svg-icon menu-icon"></i>
+                        <span class="menu-text">{{__('words.classes')}}</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="menu-submenu">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav">
+
+                            @permission('read-gym_classes')
+                            <li class="menu-item  {{ request()->routeIs('classes.index') ? 'menu-item-active' : '' }}"
+                                aria-haspopup="true">
+                                <a href="{{route('classes.index')}}" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">{{__('words.show_all')}}</span>
+                                </a>
+                            </li>
+                            @endpermission
+
+                            @permission('create-gym_classes')
+                            <li class="menu-item  {{ request()->routeIs('classes.create') ? 'menu-item-active' : '' }}"
+                                aria-haspopup="true">
+                                <a href="{{route('classes.create')}}" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">{{__('words.create')}}</span>
+                                </a>
+                            </li>
+                            @endpermission
+                        </ul>
+                    </div>
+                </li>
+                @endpermission
+                {{-- classes routes end --}}
+
                 {{-- category routes start --}}
                 @permission('read-categories')
                 <li class="menu-item menu-item-submenu {{ request()->routeIs('categories.*') ? 'menu-item-open menu-item-here' : '' }}"
@@ -314,7 +398,6 @@
                 </li>
                 @endpermission
                 {{-- project routes end --}}
-
 
                 {{-- team routes start --}}
                 @permission('read-teams')

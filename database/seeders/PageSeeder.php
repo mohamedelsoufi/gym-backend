@@ -103,6 +103,24 @@ class PageSeeder extends Seeder
             'type' => 'file'
         ]);
 
+        $our_classes = Page::create([
+            'identifier' => 'our_classes',
+            'has_link' => 0,
+            'has_title' => 1,
+            'has_sub_title' => 0,
+            'has_description' => 1,
+            'has_image' => 0,
+            'has_video' => 0,
+            'ar' => [
+                'title' => 'فصولنا',
+                'description' => 'تعال وانضم إلينا واستمتع واستمتع',
+            ],
+            'en' => [
+                'title' => 'OUR CLASSES',
+                'description' => 'Come Join Us, Enjoy and have Fun',
+            ],
+        ]);
+
         $branch_view = Page::create([
             'identifier' => 'branch_view',
             'has_link' => 0,

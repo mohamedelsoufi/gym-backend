@@ -214,14 +214,20 @@ return [
     "edit_feature" => "Edit Feature",
     "create_feature" => "Create Feature",
 
-    "news_letter" => "News Letter",
-    "news_letters" => "News Letters",
-    "show_news_letters" => "Show News Letters",
-    "show_news_letter" => "Show News Letter",
-    "edit_news_letter" => "Edit News Letter",
-    "create_news_letter" => "Create News Letter",
-    "show_subscribed_users" => "Show Subscribed Users",
-    "subscribed" => "Subscribed Users",
+    "day" => "Day",
+    "days" => "Days",
+    "show_days" => "Show Days",
+    "show_day" => "Show Day",
+    "edit_day" => "Edit Day",
+    "create_day" => "Create Day",
+
+    "class" => "Class",
+    "classes" => "Classes",
+    "show_classes" => "Show Classes",
+    "show_class" => "Show Class",
+    "edit_class" => "Edit Class",
+    "create_class" => "Create Class",
+    "time" => "Time",
 
     "contact_details" => "Contact Details",
     "contact_request" => "Contact request from: ",
@@ -240,6 +246,7 @@ return [
         "copyrights" => "copyrights In Arabic",
         "phone " => "Phone In Arabic",
         "email " => "Email In Arabic",
+
     ],
 
     "en" => [
@@ -252,6 +259,7 @@ return [
         "copyrights" => "Copyrights In English",
         "phone " => "Phone In English",
         "email " => "Email In English",
+
     ],
 
     "developed" => "Designed and programmed by Marwan Group",

@@ -34,16 +34,22 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
             //feature routes
             Route::resource('features', 'FeatureController');
 
+            //days routes
+            Route::resource('days', 'DayController');
+
+            //days routes
+            Route::resource('classes', 'GymClassController');
+
             //category routes
             Route::resource('categories', 'CategoryController');
 
             //product routes
             Route::resource('products', 'ProductController');
 
-            //product routes
+            //service routes
             Route::resource('services', 'ServiceController');
 
-            //product routes
+            //project routes
             Route::resource('projects', 'ProjectController');
 
             //teams routes
@@ -70,20 +76,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
             //contact routes
             Route::resource('contacts', 'SettingContactController');
 
-            //news-letter routes
-            Route::resource('news-letters', 'NewsLetterController');
-            Route::get('subscribed-users', 'NewsLetterController@subscribedUsers')->name('news-letters.subscribed');
-            Route::post('subscribed-users/delete/{id}', 'NewsLetterController@deleteSubscribedUsers')->name('news-letters.delete_subscribed_users');
-
             //setting routes
             Route::resource('settings', 'SettingController');
-
-            //course routes
-            Route::get('courses', 'CourseController@index')->name('courses.index');
-            Route::get('courses/{id}/show', 'CourseController@index')->name('courses.show');
-            Route::get('courses/create', 'CourseController@create')->name('courses.create');
-            Route::post('courses/import', 'CourseController@import')->name('courses.import');
-            Route::get('courses/export', 'CourseController@export')->name('courses.export');
         });
     });
 });
