@@ -39,7 +39,7 @@ class PageController extends Controller
     public function store(PageRequest $request)
     {
         try {
-            $requested_data = $request->except(['_token', 'profile_avatar_remove', 'image']);
+            $requested_data = $request->except(['_token', 'profile_avatar_remove', 'image','file']);
             $page = $this->page->create($requested_data);
             $page->uploadFile();
 
@@ -62,7 +62,7 @@ class PageController extends Controller
     public function update(PageRequest $request, Page $page)
     {
         try {
-            $requested_data = $request->except(['_token', 'profile_avatar_remove', 'image']);
+            $requested_data = $request->except(['_token', 'profile_avatar_remove', 'image','file']);
             $page->update($requested_data);
             $requested_data['updated_at'] = Carbon::now();
             $page->updateFile();

@@ -99,8 +99,8 @@ class PageSeeder extends Seeder
             'type' => 'image'
         ]);
         $video->file()->create([
-            'path' => 'seeder/International Womens Day - Video.mp4',
-            'type' => 'video'
+            'path' => 'seeder/international_Womens_Day-Video.mp4',
+            'type' => 'file'
         ]);
 
         $branch_view = Page::create([

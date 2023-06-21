@@ -42,15 +42,17 @@
                     <div class="tab-pane fade show @if ($key == 0) active @endif" id="{{ $locale }}"
                          role="tabpanel">
                         <div class="row mb-3">
-                            <div class="col-md-6">
-                                <div class="mb-7 bg-light p-5 rounded h-100">
-                                    <div class="card-title">
-                                        <h5 class="font-weight-bolder text-dark">{{ __('words.title') }}
-                                            - {{ __('words.locale-' . $locale) }}:</h5>
+                            @if ($page->has_title == true)
+                                <div class="col-md-6">
+                                    <div class="mb-7 bg-light p-5 rounded h-100">
+                                        <div class="card-title">
+                                            <h5 class="font-weight-bolder text-dark">{{ __('words.title') }}
+                                                - {{ __('words.locale-' . $locale) }}:</h5>
+                                        </div>
+                                        <p class="m-0">{{ $page->translate($locale)->title }}</p>
                                     </div>
-                                    <p class="m-0">{{ $page->translate($locale)->title }}</p>
                                 </div>
-                            </div>
+                            @endif
 
                             @if ($page->has_sub_title == true)
                                 <div class="col-md-6">
@@ -97,17 +99,6 @@
                         </div>
                     @endif
 
-                    @if ($page->has_video == true)
-                        <div class="col-md-2">
-                            <div class="mb-7 bg-light p-5 rounded h-100">
-                                <div class="card-title">
-                                    <h5 class="font-weight-bolder text-dark">{{ __('words.video') }}:</h5>
-                                </div>
-                                <p class="m-0"><a href="{{ $page->video }}" target="_blank">{{ $page->video }}</a></p>
-                            </div>
-                        </div>
-                    @endif
-
                     <div class="col-md-4">
                         <div class="mb-7 bg-light p-5 rounded h-100">
                             <div class="card-title">
@@ -129,18 +120,39 @@
                     </div>
                 </div>
 
-                @if ($page->has_image == true)
-                    <div class="row">
-                        <div class="col-8">
+
+                <div class="row">
+                    @if ($page->has_image == true)
+                        <div class="col-6">
                             <a href="{{$page->image}}"
                                data-toggle="lightbox" data-title="{{$page->title}}"
                                data-gallery="gallery">
-                                <img src="{{ $page->image }}" class="img-fluid mb-2 image-galley"
+                                <img src="{{ $page->image }}" class="img-fluid mb-2 image-galley h-100"
+                                     style="width: 100%"
                                      onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="page image"/>
                             </a>
                         </div>
-                    </div>
-                @endif
+                    @endif
+
+                    @if ($page->has_video == true)
+                        <div class="col-4">
+                            <div class="mb-7 bg-light p-5 rounded h-100">
+                                <video controls style="width: 100%;height: 100%">
+                                    <source src="{{ $page->video }}" type="video/mp4">
+                                    <source src="{{ $page->video }}" type="video/x-flv">
+                                    <source src="{{ $page->video }}" type="application/x-mpegURL">
+                                    <source src="{{ $page->video }}" type="video/MP2T">
+                                    <source src="{{ $page->video }}" type="video/3gpp">
+                                    <source src="{{ $page->video }}" type="video/quicktime">
+                                    <source src="{{ $page->video }}" type="video/x-msvideo">
+                                    <source src="{{ $page->video }}" type="video/x-ms-wmv">
+                                    <source src="{{ $page->video }}" type="video/ogg">
+                                    Your browser does not support HTML video.
+                                </video>
+                            </div>
+                        </div>
+                    @endif
+                </div>
             </div>
 
             @permission('update-pages')

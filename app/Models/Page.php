@@ -15,7 +15,7 @@ class Page extends Model
 
     protected $guarded = [];
 
-    protected $appends = ['image'];
+    protected $appends = ['image','video'];
 
     public $translatedAttributes = ['title', 'sub_title', 'description'];
 
@@ -33,6 +33,12 @@ class Page extends Model
     public function getImageAttribute()
     {
         $image = $this->file()->first();
+        return $image ? $image->path : asset('uploads/default_image.png');
+    }
+
+    public function getVideoAttribute()
+    {
+        $image = $this->file()->where('type', 'file')->first();
         return $image ? $image->path : asset('uploads/default_image.png');
     }
 

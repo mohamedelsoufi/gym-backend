@@ -18,11 +18,11 @@ class PageRequest extends FormRequest
             'image' => 'nullable|max:900|image',
             'identifier' => 'required_without:id',
             'link' => 'nullable|url',
-            'video' => 'nullable|url',
+            'video' => 'nullable|max:10000|mime:.flv,.mp4,.m3u8,.ts,.3gp,.mov,.avi,.wmv',
         ];
         foreach (config('translatable.locales') as $locale) {
-            $rules += [$locale . '.title' => ['required', 'string', Rule::unique('page_translations', 'title')->ignore($this->id, 'page_id')]];
-            $rules += [$locale . '.sub_title' => ['nullable', 'string','max:200']];
+            $rules += [$locale . '.title' => ['required_without:id', 'string', Rule::unique('page_translations', 'title')->ignore($this->id, 'page_id')]];
+            $rules += [$locale . '.sub_title' => ['nullable', 'string', 'max:200']];
             $rules += [$locale . '.description' => ['nullable', 'string']];
         }
 
