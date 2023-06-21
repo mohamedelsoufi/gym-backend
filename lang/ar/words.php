@@ -206,12 +206,12 @@ return [
     "type" => "النوع",
     "social" => "رابط موقع تواصل إجتماعى",
 
-    "course" => "الدورة",
-    "courses" => "الدورات",
-    "show_courses" => "عرض الدورات",
-    "show_course" => "عرض الدورة",
-    "edit_course" => "تعديل الدورة",
-    "create_course" => "إنشاء دورات",
+    "feature" => "الميزة",
+    "features" => "المميزات",
+    "show_features" => "عرض المميزات",
+    "show_feature" => "عرض الميزة",
+    "edit_feature" => "تعديل الميزة",
+    "create_feature" => "إنشاء ميزة",
 
     "news_letter" => "القائمة البريدية",
     "news_letters" => "القوائم البريدية",

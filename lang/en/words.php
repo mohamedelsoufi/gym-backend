@@ -207,12 +207,12 @@ return [
     "type" => "Type",
     "social" => "Social Media Link",
 
-    "course" => "Course",
-    "courses" => "Courses",
-    "show_courses" => "Show Courses",
-    "show_course" => "Show Course",
-    "edit_course" => "Edit Course",
-    "create_course" => "Create Course",
+    "feature" => "Feature",
+    "features" => "Features",
+    "show_features" => "Show Features",
+    "show_feature" => "Show Feature",
+    "edit_feature" => "Edit Feature",
+    "create_feature" => "Create Feature",
 
     "news_letter" => "News Letter",
     "news_letters" => "News Letters",

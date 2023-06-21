@@ -31,6 +31,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
             //slider routes
             Route::resource('sliders', 'SliderController');
 
+            //feature routes
+            Route::resource('features', 'FeatureController');
+
             //category routes
             Route::resource('categories', 'CategoryController');
 

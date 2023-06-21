@@ -105,6 +105,48 @@
                 @endpermission
                 {{-- slider routes end --}}
 
+                {{-- feature routes start --}}
+                @permission('read-features')
+                <li class="menu-item menu-item-submenu {{ request()->routeIs('features.*') ? 'menu-item-open menu-item-here' : '' }}"
+                    aria-haspopup="true" data-menu-toggle="hover">
+                    <a href="javascript:;" class="menu-link menu-toggle">
+                        <i class="fas fa-feather-alt svg-icon menu-icon"></i>
+                        <span class="menu-text">{{__('words.features')}}</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="menu-submenu">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav">
+
+                            @permission('read-features')
+                            <li class="menu-item  {{ request()->routeIs('features.index') ? 'menu-item-active' : '' }}"
+                                aria-haspopup="true">
+                                <a href="{{route('features.index')}}" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">{{__('words.show_all')}}</span>
+                                </a>
+                            </li>
+                            @endpermission
+
+                            @permission('create-features')
+                            <li class="menu-item  {{ request()->routeIs('features.create') ? 'menu-item-active' : '' }}"
+                                aria-haspopup="true">
+                                <a href="{{route('features.create')}}" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">{{__('words.create')}}</span>
+                                </a>
+                            </li>
+                            @endpermission
+                        </ul>
+                    </div>
+                </li>
+                @endpermission
+                {{-- feature routes end --}}
+
                 {{-- category routes start --}}
                 @permission('read-categories')
                 <li class="menu-item menu-item-submenu {{ request()->routeIs('categories.*') ? 'menu-item-open menu-item-here' : '' }}"
