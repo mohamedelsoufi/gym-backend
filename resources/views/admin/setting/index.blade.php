@@ -114,47 +114,27 @@
 
                         <div class="col form-group">
                             <label>{{ __('words.copyrights') }} - {{ __('words.locale-' . $locale) }}<span
-                                    class="text-danger"> * </span></label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="flaticon-edit"></i></span>
-                                </div>
-                                <input type="text" name="{{ $locale . '[copyrights]' }}"
-                                    placeholder="{{ __('words.copyrights') }}"
-                                    class="form-control  pl-5 min-h-40px @error($locale . '.copyrights') is-invalid @enderror"
-                                    value="{{ old($locale . '.copyrights', $setting->translate($locale)->copyrights) }}">
-                                @error($locale . '[copyrights]')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                                    class="text-danger">*</span></label>
+                            <textarea class="form-control ckeditor @error($locale . '.copyrights') is-invalid @enderror " type="text"
+                                      name="{{ $locale . '[copyrights]' }}" rows="1">{{ old($locale . '.copyrights', $setting->translate($locale)->copyrights) }} </textarea>
+                            @error($locale . '[copyrights]')
+                            <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
                         <div class="col form-group">
                             <label>{{ __('words.address') }} - {{ __('words.locale-' . $locale) }}<span
                                     class="text-danger">*</span></label>
                             <textarea class="form-control @error($locale . '.address') is-invalid @enderror " type="text"
-                                name="{{ $locale . '[address]' }}" rows="4">{{ old($locale . '.address', $setting->translate($locale)->address) }} </textarea>
+                                name="{{ $locale . '[address]' }}" rows="1">{{ old($locale . '.address', $setting->translate($locale)->address) }} </textarea>
                             @error($locale . '[address]')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
-
-                        <div class="col form-group">
-                            <label>{{ __('words.footer_description') }} - {{ __('words.locale-' . $locale) }}<span
-                                    class="text-danger">*</span></label>
-                            <textarea class="form-control ckeditor @error($locale . '.footer_description') is-invalid @enderror " type="text"
-                                name="{{ $locale . '[footer_description]' }}" rows="4">{{ old($locale . '.footer_description', $setting->translate($locale)->footer_description) }} </textarea>
-                            @error($locale . '[footer_description]')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-
 
                     </div>
                 @endforeach
@@ -189,18 +169,6 @@
                     </span>
                     @enderror
                 </div>
-
-                <div class="col form-group">
-                    <label>{{ __('words.newsletter_email') }}<span
-                            class="text-danger">*</span></label>
-                    <input class="form-control @error('newsletter_email') is-invalid @enderror " type="email"
-                           name="{{'newsletter_email'}}" value="{{ old('newsletter_email', $setting->newsletter_email) }}"/>
-                    @error('newsletter_email')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
             </div>
             <div class="form-group row">
                 @include('admin.components.image', [
@@ -212,28 +180,12 @@
                 ])
 
                 @include('admin.components.image', [
-                   'label' => __('words.white_logo'),
-                   'value' => $setting->white_logo,
-                   'name' => 'white_logo',
-                   'id' => 'kt_image_2',
-                   'required' => false,
-               ])
-
-                @include('admin.components.image', [
                    'label' => __('words.favicon'),
                    'value' => $setting->favicon,
                    'name' => 'favicon',
                    'id' => 'kt_image_3',
                    'required' => false,
                ])
-
-                @include('admin.components.image', [
-                    'label' => __('words.contact_img'),
-                    'value' => $setting->contact_img,
-                    'name' => 'contact_img',
-                    'id' => 'kt_image_4',
-                    'required' => false,
-                ])
 
                 @include('admin.components.image', [
                     'label' => __('words.footer_img'),
