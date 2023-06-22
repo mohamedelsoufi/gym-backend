@@ -130,6 +130,7 @@ return [
     "create_project" => "إنشاء مشروع",
 
     "our_trainers" => "مدربينا",
+    "edit_our_trainers" => "تعديل مدربينا",
     "teams" => "المدربين",
     "show_teams" => "عرض المدربين",
     "show_team" => "عرض المدرب",
@@ -137,6 +138,7 @@ return [
     "create_team" => "إنشاء مدرب",
 
     "our_gallery" => "معرضنا",
+    "edit_our_gallery" => "تعديل صفحة معرضنا",
     "gallery" => "معرض الصور",
     "galleries" => "معارض الصور",
     "show_galleries" => "عرض معارض الصور",
@@ -246,7 +248,9 @@ return [
     "create_class_schedule" => "إنشاء جدول الفصل",
 
     "nile_view" => "النيل فيو",
+    "edit_nile" => "تعديل صفحة الفرع",
     "branch_point" => "نقطة الفرع",
+    "branch_points" => "نقاط الفروع",
     "branches_points" => "نقاط الفروع",
     "show_branches_points" => "عرض النقاط",
     "show_branch_point" => "عرض النقطة",
@@ -261,6 +265,7 @@ return [
     "create_branch" => "إنشاء فرع",
 
     "our_package" => "باقتنا",
+    "edit_our_package" => "تعديل صفحة باقاتنا",
     "packages" => "الباقات",
     "show_packages" => "عرض الباقات",
     "show_package" => "عرض الباقة",

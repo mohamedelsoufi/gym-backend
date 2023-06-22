@@ -131,6 +131,7 @@ return [
     "create_project" => "Create Project",
 
     "our_trainers" => "Our Trainers",
+    "edit_our_trainers" => "Edit Our Trainers page",
     "teams" => "Trainers",
     "show_teams" => "Show Trainer",
     "show_team" => "Show Trainer",
@@ -239,6 +240,7 @@ return [
     "create_class_schedule" => "Create Class Schedule",
 
     "nile_view" => "Nile View",
+    "edit_nile" => "Edit Branch page",
     "branch_point" => "Branch Point",
     "branch_points" => "Branches Points",
     "show_branches_points" => "Show Branches Points",
@@ -254,6 +256,7 @@ return [
     "create_branch" => "Create Branch",
 
     "our_gallery" => "Our Gallery",
+    "edit_our_gallery" => "Edit Our Gallery Page",
     "gallery" => "Gallery",
     "galleries" => "Galleries",
     "show_galleries" => "Show Galleries",
@@ -262,6 +265,7 @@ return [
     "create_gallery" => "Create Gallery",
 
     "our_package" => "Our Packages",
+    "edit_our_package" => "Edit Our Packages Page",
     "packages" => "Packages",
     "show_packages" => "Show Package",
     "show_package" => "Show Package",
