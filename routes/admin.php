@@ -55,35 +55,14 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
             //package routes
             Route::resource('packages', 'PackageController');
 
-            //category routes
-            Route::resource('categories', 'CategoryController');
-
-            //product routes
-            Route::resource('products', 'ProductController');
-
-            //service routes
-            Route::resource('services', 'ServiceController');
-
-            //project routes
-            Route::resource('projects', 'ProjectController');
-
-            //teams routes
-            Route::resource('teams', 'TeamController');
-
-            //testimonials routes
-            Route::resource('testimonials', 'TestimonialController');
-
             //partners routes
             Route::resource('partners', 'PartnerController');
-
-            //portfolios routes
-            Route::resource('portfolios', 'PortfolioController');
 
             //blog routes
             Route::resource('blog', 'BlogController');
 
-            //FAQ routes
-            Route::resource('faqs', 'FaqController');
+            //teams routes
+            Route::resource('teams', 'TeamController');
 
             //pages routes
             Route::resource('pages', 'PageController');
