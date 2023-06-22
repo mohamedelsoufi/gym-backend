@@ -235,6 +235,14 @@ return [
     "edit_class_schedule" => "تعديل جدول الفصل",
     "create_class_schedule" => "إنشاء جدول الفصل",
 
+    "nile_view" => "النيل فيو",
+    "branch" => "فرع النيل",
+    "branches" => "نقاط فرع النيل",
+    "show_branches" => "عرض النقاط",
+    "show_branch" => "عرض النقطة",
+    "edit_branch" => "تعديل النقطة",
+    "create_branch" => "إنشاء النقطة",
+
     "contact_details" => "تفاصيل الإتصال",
     "contact_request" => "طلب إتصال مقدم من: ",
     "message" => "الرسالة",

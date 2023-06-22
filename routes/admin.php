@@ -43,6 +43,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
             //schedule routes
             Route::resource('schedules', 'ClassScheduleController');
 
+            //branch routes
+            Route::resource('branches', 'BranchController');
+
             //category routes
             Route::resource('categories', 'CategoryController');
 

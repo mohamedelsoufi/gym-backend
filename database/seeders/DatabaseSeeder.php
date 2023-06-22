@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(DaySeeder::class);
         $this->call(GymClassSeeder::class);
         $this->call(ClassScheduleSeeder::class);
+        $this->call(BranchSeeder::class);
         $this->call(SettingSeeder::class);
     }
 }

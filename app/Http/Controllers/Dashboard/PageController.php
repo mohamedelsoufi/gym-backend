@@ -24,7 +24,7 @@ class PageController extends Controller
     public function index()
     {
         try {
-            $pages = $this->page->latest('id')->get();
+            $pages = $this->page->latest('id')->where('identifier','!=','branch_view')->get();
             return view('admin.pages.index', compact('pages'));
         } catch (\Exception $e) {
             return redirect()->back()->with(['error' => __('message.something_wrong')]);

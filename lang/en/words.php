@@ -236,6 +236,14 @@ return [
     "edit_class_schedule" => "Edit Class Schedule",
     "create_class_schedule" => "Create Class Schedule",
 
+    "nile_view" => "Nile View",
+    "branch" => "Branch of The Nile",
+    "branches" => "Nile Branch Points",
+    "show_branches" => "Show Points",
+    "show_branch" => "Show Branch Point",
+    "edit_branch" => "Edit Point",
+    "create_branch" => "Create Branch Point",
+
     "contact_details" => "Contact Details",
     "contact_request" => "Contact request from: ",
     "message" => "Message",
