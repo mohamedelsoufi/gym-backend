@@ -267,6 +267,11 @@ return [
     "edit_package" => "Edit Package",
     "create_package" => "Create Package",
 
+    "comment" => "Comment",
+    "comments" => "Comments",
+    "show_comments" => "Show Comments",
+    "show_comment" => "Show Comment",
+
     "contact_details" => "Contact Details",
     "contact_request" => "Contact request from: ",
     "message" => "Message",

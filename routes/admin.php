@@ -61,6 +61,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
             //blog routes
             Route::resource('blog', 'BlogController');
 
+            //comment routes
+            Route::resource('comments', 'CommentController');
+
             //teams routes
             Route::resource('teams', 'TeamController');
 

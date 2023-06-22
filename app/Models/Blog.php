@@ -21,6 +21,11 @@ class Blog extends Model
 
     public $timestamps = true;
 
+    // relations start
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
+    // relations end
 
     // Scopes start
     public function scopeActive($query)

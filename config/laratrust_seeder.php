@@ -15,6 +15,7 @@ return [
         "galleries" => ["read", "create", "update", "delete",'edit_our_gallery'],
         "partners" => ["read", "create", "update", "delete"],
         "blog" => ["read", "create", "update", "delete"],
+        "comments" => ["read", "delete"],
         "pages" => ["read", "create", "update"],
         "contacts" => ["read", "create", "update", "delete"],
         "settings" => ["read", "update"],

@@ -266,6 +266,11 @@ return [
     "edit_package" => "تعديل الباقة",
     "create_package" => "إنشاء باقة",
 
+    "comment" => "التعليق",
+    "comments" => "التعليقات",
+    "show_comments" => "عرض التعليقات",
+    "show_comment" => "عرض التعليق",
+
     "contact_details" => "تفاصيل الإتصال",
     "contact_request" => "طلب إتصال مقدم من: ",
     "message" => "الرسالة",

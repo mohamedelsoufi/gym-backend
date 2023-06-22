@@ -30,7 +30,7 @@
                     @foreach (config('translatable.locales') as $key => $locale)
                         <li class="nav-item">
                             <a class="nav-link  @if ($key == 0) active @endif" data-toggle="tab"
-                                href="{{ '#' . $locale }}">{{ __('words.locale-' . $locale) }}</a>
+                               href="{{ '#' . $locale }}">{{ __('words.locale-' . $locale) }}</a>
                         </li>
                     @endforeach
                 </ul>
@@ -40,7 +40,7 @@
             <div class="tab-content">
                 @foreach (config('translatable.locales') as $key => $locale)
                     <div class="tab-pane fade show @if ($key == 0) active @endif" id="{{ $locale }}"
-                        role="tabpanel">
+                         role="tabpanel">
                         <div class="row mb-3">
                             <div class="col-md-12">
                                 <div class="mb-7 bg-light p-5 rounded h-100">
@@ -63,7 +63,6 @@
                                     {!! $blog->translate($locale)->description !!}
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 @endforeach
@@ -72,6 +71,33 @@
 
         <div class="card card-custom">
             <div class="card-body">
+
+                <div class="row mb-3">
+                    <div class="card">
+                        <div class="card-header bg-secondary">
+                            <h5>{{__('words.comments')}}</h5>
+                        </div>
+                        @foreach($blog->comments as $comment)
+                            <div class="card-body">
+                                <div class="card w-100">
+                                    <div class="card-body">
+                                        <div class="card-header">
+                                            <h6><a href="{{route('comments.show',$comment->id)}}">{{$comment->name}}</a>
+                                            </h6>
+                                        </div>
+                                        <div class="card">
+
+                                            <div class="card-body">
+                                                <p class="card-text">{{$comment->comment}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+
                 <div class="row mb-3">
                     <div class="col-md-4">
                         <div class="mb-7 bg-light p-5 rounded h-100">
@@ -98,7 +124,9 @@
                             <div class="card-title">
                                 <h5 class="font-weight-bolder text-dark">{{ __('words.activity') }}:</h5>
                             </div>
-                            <p class="m-0"><span class="badge rounded-pill text-white {{$blog->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $blog->getActive() }}</p>
+                            <p class="m-0"><span
+                                    class="badge rounded-pill text-white {{$blog->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $blog->getActive() }}</span>
+                            </p>
                         </div>
                     </div>
 
@@ -110,8 +138,8 @@
                         <a href="{{$blog->image}}"
                            data-toggle="lightbox" data-title="{{$blog->title}}"
                            data-gallery="gallery">
-                        <img src="{{ $blog->image }}" class="img-fluid mb-2 image-galley"
-                            onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="blog image" />
+                            <img src="{{ $blog->image }}" class="img-fluid mb-2 image-galley"
+                                 onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="blog image"/>
                         </a>
                     </div>
                 </div>
@@ -119,15 +147,15 @@
             </div>
 
             @permission('update-blog')
-                <div class="card-footer">
-                    <div class="row">
-                        <div class="col-4">
-                            <a href="{{ route('blog.edit', $blog->id) }}" class="btn btn-block btn-outline-info">
-                                {{ __('words.edit') }}
-                            </a>
-                        </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-4">
+                        <a href="{{ route('blog.edit', $blog->id) }}" class="btn btn-block btn-outline-info">
+                            {{ __('words.edit') }}
+                        </a>
                     </div>
                 </div>
+            </div>
             @endpermission
         </div>
     </div>

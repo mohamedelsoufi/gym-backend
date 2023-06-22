@@ -28,6 +28,8 @@ class DatabaseSeeder extends Seeder
         $this->call(GallerySeeder::class);
         $this->call(PackageSeeder::class);
         $this->call(PartenerSeeder::class);
+        $this->call(BlogSeeder::class);
+        $this->call(CommentSeeder::class);
         $this->call(SettingSeeder::class);
     }
 }
