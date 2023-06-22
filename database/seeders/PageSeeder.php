@@ -180,5 +180,23 @@ class PageSeeder extends Seeder
             'path' => 'seeder/slider3.jpg',
             'type' => 'image'
         ]);
+
+        $our_gallery = Page::create([
+            'identifier' => 'our_gallery',
+            'has_link' => 0,
+            'has_title' => 1,
+            'has_sub_title' => 1,
+            'has_description' => 0,
+            'has_image' => 0,
+            'has_video' => 0,
+            'ar' => [
+                'title' => 'معرض الصور',
+                'sub_title' => 'كن جزءًا من عائلة TFC.',
+            ],
+            'en' => [
+                'title' => 'Our Gallery',
+                'sub_title' => 'Be Part Of TFC Family.',
+            ],
+        ]);
     }
 }

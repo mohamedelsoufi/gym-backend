@@ -14,6 +14,7 @@ return [
         "projects" => ["read", "create", "update", "delete"],
         "services" => ["read", "create", "update", "delete"],
         "teams" => ["read", "create", "update", "delete",'edit_our_trainers'],
+        "galleries" => ["read", "create", "update", "delete",'edit_our_gallery'],
         "testimonials" => ["read", "create", "update", "delete"],
         "partners" => ["read", "create", "update", "delete"],
         "portfolios" => ["read", "create", "update", "delete"],

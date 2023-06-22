@@ -136,6 +136,14 @@ return [
     "edit_team" => "تعديل المدرب",
     "create_team" => "إنشاء مدرب",
 
+    "our_gallery" => "معرضنا",
+    "gallery" => "معرض الصور",
+    "galleries" => "معارض الصور",
+    "show_galleries" => "عرض معارض الصور",
+    "show_gallery" => "عرض معرض الصور",
+    "edit_gallery" => "تعديل معرض الصور",
+    "create_gallery" => "إنشاء معرض الصور",
+
     "testimonials" => "أراء العملاء",
     "show_testimonials" => "عرض أراء العملاء",
     "show_testimonial" => "عرض الرأي",

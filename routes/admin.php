@@ -46,6 +46,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
             //branch routes
             Route::resource('branches', 'BranchController');
 
+            //gallery routes
+            Route::resource('galleries', 'GalleryController');
+
             //category routes
             Route::resource('categories', 'CategoryController');
 

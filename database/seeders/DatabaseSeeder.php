@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ClassScheduleSeeder::class);
         $this->call(BranchSeeder::class);
         $this->call(TeamSeader::class);
+        $this->call(GallerySeeder::class);
         $this->call(SettingSeeder::class);
     }
 }

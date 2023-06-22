@@ -383,6 +383,60 @@
                 @endpermission
                 {{-- team routes end --}}
 
+                {{-- gallery routes start --}}
+                @permission('read-galleries')
+                <li class="menu-item menu-item-submenu {{ request()->routeIs('galleries.*') ? 'menu-item-open menu-item-here' : '' }}"
+                    aria-haspopup="true" data-menu-toggle="hover">
+                    <a href="javascript:;" class="menu-link menu-toggle">
+                        <i class="fas fa-images svg-icon menu-icon"></i>
+                        <span class="menu-text">{{__('words.galleries')}}</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="menu-submenu">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav">
+                            @permission('edit_our_gallery-galleries')
+                            <li class="menu-item  {{ request()->routeIs('pages.edit') ? 'menu-item-active' : '' }}"
+                                aria-haspopup="true">
+                                <a href="{{route('pages.edit',\App\Models\Page::where('identifier','our_gallery')->first())}}"
+                                   class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">{{__('words.our_gallery')}}</span>
+                                </a>
+                            </li>
+                            @endpermission
+
+                            @permission('read-galleries')
+                            <li class="menu-item  {{ request()->routeIs('galleries.index') ? 'menu-item-active' : '' }}"
+                                aria-haspopup="true">
+                                <a href="{{route('galleries.index')}}" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">{{__('words.show_all')}}</span>
+                                </a>
+                            </li>
+                            @endpermission
+
+                            @permission('create-galleries')
+                            <li class="menu-item  {{ request()->routeIs('galleries.create') ? 'menu-item-active' : '' }}"
+                                aria-haspopup="true">
+                                <a href="{{route('galleries.create')}}" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">{{__('words.create')}}</span>
+                                </a>
+                            </li>
+                            @endpermission
+                        </ul>
+                    </div>
+                </li>
+                @endpermission
+                {{-- gallery routes end --}}
+
                 {{-- page routes start --}}
                 @permission('read-pages')
                 <li class="menu-item {{ request()->routeIs('pages.*') ? 'menu-item-active' : '' }}"

@@ -24,7 +24,8 @@ class PageController extends Controller
     public function index()
     {
         try {
-            $pages = $this->page->latest('id')->where('identifier','!=','branch_view')->where('identifier','!=','our_trainers')->get();
+            $pages = $this->page->latest('id')->where('identifier', '!=', 'branch_view')
+                ->where('identifier', '!=', 'our_trainers')->where('identifier', '!=', 'our_gallery')->get();
             return view('admin.pages.index', compact('pages'));
         } catch (\Exception $e) {
             return redirect()->back()->with(['error' => __('message.something_wrong')]);
@@ -39,7 +40,7 @@ class PageController extends Controller
     public function store(PageRequest $request)
     {
         try {
-            $requested_data = $request->except(['_token', 'profile_avatar_remove', 'image','file']);
+            $requested_data = $request->except(['_token', 'profile_avatar_remove', 'image', 'file']);
             $page = $this->page->create($requested_data);
             $page->uploadFile();
 
@@ -62,7 +63,7 @@ class PageController extends Controller
     public function update(PageRequest $request, Page $page)
     {
         try {
-            $requested_data = $request->except(['_token', 'profile_avatar_remove', 'image','file']);
+            $requested_data = $request->except(['_token', 'profile_avatar_remove', 'image', 'file']);
             $page->update($requested_data);
             $requested_data['updated_at'] = Carbon::now();
             $page->updateFile();
@@ -70,7 +71,8 @@ class PageController extends Controller
             return redirect()->back()->with(['success' => __('message.updated_successfully')]);
         } catch (\Exception $e) {
             return redirect()->back()->with(['error' => __('message.something_wrong')]);
-        }    }
+        }
+    }
 
     public function destroy(Page $page)
     {

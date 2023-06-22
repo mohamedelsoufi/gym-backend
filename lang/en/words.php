@@ -245,6 +245,14 @@ return [
     "edit_branch" => "Edit Point",
     "create_branch" => "Create Branch Point",
 
+    "our_gallery" => "Our Gallery",
+    "gallery" => "Gallery",
+    "galleries" => "Galleries",
+    "show_galleries" => "Show Galleries",
+    "show_gallery" => "Show Gallery",
+    "edit_gallery" => "Edit Gallery",
+    "create_gallery" => "Create Gallery",
+
     "contact_details" => "Contact Details",
     "contact_request" => "Contact request from: ",
     "message" => "Message",
