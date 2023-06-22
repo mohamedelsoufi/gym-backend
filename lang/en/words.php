@@ -224,6 +224,7 @@ return [
 
     "class" => "Class",
     "classes" => "Classes",
+    "gym_classes" => "Gym Classes",
     "show_classes" => "Show Classes",
     "show_class" => "Show Class",
     "edit_class" => "Edit Class",

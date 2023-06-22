@@ -231,6 +231,7 @@ return [
 
     "class" => "الفصل",
     "classes" => "الفصول",
+    "gym_classes" => "الفصول",
     "show_classes" => "عرض الفصول",
     "show_class" => "عرض الفصل",
     "edit_class" => "تعديل الفصل",
