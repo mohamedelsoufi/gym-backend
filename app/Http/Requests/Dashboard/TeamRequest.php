@@ -16,11 +16,13 @@ class TeamRequest extends FormRequest
     {
         $rules = [
             'image' => 'required_without:id|max:900|image',
+            'facebook' => ["required", "url", "unique:teams,facebook," . $this->id,],
+            'instagram' => ["required", "url", "unique:teams,instagram," . $this->id,],
 
         ];
         foreach (config('translatable.locales') as $locale) {
-            $rules += [$locale . '.title' => ['required', 'string', Rule::unique('team_translations', 'title')->ignore($this->id, 'team_id')]];
-            $rules += [$locale . '.sub_title' => ['required', 'string']];
+            $rules += [$locale . '.name' => ['required', 'string', Rule::unique('team_translations', 'name')->ignore($this->id, 'team_id')]];
+            $rules += [$locale . '.job_title' => ['required', 'string']];
             $rules += [$locale . '.description' => ['nullable', 'string']];
         }
 

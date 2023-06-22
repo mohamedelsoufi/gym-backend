@@ -141,6 +141,24 @@ class PageSeeder extends Seeder
             'type' => 'image'
         ]);
 
+        $our_trainers = Page::create([
+            'identifier' => 'our_trainers',
+            'has_link' => 0,
+            'has_title' => 1,
+            'has_sub_title' => 1,
+            'has_description' => 0,
+            'has_image' => 0,
+            'has_video' => 0,
+            'ar' => [
+                'title' => 'مدربينا',
+                'sub_title' => 'تعرف على مدربينا',
+            ],
+            'en' => [
+                'title' => 'OUR TRAINERS',
+                'sub_title' => 'Meet Our Coaches',
+            ],
+        ]);
+
         $get_fit_in_less = Page::create([
             'identifier' => 'get_fit_in_less',
             'has_link' => 0,

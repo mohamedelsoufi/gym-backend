@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', settings()->website_title . ' | ' . __('words.show_team'))
+@section('name', settings()->website_name . ' | ' . __('words.show_team'))
 @section('breadcrumb')
     <div class="d-flex align-items-baseline flex-wrap mr-5">
         <!--begin::Breadcrumb-->
@@ -22,7 +22,7 @@
 @section('content')
     <div class="card card-custom card-stretch gutter-b">
         <div class="card-header card-header-tabs-line">
-            <div class="card-title">
+            <div class="card-name">
                 <h3 class="card-label">{{ __('words.show_team') }}</h3>
             </div>
             <div class="card-toolbar">
@@ -44,11 +44,11 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mb-7 bg-light p-5 rounded h-100">
-                                    <div class="card-title">
-                                        <h5 class="font-weight-bolder text-dark">{{ __('words.title') }}
+                                    <div class="card-name">
+                                        <h5 class="font-weight-bolder text-dark">{{ __('words.name') }}
                                             - {{ __('words.locale-' . $locale) }}:</h5>
                                     </div>
-                                    <p class="m-0">{{ $team->translate($locale)->title }}</p>
+                                    <p class="m-0">{{ $team->translate($locale)->name }}</p>
                                 </div>
                             </div>
 
@@ -58,28 +58,16 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mb-7 bg-light p-5 rounded h-100">
-                                    <div class="card-title">
-                                        <h5 class="font-weight-bolder text-dark">{{ __('words.sub_title') }}
+                                    <div class="card-name">
+                                        <h5 class="font-weight-bolder text-dark">{{ __('words.job_title') }}
                                             - {{ __('words.locale-' . $locale) }}:</h5>
                                     </div>
-                                    <p class="m-0">{{ $team->translate($locale)->sub_title }}</p>
+                                    <p class="m-0">{{ $team->translate($locale)->job_title }}</p>
                                 </div>
                             </div>
 
                         </div>
                         <br>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="mb-7 bg-light p-5 rounded h-100">
-                                    <div class="card-title">
-                                        <h5 class="font-weight-bolder text-dark">{{ __('words.description') }}
-                                            - {{ __('words.locale-' . $locale) }}:</h5>
-                                    </div>
-                                    {!! $team->translate($locale)->description !!}
-                                </div>
-                            </div>
-
-                        </div>
                     </div>
                 @endforeach
             </div>
@@ -90,7 +78,7 @@
                 <div class="row mb-3">
                     <div class="col-md-4">
                         <div class="mb-7 bg-light p-5 rounded h-100">
-                            <div class="card-title">
+                            <div class="card-name">
                                 <h5 class="font-weight-bolder text-dark">{{ __('words.facebook') }}:</h5>
                             </div>
                             <p class="m-0">{{ $team->facebook }}</p>
@@ -99,19 +87,10 @@
 
                     <div class="col-md-4">
                         <div class="mb-7 bg-light p-5 rounded h-100">
-                            <div class="card-title">
+                            <div class="card-name">
                                 <h5 class="font-weight-bolder text-dark">{{ __('words.instagram') }}:</h5>
                             </div>
                             <p class="m-0">{{ $team->instagram }}</p>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="mb-7 bg-light p-5 rounded h-100">
-                            <div class="card-title">
-                                <h5 class="font-weight-bolder text-dark">{{ __('words.twitter') }}:</h5>
-                            </div>
-                            <p class="m-0">{{ $team->twitter }}</p>
                         </div>
                     </div>
                 </div>
@@ -119,7 +98,7 @@
                 <div class="row mb-3">
                     <div class="col-md-4">
                         <div class="mb-7 bg-light p-5 rounded h-100">
-                            <div class="card-title">
+                            <div class="card-name">
                                 <h5 class="font-weight-bolder text-dark">{{ __('words.created_at') }}:</h5>
                             </div>
                             <p class="m-0">{{ formatDate($team->created_at) }}</p>
@@ -128,7 +107,7 @@
 
                     <div class="col-md-4">
                         <div class="mb-7 bg-light p-5 rounded h-100">
-                            <div class="card-title">
+                            <div class="card-name">
                                 <h5 class="font-weight-bolder text-dark">{{ __('words.updated_at') }}:</h5>
                             </div>
                             <p class="m-0">
@@ -139,7 +118,7 @@
 
                     <div class="col-md-4">
                         <div class="mb-7 bg-light p-5 rounded h-100">
-                            <div class="card-title">
+                            <div class="card-name">
                                 <h5 class="font-weight-bolder text-dark">{{ __('words.activity') }}:</h5>
                             </div>
                             <p class="m-0"><span
@@ -154,7 +133,7 @@
                 <div class="row">
                     <div class="col-8">
                         <a href="{{$team->image}}"
-                           data-toggle="lightbox" data-title="{{$team->title}}"
+                           data-toggle="lightbox" data-name="{{$team->name}}"
                            data-gallery="gallery">
                             <img src="{{ $team->image }}" class="img-fluid mb-2 image-galley"
                                  onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="team image"/>

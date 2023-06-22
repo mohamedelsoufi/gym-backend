@@ -130,11 +130,12 @@ return [
     "edit_project" => "Edit Project",
     "create_project" => "Create Project",
 
-    "teams" => "Teams",
-    "show_teams" => "Show Team",
-    "show_team" => "Show Team member",
-    "edit_team" => "Edit Team member",
-    "create_team" => "Create Team member",
+    "our_trainers" => "Our Trainers",
+    "teams" => "Trainers",
+    "show_teams" => "Show Trainer",
+    "show_team" => "Show Trainer",
+    "edit_team" => "Edit Trainer",
+    "create_team" => "Create Trainer",
 
     "testimonials" => "Testimonials",
     "show_testimonials" => "Show Testimonial",

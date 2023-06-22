@@ -24,7 +24,7 @@ class PageController extends Controller
     public function index()
     {
         try {
-            $pages = $this->page->latest('id')->where('identifier','!=','branch_view')->get();
+            $pages = $this->page->latest('id')->where('identifier','!=','branch_view')->where('identifier','!=','our_trainers')->get();
             return view('admin.pages.index', compact('pages'));
         } catch (\Exception $e) {
             return redirect()->back()->with(['error' => __('message.something_wrong')]);
@@ -67,7 +67,7 @@ class PageController extends Controller
             $requested_data['updated_at'] = Carbon::now();
             $page->updateFile();
 
-            return redirect()->route('pages.index')->with(['success' => __('message.updated_successfully')]);
+            return redirect()->back()->with(['success' => __('message.updated_successfully')]);
         } catch (\Exception $e) {
             return redirect()->back()->with(['error' => __('message.something_wrong')]);
         }    }

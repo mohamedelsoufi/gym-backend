@@ -129,11 +129,12 @@ return [
     "edit_project" => "تعديل المشروع",
     "create_project" => "إنشاء مشروع",
 
-    "teams" => "فريق العمل",
-    "show_teams" => "عرض فريق العمل",
-    "show_team" => "عرض العضو",
-    "edit_team" => "تعديل العضو",
-    "create_team" => "إنشاء عضو",
+    "our_trainers" => "مدربينا",
+    "teams" => "المدربين",
+    "show_teams" => "عرض المدربين",
+    "show_team" => "عرض المدرب",
+    "edit_team" => "تعديل المدرب",
+    "create_team" => "إنشاء مدرب",
 
     "testimonials" => "أراء العملاء",
     "show_testimonials" => "عرض أراء العملاء",

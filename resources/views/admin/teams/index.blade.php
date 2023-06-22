@@ -18,14 +18,12 @@
 
 @section('content')
     <div class="card card-custom">
-        <div class="card-header flex-wrap py-5">
+        <div class="card-header flex-wrap py-5 mt-11">
             <div class="card-title">
                 <h3 class="card-title">{{ __('words.show_teams') }}</h3>
             </div>
 
             <div class="card-toolbar">
-                <!--begin::Dropdown-->
-
                 <div class="dropdown dropdown-inline mr-2">
                     <!--begin::Button-->
                     @permission('create-teams')
@@ -56,9 +54,8 @@
                 <tr>
                     <th>#</th>
                     <th>{{ __('words.image') }}</th>
-                    <th>{{ __('words.title') }}</th>
-                    <th>{{ __('words.sub_title') }}</th>
-                    <th>{{ __('words.description') }}</th>
+                    <th>{{ __('words.name') }}</th>
+                    <th>{{ __('words.job_title') }}</th>
                     <th>{{ __('words.status') }}</th>
                     <th>{{ __('words.created_at') }}</th>
                     <th>{{ __('words.updated_at') }}</th>
@@ -88,9 +85,8 @@
                                 </a>
                             @endif
                         </td>
-                        <td>{{ $team->title }}</td>
-                        <td>{{ $team->sub_title }}</td>
-                        <td>{!! Str::limit($team->description, 100) !!}</td>
+                        <td>{{ $team->name }}</td>
+                        <td>{{ $team->job_title }}</td>
                         <td><span
                                 class="badge rounded-pill text-white {{$team->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $team->getActive() }}</span>
                         </td>

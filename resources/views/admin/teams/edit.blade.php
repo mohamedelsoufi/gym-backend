@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', settings()->website_title . ' | ' . __('words.edit_team'))
+@section('name', settings()->website_name . ' | ' . __('words.edit_team'))
 @section('breadcrumb')
     <div class="d-flex align-items-baseline flex-wrap mr-5">
         <!--begin::Breadcrumb-->
@@ -28,7 +28,7 @@
     <input type="hidden" name="id" value="{{ $team->id }}">
     <div class="card card-custom mb-2">
         <div class="card-header card-header-tabs-line">
-            <div class="card-title">
+            <div class="card-name">
                 <h3 class="card-label">{{ __('words.edit_team') }}</h3>
             </div>
             <div class="card-toolbar">
@@ -48,17 +48,17 @@
                     <div class="tab-pane fade show @if ($key == 0) active @endif"
                         id="{{ $locale }}" role="tabpanel">
                         <div class="col form-group">
-                            <label>{{ __('words.title') }} - {{ __('words.locale-' . $locale) }}<span class="text-danger">
+                            <label>{{ __('words.name') }} - {{ __('words.locale-' . $locale) }}<span class="text-danger">
                                     * </span></label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="flaticon-edit"></i></span>
                                 </div>
-                                <input type="text" name="{{ $locale . '[title]' }}"
-                                    placeholder="{{ __('words.title') }}"
-                                    class="form-control  pl-5 min-h-40px @error($locale . '.title') is-invalid @enderror"
-                                    value="{{ old($locale . '.title', $team->translate($locale)->title) }}">
-                                @error($locale . '[title]')
+                                <input type="text" name="{{ $locale . '[name]' }}"
+                                    placeholder="{{ __('words.name') }}"
+                                    class="form-control  pl-5 min-h-40px @error($locale . '.name') is-invalid @enderror"
+                                    value="{{ old($locale . '.name', $team->translate($locale)->name) }}">
+                                @error($locale . '[name]')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -67,34 +67,22 @@
                         </div>
 
                         <div class="col form-group">
-                            <label>{{ __('words.sub_title') }} - {{ __('words.locale-' . $locale) }}<span
+                            <label>{{ __('words.job_title') }} - {{ __('words.locale-' . $locale) }}<span
                                     class="text-danger"> * </span></label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="flaticon-edit"></i></span>
                                 </div>
-                                <input type="text" name="{{ $locale . '[sub_title]' }}"
-                                    placeholder="{{ __('words.sub_title') }}"
-                                    class="form-control  pl-5 min-h-40px @error($locale . '.sub_title') is-invalid @enderror"
-                                    value="{{ old($locale . '.sub_title', $team->translate($locale)->sub_title) }}">
-                                @error($locale . '[sub_title]')
+                                <input type="text" name="{{ $locale . '[job_title]' }}"
+                                    placeholder="{{ __('words.job_title') }}"
+                                    class="form-control  pl-5 min-h-40px @error($locale . '.job_title') is-invalid @enderror"
+                                    value="{{ old($locale . '.job_title', $team->translate($locale)->job_title) }}">
+                                @error($locale . '[job_title]')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                        </div>
-
-                        <div class="col form-group">
-                            <label>{{ __('words.description') }}({{ __('words.locale-' . $locale) }})<span
-                                    class="text-danger">*</span></label>
-                            <textarea class="form-control ckeditor @error($locale . '.description') is-invalid @enderror " type="text"
-                                name="{{ $locale . '[description]' }}" rows="4">{{ old($locale . '.description', $team->translate($locale)->description) }} </textarea>
-                            @error($locale . '[description]')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
                         </div>
                     </div>
                 @endforeach
@@ -140,24 +128,6 @@
                         @enderror
                     </div>
                 </div>
-
-                <div class="input-group col-4">
-                    <label>{{ __('words.twitter') }}</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fab fa-twitter-square"></i></span>
-                        </div>
-                        <input type="text" name="twitter"
-                            class="form-control link @error('twitter') is-invalid @enderror"
-                            value="{{ old('twitter', $team->twitter) }}" placeholder="{{ __('words.twitter') }}">
-
-                        @error('twitter')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                </div>
             </div>
 
             <div class="form-group row">
@@ -176,11 +146,8 @@
                     'required' => false,
                 ])
             </div>
-
         </div>
-
     </div>
-
 
     <div class="card-footer">
         <div class="row">
@@ -191,23 +158,4 @@
             </div>
         </div>
     </div>
-
-
-@endsection
-
-@section('scripts')
-    <script>
-        $("#form").submit(function(e) {
-            e.preventDefault();
-            let links = document.querySelectorAll('.link');
-            links.forEach(function(link) {
-                let position = link.value.includes('https');
-                if (position > -1) {
-                    let enhancedLink = link.value.replace("https://", "http://");
-                    link.value = enhancedLink;
-                }
-            });
-            this.submit();
-        });
-    </script>
 @endsection
