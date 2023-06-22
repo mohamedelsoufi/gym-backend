@@ -37,8 +37,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
             //days routes
             Route::resource('days', 'DayController');
 
-            //days routes
+            //gym class routes
             Route::resource('classes', 'GymClassController');
+
+            //schedule routes
+            Route::resource('schedules', 'ClassScheduleController');
 
             //category routes
             Route::resource('categories', 'CategoryController');
@@ -81,9 +84,3 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         });
     });
 });
-
-Route::get('unsubscribe/{id}', 'NewsLetterController@unsubscribe')->name('news-letters.unsubscribe');
-Route::post('unsubscribe/action', 'NewsLetterController@unsubscribeAction')->name('news-letters.unsubscribe_action');
-Route::get('unsubscribe/confirmation', function (){
-    return view('admin.news_letters.unsubscribe_confirmation');
-})->name('news-letters.unsubscribe_confirmation');

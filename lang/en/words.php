@@ -229,6 +229,13 @@ return [
     "create_class" => "Create Class",
     "time" => "Time",
 
+    "class_schedule" => "Class Schedule",
+    "class_schedules" => "Class Schedules",
+    "show_class_schedules" => "Show Class Schedules",
+    "show_class_schedule" => "Show Class Schedule",
+    "edit_class_schedule" => "Edit Class Schedule",
+    "create_class_schedule" => "Create Class Schedule",
+
     "contact_details" => "Contact Details",
     "contact_request" => "Contact request from: ",
     "message" => "Message",

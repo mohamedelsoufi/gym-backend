@@ -7,6 +7,7 @@ return [
         "features" => ["read", "create", "update", "delete"],
         "gym_classes" => ["read", "create", "update", "delete"],
         "days" => ["read", "create", "update", "delete"],
+        "class_schedules" => ["read", "create", "update", "delete"],
         "categories" => ["read", "create", "update", "delete"],
         "products" => ["read", "create", "update", "delete"],
         "projects" => ["read", "create", "update", "delete"],

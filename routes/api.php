@@ -25,6 +25,4 @@ Route::group(['middleware' => 'APILocalization'], function () {
         });
     });
 
-    // newsletter route
-    Route::post('newsletter','NewsletterController');
 });

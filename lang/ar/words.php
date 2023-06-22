@@ -228,6 +228,13 @@ return [
     "create_class" => "إنشاء فصل",
     "time" => "التوقيت",
 
+    "class_schedule" => "جدول الفصل",
+    "class_schedules" => "الجداول",
+    "show_class_schedules" => "عرض الجداول",
+    "show_class_schedule" => "عرض جدول الفصل",
+    "edit_class_schedule" => "تعديل جدول الفصل",
+    "create_class_schedule" => "إنشاء جدول الفصل",
+
     "contact_details" => "تفاصيل الإتصال",
     "contact_request" => "طلب إتصال مقدم من: ",
     "message" => "الرسالة",

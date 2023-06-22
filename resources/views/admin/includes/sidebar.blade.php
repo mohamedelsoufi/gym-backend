@@ -231,6 +231,48 @@
                 @endpermission
                 {{-- classes routes end --}}
 
+                {{-- schedules routes start --}}
+                @permission('read-class_schedules')
+                <li class="menu-item menu-item-submenu {{ request()->routeIs('schedules.*') ? 'menu-item-open menu-item-here' : '' }}"
+                    aria-haspopup="true" data-menu-toggle="hover">
+                    <a href="javascript:;" class="menu-link menu-toggle">
+                        <i class="fas fa-clipboard-list svg-icon menu-icon"></i>
+                        <span class="menu-text">{{__('words.class_schedules')}}</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="menu-submenu">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav">
+
+                            @permission('read-class_schedules')
+                            <li class="menu-item  {{ request()->routeIs('schedules.index') ? 'menu-item-active' : '' }}"
+                                aria-haspopup="true">
+                                <a href="{{route('schedules.index')}}" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">{{__('words.show_all')}}</span>
+                                </a>
+                            </li>
+                            @endpermission
+
+                            @permission('create-class_schedules')
+                            <li class="menu-item  {{ request()->routeIs('schedules.create') ? 'menu-item-active' : '' }}"
+                                aria-haspopup="true">
+                                <a href="{{route('schedules.create')}}" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">{{__('words.create')}}</span>
+                                </a>
+                            </li>
+                            @endpermission
+                        </ul>
+                    </div>
+                </li>
+                @endpermission
+                {{-- classes routes end --}}
+
                 {{-- category routes start --}}
                 @permission('read-categories')
                 <li class="menu-item menu-item-submenu {{ request()->routeIs('categories.*') ? 'menu-item-open menu-item-here' : '' }}"
