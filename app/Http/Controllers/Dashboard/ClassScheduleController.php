@@ -87,7 +87,7 @@ class ClassScheduleController extends Controller
     public function destroy(ClassSchedule $schedule)
     {
         try {
-            $schedule->deleteFile();
+            $schedule->deleteFiles();
             $schedule->delete();
             return redirect()->route('schedules.index')->with(['success' => __('message.deleted_successfully')]);
         } catch (\Exception $e) {

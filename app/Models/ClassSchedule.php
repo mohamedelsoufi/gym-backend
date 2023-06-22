@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use App\Traits\Files\HasFile;
+use App\Traits\Files\HasFiles;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class ClassSchedule extends Model
 {
-    use HasFactory, HasFile;
+    use HasFactory, HasFile, HasFiles;
 
     protected $table = 'class_schedules';
 
