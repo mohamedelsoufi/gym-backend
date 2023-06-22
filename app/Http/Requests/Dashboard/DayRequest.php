@@ -16,7 +16,7 @@ class DayRequest extends FormRequest
     {
         $rules = [];
         foreach (config('translatable.locales') as $locale) {
-            $rules += [$locale . '.day' => ['required', 'string', Rule::unique('day_translations', 'day')->ignore($this->id, 'day_id')]];
+            $rules += [$locale . '.day' => ['required', 'string','max:20', Rule::unique('day_translations', 'day')->ignore($this->id, 'day_id')]];
         }
 
         return $rules;

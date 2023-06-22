@@ -18,7 +18,7 @@ class FeatureRequest extends FormRequest
             'icon' => 'nullable|string',
         ];
         foreach (config('translatable.locales') as $locale) {
-            $rules += [$locale . '.title' => ['required', 'string', Rule::unique('feature_translations', 'title')->ignore($this->id, 'feature_id')]];
+            $rules += [$locale . '.title' => ['required', 'string','max:255', Rule::unique('feature_translations', 'title')->ignore($this->id, 'feature_id')]];
             $rules += [$locale . '.description' => ['nullable', 'string']];
         }
 

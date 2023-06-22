@@ -22,7 +22,7 @@ class BranchRequest extends FormRequest
 
         ];
         foreach (config('translatable.locales') as $locale) {
-            $rules += [$locale . '.title' => ['required', 'string', Rule::unique('branch_translations', 'title')->ignore($this->id, 'branch_id')]];
+            $rules += [$locale . '.title' => ['required', 'string','max:255', Rule::unique('branch_translations', 'title')->ignore($this->id, 'branch_id')]];
         }
 
         return $rules;

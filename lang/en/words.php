@@ -260,6 +260,13 @@ return [
     "edit_gallery" => "Edit Gallery",
     "create_gallery" => "Create Gallery",
 
+    "our_package" => "Our Packages",
+    "packages" => "Packages",
+    "show_packages" => "Show Package",
+    "show_package" => "Show Package",
+    "edit_package" => "Edit Package",
+    "create_package" => "Create Package",
+
     "contact_details" => "Contact Details",
     "contact_request" => "Contact request from: ",
     "message" => "Message",

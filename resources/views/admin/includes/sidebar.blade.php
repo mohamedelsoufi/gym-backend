@@ -478,6 +478,60 @@
                 @endpermission
                 {{-- gallery routes end --}}
 
+                {{-- package routes start --}}
+                @permission('read-packages')
+                <li class="menu-item menu-item-submenu {{ request()->routeIs('packages.*') ? 'menu-item-open menu-item-here' : '' }}"
+                    aria-haspopup="true" data-menu-toggle="hover">
+                    <a href="javascript:;" class="menu-link menu-toggle">
+                        <i class="fas fa-box-open svg-icon menu-icon"></i>
+                        <span class="menu-text">{{__('words.packages')}}</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="menu-submenu">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav">
+                            @permission('edit_our_package-packages')
+                            <li class="menu-item  {{ request()->routeIs('pages.edit') ? 'menu-item-active' : '' }}"
+                                aria-haspopup="true">
+                                <a href="{{route('pages.edit',\App\Models\Page::where('identifier','our_package')->first())}}"
+                                   class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">{{__('words.our_package')}}</span>
+                                </a>
+                            </li>
+                            @endpermission
+
+                            @permission('read-packages')
+                            <li class="menu-item  {{ request()->routeIs('packages.index') ? 'menu-item-active' : '' }}"
+                                aria-haspopup="true">
+                                <a href="{{route('packages.index')}}" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">{{__('words.show_all')}}</span>
+                                </a>
+                            </li>
+                            @endpermission
+
+                            @permission('create-packages')
+                            <li class="menu-item  {{ request()->routeIs('packages.create') ? 'menu-item-active' : '' }}"
+                                aria-haspopup="true">
+                                <a href="{{route('packages.create')}}" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">{{__('words.create')}}</span>
+                                </a>
+                            </li>
+                            @endpermission
+                        </ul>
+                    </div>
+                </li>
+                @endpermission
+                {{-- package routes end --}}
+
                 {{-- page routes start --}}
                 @permission('read-pages')
                 <li class="menu-item {{ request()->routeIs('pages.*') ? 'menu-item-active' : '' }}"

@@ -10,6 +10,7 @@ return [
         "class_schedules" => ["read", "create", "update", "delete"],
         "branch_points" => ["read", "create", "update", "delete"],
         "branches" => ["read", "create", "update", "delete","edit_nile"],
+        "packages" => ["read", "create", "update", "delete","edit_our_package"],
         "categories" => ["read", "create", "update", "delete"],
         "products" => ["read", "create", "update", "delete"],
         "projects" => ["read", "create", "update", "delete"],

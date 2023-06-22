@@ -198,5 +198,23 @@ class PageSeeder extends Seeder
                 'sub_title' => 'Be Part Of TFC Family.',
             ],
         ]);
+
+        $our_package = Page::create([
+            'identifier' => 'our_package',
+            'has_link' => 0,
+            'has_title' => 1,
+            'has_sub_title' => 0,
+            'has_description' => 1,
+            'has_image' => 0,
+            'has_video' => 0,
+            'ar' => [
+                'title' => 'باقاتنا',
+                'description' => 'سواء كنت قد بدأت للتو رحلة لياقتك أو تتطلع إلى نقل التدريبات الخاصة بك إلى المستوى التالي ، فلدينا باقات مختلفة لتختار منها الأنسب لاحتياجاتك وخطة لياقتك.',
+            ],
+            'en' => [
+                'title' => 'OUR PACKAGES',
+                'description' => 'Whether you\'re just starting your fitness journey or looking to take your workouts to the next level, we have different packages for you to select the one most suitable for your needs and fitness plan.',
+            ],
+        ]);
     }
 }

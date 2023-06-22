@@ -25,7 +25,7 @@ class PageController extends Controller
     {
         try {
             $pages = $this->page->latest('id')->where('identifier', '!=', 'branch_view')
-                ->where('identifier', '!=', 'our_trainers')->where('identifier', '!=', 'our_gallery')->get();
+                ->where('identifier', '!=', 'our_trainers')->where('identifier', '!=', 'our_gallery')->where('identifier', '!=', 'edit_our_package')->get();
             return view('admin.pages.index', compact('pages'));
         } catch (\Exception $e) {
             return redirect()->back()->with(['error' => __('message.something_wrong')]);

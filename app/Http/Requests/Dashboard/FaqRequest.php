@@ -16,7 +16,7 @@ class FaqRequest extends FormRequest
     {
         $rules = [];
         foreach (config('translatable.locales') as $locale) {
-            $rules += [$locale . '.question' => ['required', 'string', Rule::unique('faq_translations', 'question')->ignore($this->id, 'faq_id')]];
+            $rules += [$locale . '.question' => ['required', 'string','max:255', Rule::unique('faq_translations', 'question')->ignore($this->id, 'faq_id')]];
             $rules += [$locale . '.answer' => ['nullable', 'string']];
         }
 

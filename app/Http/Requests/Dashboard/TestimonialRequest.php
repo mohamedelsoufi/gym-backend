@@ -19,7 +19,7 @@ class TestimonialRequest extends FormRequest
 
         ];
         foreach (config('translatable.locales') as $locale) {
-            $rules += [$locale . '.title' => ['required', 'string', Rule::unique('testimonial_translations', 'title')->ignore($this->id, 'testimonial_id')]];
+            $rules += [$locale . '.title' => ['required', 'string','max:255', Rule::unique('testimonial_translations', 'title')->ignore($this->id, 'testimonial_id')]];
             $rules += [$locale . '.job_title' => ['required', 'string']];
             $rules += [$locale . '.description' => ['nullable', 'string']];
         }

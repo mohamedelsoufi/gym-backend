@@ -19,7 +19,7 @@ class CategoryRequest extends FormRequest
             'icon' => 'nullable|string',
         ];
         foreach (config('translatable.locales') as $locale) {
-            $rules += [$locale . '.title' => ['required', 'string', Rule::unique('category_translations', 'title')->ignore($this->id, 'category_id')]];
+            $rules += [$locale . '.title' => ['required', 'string','max:255', Rule::unique('category_translations', 'title')->ignore($this->id, 'category_id')]];
         }
 
         return $rules;

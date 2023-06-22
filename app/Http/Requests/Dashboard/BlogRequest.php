@@ -18,7 +18,7 @@ class BlogRequest extends FormRequest
             'image' => 'required_without:id|max:900|image',
         ];
         foreach (config('translatable.locales') as $locale) {
-            $rules += [$locale . '.title' => ['required', 'string', Rule::unique('blog_translations', 'title')->ignore($this->id, 'blog_id')]];
+            $rules += [$locale . '.title' => ['required', 'string','max:255', Rule::unique('blog_translations', 'title')->ignore($this->id, 'blog_id')]];
             $rules += [$locale . '.description' => ['nullable', 'string']];
         }
 

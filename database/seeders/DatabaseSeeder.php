@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(BranchPointSeeder::class);
         $this->call(TeamSeader::class);
         $this->call(GallerySeeder::class);
+        $this->call(PackageSeeder::class);
         $this->call(SettingSeeder::class);
     }
 }

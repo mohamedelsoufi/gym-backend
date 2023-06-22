@@ -259,6 +259,13 @@ return [
     "edit_branch" => "تعديل الفرع",
     "create_branch" => "إنشاء فرع",
 
+    "our_package" => "باقتنا",
+    "packages" => "الباقات",
+    "show_packages" => "عرض الباقات",
+    "show_package" => "عرض الباقة",
+    "edit_package" => "تعديل الباقة",
+    "create_package" => "إنشاء باقة",
+
     "contact_details" => "تفاصيل الإتصال",
     "contact_request" => "طلب إتصال مقدم من: ",
     "message" => "الرسالة",

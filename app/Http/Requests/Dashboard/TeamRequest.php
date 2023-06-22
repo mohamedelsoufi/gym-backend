@@ -21,7 +21,7 @@ class TeamRequest extends FormRequest
 
         ];
         foreach (config('translatable.locales') as $locale) {
-            $rules += [$locale . '.name' => ['required', 'string', Rule::unique('team_translations', 'name')->ignore($this->id, 'team_id')]];
+            $rules += [$locale . '.name' => ['required', 'string','max:255', Rule::unique('team_translations', 'name')->ignore($this->id, 'team_id')]];
             $rules += [$locale . '.job_title' => ['required', 'string']];
             $rules += [$locale . '.description' => ['nullable', 'string']];
         }
