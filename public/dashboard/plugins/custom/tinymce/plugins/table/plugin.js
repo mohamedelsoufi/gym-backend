@@ -2114,7 +2114,7 @@
               return contains(branchKeys, reqKey);
             });
             if (!allReqd) {
-              throw new Error('Not all branches were specified when using match. Specified: ' + branchKeys.join(', ') + '\nRequired: ' + constructors.join(', '));
+              throw new Error('Not all branch_points were specified when using match. Specified: ' + branchKeys.join(', ') + '\nRequired: ' + constructors.join(', '));
             }
             return branches[key].apply(null, args);
           };

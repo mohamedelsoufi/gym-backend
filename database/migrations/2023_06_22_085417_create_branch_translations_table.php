@@ -12,7 +12,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('branch_id');
             $table->string('locale')->index();
-            $table->longText('description')->nullable();
+            $table->string('title')->nullable();
 
             $table->unique(['branch_id', 'locale']);
             $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');

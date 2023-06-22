@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(GymClassSeeder::class);
         $this->call(ClassScheduleSeeder::class);
         $this->call(BranchSeeder::class);
+        $this->call(BranchPointSeeder::class);
         $this->call(TeamSeader::class);
         $this->call(GallerySeeder::class);
         $this->call(SettingSeeder::class);

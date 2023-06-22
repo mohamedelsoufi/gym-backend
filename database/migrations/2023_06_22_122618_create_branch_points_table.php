@@ -6,18 +6,25 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
-        Schema::create('branches', function (Blueprint $table) {
+        Schema::create('branch_points', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('phone')->nullable();
-            $table->string('facebook')->nullable();
-            $table->string('instagram')->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
         Schema::dropIfExists('branch_points');

@@ -5,20 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BranchTranslation extends Model
+class BranchPointTranslation extends Model
 {
     use HasFactory;
 
-    protected $table = 'branch_translations';
+    protected $table = 'branch_point_translations';
 
     public $timestamps = false;
 
     protected $guarded = [];
 
     // accessors & Mutator start
-    public function getTitleAttribute($val)
+    public function getDescriptionAttribute($val)
     {
-        return $this->attributes['title'] = ucfirst($val);
+        return $this->attributes['description'] = ucfirst($val);
     }
     // accessors & Mutator end
 }

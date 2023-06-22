@@ -44,8 +44,9 @@ class BranchController extends Controller
             else
                 $request->request->add(['status' => 1]);
 
-            $requested_data = $request->except(['_token']);
-            $this->branch->create($requested_data);
+            $requested_data = $request->except(['_token', 'profile_avatar_remove', 'image']);
+            $branch = $this->branch->create($requested_data);
+            $branch->uploadFile();
 
             return redirect()->route('branches.index')->with(['success' => __('message.created_successfully')]);
         } catch (\Exception $e) {
@@ -53,17 +54,17 @@ class BranchController extends Controller
         }
     }
 
-    public function show(branch $branch)
+    public function show(Branch $branch)
     {
         return view('admin.branches.show', compact('branch'));
     }
 
-    public function edit(branch $branch)
+    public function edit(Branch $branch)
     {
         return view('admin.branches.edit', compact('branch'));
     }
 
-    public function update(BranchRequest $request, branch $branch)
+    public function update(BranchRequest $request, Branch $branch)
     {
         try {
             if (!$request->has('status'))
@@ -71,10 +72,11 @@ class BranchController extends Controller
             else
                 $request->request->add(['status' => 1]);
 
-            $requested_data = $request->except(['_token']);
+            $requested_data = $request->except(['_token', 'profile_avatar_remove', 'image']);
             $requested_data['updated_at'] = Carbon::now();
-
             $branch->update($requested_data);
+
+            $branch->updateFile();
 
             return redirect()->route('branches.index')->with(['success' => __('message.updated_successfully')]);
         } catch (\Exception $e) {
@@ -82,9 +84,10 @@ class BranchController extends Controller
         }
     }
 
-    public function destroy(branch $branch)
+    public function destroy(Branch $branch)
     {
         try {
+            $branch->deleteFile();
             $branch->delete();
             return redirect()->route('branches.index')->with(['success' => __('message.deleted_successfully')]);
         } catch (\Exception $e) {

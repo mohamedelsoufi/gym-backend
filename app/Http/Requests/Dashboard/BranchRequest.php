@@ -14,9 +14,15 @@ class BranchRequest extends FormRequest
 
     public function rules()
     {
-        $rules = [];
+        $rules = [
+            'phone'         => 'required|string|regex:/^([0-9\s\-\+\(\)]*)$/|min:6|max:30',
+            'image' => 'required_without:id|max:900|image',
+            'facebook' => ["required", "url", "unique:teams,facebook," . $this->id,],
+            'instagram' => ["required", "url", "unique:teams,instagram," . $this->id,],
+
+        ];
         foreach (config('translatable.locales') as $locale) {
-            $rules += [$locale . '.description' => ['required', 'string', Rule::unique('branch_translations', 'description')->ignore($this->id, 'branch_id')]];
+            $rules += [$locale . '.title' => ['required', 'string', Rule::unique('branch_translations', 'title')->ignore($this->id, 'branch_id')]];
         }
 
         return $rules;

@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', settings()->website_title . ' | ' . __('words.edit_branch'))
+@section('name', settings()->website_name . ' | ' . __('words.edit_branch'))
 @section('breadcrumb')
     <div class="d-flex align-items-baseline flex-wrap mr-5">
         <!--begin::Breadcrumb-->
@@ -28,7 +28,7 @@
     <input type="hidden" name="id" value="{{ $branch->id }}">
     <div class="card card-custom mb-2">
         <div class="card-header card-header-tabs-line">
-            <div class="card-title">
+            <div class="card-name">
                 <h3 class="card-label">{{ __('words.edit_branch') }}</h3>
             </div>
             <div class="card-toolbar">
@@ -48,15 +48,22 @@
                     <div class="tab-pane fade show @if ($key == 0) active @endif"
                         id="{{ $locale }}" role="tabpanel">
                         <div class="col form-group">
-                            <label>{{ __('words.description') }}({{ __('words.locale-' . $locale) }})<span
-                                    class="text-danger">*</span></label>
-                            <textarea class="form-control ckeditor @error($locale . '.description') is-invalid @enderror " type="text"
-                                name="{{ $locale . '[description]' }}" rows="4">{{ old($locale . '.description', $branch->translate($locale)->description) }} </textarea>
-                            @error($locale . '[description]')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            <label>{{ __('words.name') }} - {{ __('words.locale-' . $locale) }}<span class="text-danger">
+                                    * </span></label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="flaticon-edit"></i></span>
+                                </div>
+                                <input type="text" name="{{ $locale . '[title]' }}"
+                                    placeholder="{{ __('words.title') }}"
+                                    class="form-control  pl-5 min-h-40px @error($locale . '.title') is-invalid @enderror"
+                                    value="{{ old($locale . '.title', $branch->translate($locale)->title) }}">
+                                @error($locale . '[title]')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                         </div>
                     </div>
                 @endforeach
@@ -67,6 +74,70 @@
     <div class="card card-custom">
         <div class="card-body">
             <div class="form-group row">
+                <div class="input-group col-4">
+                    <label>{{ __('words.phone') }}</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                        </div>
+                        <input type="text" name="phone" style="text-align: match-parent;" dir="ltr"
+                            class="form-control link @error('phone') is-invalid @enderror"
+                            value="{{ old('phone', $branch->phone) }}" placeholder="{{ __('words.phone') }}">
+
+                        @error('phone')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="input-group col-4">
+                    <label>{{ __('words.facebook') }}</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fab fa-facebook-square"></i></span>
+                        </div>
+                        <input type="text" name="facebook"
+                            class="form-control link @error('facebook') is-invalid @enderror"
+                            value="{{ old('facebook', $branch->facebook) }}" placeholder="{{ __('words.facebook') }}">
+
+                        @error('facebook')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="input-group col-4">
+                    <label>{{ __('words.instagram') }}</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fab fa-instagram"></i></span>
+                        </div>
+                        <input type="text" name="instagram"
+                            class="form-control link @error('instagram') is-invalid @enderror"
+                            value="{{ old('instagram', $branch->instagram) }}" placeholder="{{ __('words.instagram') }}">
+
+                        @error('instagram')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @include('admin.components.image', [
+                    'label' => __('words.image'),
+                    'value' => old('image', $branch->image),
+                    'name' => 'image',
+                    'id' => 'kt_image_3',
+                    'required' => false,
+                ])
+
                 @include('admin.components.switch', [
                     'label' => __('words.status'),
                     'name' => 'status',
@@ -86,6 +157,4 @@
             </div>
         </div>
     </div>
-
-
 @endsection

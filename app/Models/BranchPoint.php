@@ -2,22 +2,19 @@
 
 namespace App\Models;
 
-use App\Traits\Files\HasFile;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Branch extends Model
+class BranchPoint extends Model
 {
-    use HasFactory, Translatable, HasFile;
+    use HasFactory, Translatable;
 
-    protected $table = 'branches';
+    protected $table = 'branch_points';
 
     protected $guarded = [];
 
-    public $translatedAttributes = ['title'];
-
-    protected $appends = ['image'];
+    public $translatedAttributes = ['description'];
 
     public $timestamps = true;
 
@@ -30,12 +27,6 @@ class Branch extends Model
     // Scopes end
 
     // accessors & Mutator start
-    public function getImageAttribute()
-    {
-        $image = $this->file()->first();
-        return $image ? $image->path : asset('uploads/default_image.png');
-    }
-
     public function getActive()
     {
         return $this->status == 1 ? __('words.active') : __('words.inactive');

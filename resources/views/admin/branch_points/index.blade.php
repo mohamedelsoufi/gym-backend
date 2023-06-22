@@ -1,15 +1,15 @@
 @extends('admin.layouts.master')
-@section('title', settings()->website_title . ' | ' . __('words.branches'))
+@section('title', settings()->website_title . ' | ' . __('words.branches_points'))
 @section('breadcrumb')
     <div class="d-flex align-items-baseline flex-wrap mr-5">
         <!--begin::Breadcrumb-->
-        <h5 class="text-dark font-weight-bold my-1 mr-5">{{ __('words.branches') }}</h5>
+        <h5 class="text-dark font-weight-bold my-1 mr-5">{{ __('words.show_branches_points') }}</h5>
         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
             <li class="breadcrumb-item">
                 <a href="{{ route('admin.home') }}" class="text-muted">{{ __('words.home') }}</a>
             </li>
             <li class="breadcrumb-item">
-                <span class="text-muted">{{ __('words.show_branches') }}</span>
+                <span class="text-muted">{{ __('words.show_branches_points') }}</span>
             </li>
         </ul>
         <!--end::Breadcrumb-->
@@ -20,14 +20,16 @@
     <div class="card card-custom">
         <div class="card-header flex-wrap py-5">
             <div class="card-title">
-                <h3 class="card-title">{{ __('words.show_branches') }}</h3>
+                <h3 class="card-title">{{ __('words.show_branches_points') }}</h3>
             </div>
 
             <div class="card-toolbar">
+                <!--begin::Dropdown-->
+
                 <div class="dropdown dropdown-inline mr-2">
                     <!--begin::Button-->
                     @permission('create-branches')
-                    <a href="{{ route('branches.create') }}" class="btn btn-primary font-weight-bolder">
+                    <a href="{{ route('branch-points.create') }}" class="btn btn-primary font-weight-bolder">
                             <span class="svg-icon svg-icon-md">
                                 <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -53,9 +55,7 @@
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>{{ __('words.image') }}</th>
-                    <th>{{ __('words.title') }}</th>
-                    <th>{{ __('words.phone') }}</th>
+                    <th>{{ __('words.description') }}</th>
                     <th>{{ __('words.status') }}</th>
                     <th>{{ __('words.created_at') }}</th>
                     <th>{{ __('words.updated_at') }}</th>
@@ -63,41 +63,22 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach ($branches as $key => $branch)
+                @foreach ($branch_points as $key => $branch_point)
                     <tr>
 
                         <td>{{ $key + 1 }}</td>
-                        <td>
-                            @if (!$branch->image)
-                                <a href="{{asset('uploads/default_image.png')}}"
-                                   data-toggle="lightbox" data-title="{{$branch->title}}"
-                                   data-gallery="gallery">
-                                    <img class="index_image" src="{{ asset('uploads/default_image.png') }}"
-                                         onerror="this.src='{{ asset('uploads/default_image.png') }}'"
-                                         alt="default-image">
-                                </a>
-                            @else
-                                <a href="{{$branch->image}}"
-                                   data-toggle="lightbox" data-title="{{$branch->title}}"
-                                   data-gallery="gallery">
-                                    <img class="index_image" src="{{ $branch->image }}"
-                                         onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="branch-image">
-                                </a>
-                            @endif
-                        </td>
-                        <td>{{ $branch->title }}</td>
-                        <td style="text-align: match-parent;" dir="ltr">{{ $branch->phone }}</td>
+                        <td>{!! \Illuminate\Support\Str::limit($branch_point->description,100) !!}</td>
                         <td><span
-                                class="badge rounded-pill text-white {{$branch->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $branch->getActive() }}</span>
+                                class="badge rounded-pill text-white {{$branch_point->status == 1 ? 'bg-success' : 'bg-danger'}}">{{ $branch_point->getActive() }}</span>
                         </td>
-                        <td>{{ formatDate($branch->created_at) }}</td>
-                        <td>{{ formatDate($branch->created_at) == formatDate($branch->updated_at) ? '--' : formatDate($branch->updated_at) }}
+                        <td>{{ formatDate($branch_point->created_at) }}</td>
+                        <td>{{ formatDate($branch_point->created_at) == formatDate($branch_point->updated_at) ? '--' : formatDate($branch_point->updated_at) }}
                         </td>
                         <td nowrap="nowrap">
                             @include('admin.components.form-controls', [
-                                'name' => 'branches',
-                                'value' => $branch,
-                                'role' => 'branches',
+                                'name' => 'branch-points',
+                                'value' => $branch_point,
+                                'role' => 'branch_points',
                             ])
                         </td>
                     </tr>
