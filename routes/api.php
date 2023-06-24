@@ -13,6 +13,8 @@ Route::group(['middleware' => 'APILocalization'], function () {
         Route::post('update-token', 'AuthController@updateToken');
     });
 
+    Route::get('home','HomeController')->name('home.index');
+
 
 // authenticated routes
     Route::group(['middleware' => ['jwt.verify:api']], function () {

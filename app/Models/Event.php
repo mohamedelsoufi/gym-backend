@@ -18,6 +18,8 @@ class Event extends Model
 
     public $translatedAttributes = ['title', 'description'];
 
+    public $appends = ['image'];
+
     public $timestamps = true;
 
 
