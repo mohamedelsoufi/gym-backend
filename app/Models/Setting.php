@@ -23,6 +23,7 @@ class Setting extends Model
         "website_title",
         "address",
         "copyrights",
+        "meta_keywords",
         "meta_title",
         "meta_description",
         "footer_description",

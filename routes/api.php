@@ -13,7 +13,11 @@ Route::group(['middleware' => 'APILocalization'], function () {
         Route::post('update-token', 'AuthController@updateToken');
     });
 
+    // home route
     Route::get('home','HomeController')->name('home.index');
+
+    // setting route
+    Route::get('settings','SettingController')->name('settings.index');
 
 
 // authenticated routes
