@@ -67,7 +67,9 @@ class HomeController extends Controller
     {
         try {
             $data = [];
-            $sliders = $this->slider->active()->latest('id')->get();
+
+            // get data
+            $sliders = $this->slider->active()->get();
             $pages = $this->page->whereIn('identifier', ['join_member_now', 'opening_hours',
                 'about_our_gym', 'video', 'our_classes', 'get_fit_in_less', 'our_gallery',
                 'branch_view', 'our_trainers', 'our_package'])->get();
@@ -82,6 +84,7 @@ class HomeController extends Controller
             $blog = $this->blog->active()->first();
             $events = $this->event->active()->take(3)->get();
 
+            // resources
             $data['sliders'] = SliderResource::collection($sliders);
             $data['pages'] = PageResource::collection($pages);
             $data['features'] = FeatureResource::collection($features);
