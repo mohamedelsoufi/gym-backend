@@ -61,6 +61,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
             //blog routes
             Route::resource('blog', 'BlogController');
 
+            //event routes
+            Route::resource('events', 'EventController');
+            Route::get('subscribers', 'EventController@subscribers')->name('events.subscribers');
+
             //comment routes
             Route::resource('comments', 'CommentController');
 

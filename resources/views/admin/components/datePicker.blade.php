@@ -1,5 +1,5 @@
 @if($name && $label || $value)
-    <div class="col-md-4 col-sm-12">
+    <div class="col-md-3 col-sm-12 selected-date d-none">
         <div class="form-group">
             <label class="d-block">{{$label}}</label>
 

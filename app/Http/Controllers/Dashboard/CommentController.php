@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Dashboard\CommentRequest;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -14,7 +15,6 @@ class CommentController extends Controller
     public function __construct(Comment $comment)
     {
         $this->middleware(['permission:read-comments'])->only('index', 'show');
-        $this->middleware(['permission:create-comments'])->only('create', 'store');
         $this->middleware(['permission:update-comments'])->only('edit', 'update');
         $this->middleware(['permission:delete-comments'])->only('destroy');
         $this->comment = $comment;
@@ -33,6 +33,24 @@ class CommentController extends Controller
     public function show(Comment $comment)
     {
         return view('admin.comments.show', compact('comment'));
+    }
+
+    public function edit(Comment $comment)
+    {
+        return view('admin.comments.edit', compact('comment'));
+    }
+
+    public function update(CommentRequest $request, Comment $comment)
+    {
+        try {
+            $requested_data = $request->except(['_token']);
+            $requested_data['updated_at'] = \Carbon\Carbon::now();
+            $comment->update($requested_data);
+
+            return redirect()->route('comments.index')->with(['success' => __('message.updated_successfully')]);
+        } catch (\Exception $e) {
+            return redirect()->back()->with(['error' => __('message.something_wrong')]);
+        }
     }
 
 

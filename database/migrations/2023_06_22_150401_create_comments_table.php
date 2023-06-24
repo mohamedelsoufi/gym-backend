@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('website')->nullable();
             $table->longText('comment')->nullable();
+            $table->enum('status',['pending','approve','reject'])->nullable();
 
             $table->foreign('blog_id')->references('id')->on('blogs')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();

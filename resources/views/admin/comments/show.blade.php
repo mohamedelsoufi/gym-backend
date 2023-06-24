@@ -72,7 +72,8 @@
                             <div class="card-title">
                                 <h5 class="font-weight-bolder text-dark">{{ __('words.blog') }}:</h5>
                             </div>
-                            <p class="m-0"><a href="{{route('blog.show',$comment->blog->id)}}">{{ $comment->blog->title }}</a></p>
+                            <p class="m-0"><a
+                                    href="{{route('blog.show',$comment->blog->id)}}">{{ $comment->blog->title }}</a></p>
                         </div>
                     </div>
                 </div>
@@ -89,6 +90,15 @@
                 </div>
 
                 <div class="row mb-3">
+                    <div class="col-md-4">
+                        <div class="mb-7 bg-light p-5 rounded h-100">
+                            <div class="card-title">
+                                <h5 class="font-weight-bolder text-dark">{{ __('words.status') }}:</h5>
+                            </div>
+                            <p class="m-0">{{ __('words.'.$comment->status) }}</p>
+                        </div>
+                    </div>
+
                     <div class="col-md-4">
                         <div class="mb-7 bg-light p-5 rounded h-100">
                             <div class="card-title">

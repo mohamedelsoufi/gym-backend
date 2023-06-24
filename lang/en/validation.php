@@ -194,6 +194,10 @@ return [
         "identifier" => "Identifier",
         "contact" => "Contact",
         "social" => "Social Media Link",
+        "duration" => "Duration",
+        "from" => "From",
+        "to" => "To",
+        "date" => "Date",
 
         "ar" => [
             "title" => "Title In Arabic",
