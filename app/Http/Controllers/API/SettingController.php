@@ -18,8 +18,8 @@ class SettingController extends Controller
     public function __invoke(Request $request)
     {
         try {
-            $settings = $this->setting->get();
-            return successResponse(SettingResource::collection($settings), 'success', 200);
+            $settings = $this->setting->first();
+            return successResponse(new SettingResource($settings), 'success', 200);
         } catch (\Exception $e) {
             return failureResponse([], __('message.something_wrong'), 400);
         }
