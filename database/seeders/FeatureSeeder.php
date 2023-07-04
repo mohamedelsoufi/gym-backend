@@ -26,11 +26,11 @@ class FeatureSeeder extends Seeder
             Feature::create([
                 'ar'=>[
                     'title' => $title_ar[$f],
-                    'description' => $description_ar[$f],
+                    'description' => '<p>'.$description_ar[$f].'</p>',
                 ],
                 'en'=>[
                     'title' => $title_en[$f],
-                    'description' => $description_en[$f],
+                    'description' => '<p>'.$description_en[$f].'</p>',
                 ],
                 'icon' => $icons[$f],
                 'status' => 1
