@@ -54,7 +54,7 @@ class PageSeeder extends Seeder
                 'description' => '<ul>
 	<li>WEEKDAYS :&nbsp; Everyday</li>
 	<li>FROM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; 06:00 AM</li>
-	<li>TO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; 02:00 AM</li>
+	<li>TO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; 02:00 AM</li>
 </ul>',
             ],
         ]);
