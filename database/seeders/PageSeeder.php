@@ -44,17 +44,17 @@ class PageSeeder extends Seeder
             'ar' => [
                 'title' => 'ساعات العمل!',
                 'description' => '<ul>
-	<li>أيام العمل: كل يوم</li>
-	<li>من: 06:00 صباحاً</li>
-	<li>إلى: 02:00 صباحاً</li>
+	<li>أيام العمل :&nbsp; كل يوم</li>
+	<li>من&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; 06:00 صباحاً</li>
+	<li>إلى&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 02:00 صباحاً</li>
 </ul>',
             ],
             'en' => [
                 'title' => 'OPENING HOURS!',
                 'description' => '<ul>
-	<li>WEEKDAYS: Everyday</li>
-	<li>FROM: 06:00 AM</li>
-	<li>TO: 02:00 AM</li>
+	<li>WEEKDAYS :&nbsp; Everyday</li>
+	<li>FROM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; 06:00 AM</li>
+	<li>TO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; 02:00 AM</li>
 </ul>',
             ],
         ]);
