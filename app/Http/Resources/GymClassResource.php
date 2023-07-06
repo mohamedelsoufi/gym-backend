@@ -13,7 +13,7 @@ class GymClassResource extends JsonResource
             "id" => $this->id,
             "image" => $this->image,
             "title" => $this->title,
-            "time" => $this->time,
+            "time" => date('h:i A', strtotime($this->time)),
         ];
     }
 }
