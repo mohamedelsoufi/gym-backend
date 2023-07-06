@@ -74,7 +74,7 @@ class HomeController extends Controller
                 'about_our_gym', 'video', 'our_classes', 'get_fit_in_less', 'our_gallery',
                 'branch_view', 'our_trainers', 'our_package'])->get();
             $features = $this->feature->active()->get();
-            $gym_classes = $this->gym_class->active()->latest('id')->take(3)->get();
+            $gym_classes = $this->gym_class->active()->take(3)->with('days')->get();
             $class_schedules = $this->class_schedule->active()->get();
             $branchPoints = $this->branchPoint->active()->get();
             $teams = $this->team->active()->get();
