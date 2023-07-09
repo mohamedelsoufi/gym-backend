@@ -19,11 +19,11 @@ class DatabaseSeeder extends Seeder
         $this->call(SliderSeeder::class);
         $this->call(PageSeeder::class);
         $this->call(FeatureSeeder::class);
+        $this->call(BranchPointSeeder::class);
+        $this->call(BranchSeeder::class);
         $this->call(DaySeeder::class);
         $this->call(GymClassSeeder::class);
         $this->call(ClassScheduleSeeder::class);
-        $this->call(BranchSeeder::class);
-        $this->call(BranchPointSeeder::class);
         $this->call(TeamSeader::class);
         $this->call(GallerySeeder::class);
         $this->call(PackageSeeder::class);

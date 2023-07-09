@@ -64,6 +64,18 @@
                                 </div>
                             </div>
 
+                            <div class="col-md-12 mt-3">
+                                <div class="mb-7 bg-light p-5 rounded h-100">
+                                    <div class="card-title">
+                                        <h5 class="font-weight-bolder text-dark">{{ __('words.branch') }}
+                                            - {{ __('words.locale-' . $locale) }}:</h5>
+                                    </div>
+                                    @foreach($class->branches as $branch)
+                                        <span class="m-0">{{ $branch->translate($locale)->title  }}</span><span>,</span>
+                                    @endforeach
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 @endforeach

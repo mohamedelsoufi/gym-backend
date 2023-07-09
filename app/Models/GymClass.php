@@ -27,6 +27,11 @@ class GymClass extends Model
     {
         return $this->belongsToMany(Day::class, DayGymClass::class);
     }
+
+    public function branches()
+    {
+        return $this->belongsToMany(Branch::class, BranchGymClass::class);
+    }
     // relations end
 
     // Scopes start

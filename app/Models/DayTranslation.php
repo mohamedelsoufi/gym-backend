@@ -16,7 +16,7 @@ class DayTranslation extends Model
     protected $guarded = [];
 
     // accessors & Mutator start
-    public function getTitleAttribute($val)
+    public function getDayAttribute($val)
     {
         return $this->attributes['day'] = ucwords($val);
     }

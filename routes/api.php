@@ -16,6 +16,10 @@ Route::group(['middleware' => 'APILocalization'], function () {
     // home route
     Route::get('home','HomeController')->name('home.index');
 
+    // gym class route
+    Route::get('gym-classes','GymClassesController')->name('gym-classes.index');
+
+
     // setting route
     Route::get('settings','SettingController')->name('settings.index');
 

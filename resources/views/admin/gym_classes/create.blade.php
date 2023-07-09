@@ -75,6 +75,26 @@
             <div class="form-group row">
                 <div class="col-md-4 col-sm-12">
                     <div class="form-group">
+                        <label class="d-block">{{__("words.branch")}}</label>
+                        <div class="input-group date">
+                            <select class="form-control selectpicker" id="multiSelect1" multiple="multiple"
+                                    data-live-search="true" name="branches[]">
+                                @foreach($all_branches as $branch)
+                                    <option
+                                        value="{{$branch->id}}" {{(collect(old('branches'))->contains($branch->id)) ? 'selected':'' }}>{{$branch->title}}</option>
+                                @endforeach
+                            </select>
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="fas fa-calendar-day"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-12">
+                    <div class="form-group">
                         <label class="d-block">{{__("words.days")}}</label>
                         <div class="input-group date">
                             <select class="form-control selectpicker" id="multiSelect1" multiple="multiple"
