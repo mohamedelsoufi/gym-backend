@@ -63,7 +63,7 @@ class HomeController extends Controller
         $this->event = $event;
     }
 
-    public function __invoke(Request $request)
+    public function __invoke()
     {
         try {
             $data = [];

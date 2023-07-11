@@ -20,7 +20,7 @@ class GymClassesController extends Controller
         $this->class_schedule = $class_schedule;
     }
 
-    public function __invoke(Request $request)
+    public function __invoke()
     {
         try {
             $gym_classes = GymClassResource::collection($this->gym_class->active()->latest('id')->get());
