@@ -59,7 +59,7 @@
                                           placeholder="{{ __('words.title') }}"
                                           class="form-control ckeditor pl-5 min-h-40px @error($locale . '.title') is-invalid @enderror"
                                           rows="1"
-                                >"{{ old($locale . '.title', $page->translate($locale)->title) }}"</textarea>
+                                >{{ old($locale . '.title', $page->translate($locale)->title) }}</textarea>
                                     @error($locale . '[title]')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
