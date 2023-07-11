@@ -77,7 +77,7 @@ class HomeController extends Controller
             $gym_classes = $this->gym_class->active()->take(3)->with('days','branches')->get();
             $class_schedules = $this->class_schedule->active()->take(3)->get();
             $branchPoints = $this->branchPoint->active()->get();
-            $teams = $this->team->active()->get();
+            $teams = $this->team->active()->take(3)->get();
             $galleries = $this->gallery->active()->get();
             $packages = $this->package->active()->get();
             $partners = $this->partner->active()->get();
