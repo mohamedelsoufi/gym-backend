@@ -239,7 +239,7 @@ return [
     "edit_class_schedule" => "Edit Class Schedule",
     "create_class_schedule" => "Create Class Schedule",
 
-    "nile_view" => "Nile View",
+    "nile_view" => "Page Title",
     "edit_nile" => "Edit Branch page",
     "branch_point" => "Branch Point",
     "branch_points" => "Branches Points",

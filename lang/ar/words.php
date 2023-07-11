@@ -247,7 +247,7 @@ return [
     "edit_class_schedule" => "تعديل جدول الفصل",
     "create_class_schedule" => "إنشاء جدول الفصل",
 
-    "nile_view" => "النيل فيو",
+    "nile_view" => "عنوان الصفحة",
     "edit_nile" => "تعديل صفحة الفرع",
     "branch_point" => "نقطة الفرع",
     "branch_points" => "نقاط الفروع",

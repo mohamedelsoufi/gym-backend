@@ -321,14 +321,14 @@
                     aria-haspopup="true" data-menu-toggle="hover">
                     <a href="javascript:;" class="menu-link menu-toggle">
                         <i class="fas fa-ellipsis-h svg-icon menu-icon"></i>
-                        <span class="menu-text">{{__('words.branches_points')}}</span>
+                        <span class="menu-text">{{__('words.branch_points')}}</span>
                         <i class="menu-arrow"></i>
                     </a>
                     <div class="menu-submenu">
                         <i class="menu-arrow"></i>
                         <ul class="menu-subnav">
 
-                            @permission('edit_nile-branch_points')
+                            @permission('edit_page-branch_points')
                             <li class="menu-item  {{ request()->routeIs('pages.edit') ? 'menu-item-active' : '' }}"
                                 aria-haspopup="true">
                                 <a href="{{route('pages.edit',\App\Models\Page::where('identifier','branch_view')->first())}}"
