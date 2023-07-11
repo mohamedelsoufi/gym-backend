@@ -19,6 +19,8 @@ Route::group(['middleware' => 'APILocalization'], function () {
     // gym class route
     Route::get('gym-classes','GymClassesController')->name('gym-classes.index');
 
+    // branch routes
+    Route::get('branches','BranchController')->name('branches.index');
 
     // setting route
     Route::get('settings','SettingController')->name('settings.index');
