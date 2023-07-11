@@ -20,11 +20,11 @@ class PageSeeder extends Seeder
             'has_image' => 1,
             'has_video' => 0,
             'ar' => [
-                'title' => 'انضم الآن! احصل على خصم 40٪',
+                'title' => '<p>انضم الآن! احصل على خصم 40٪</p>',
                 'description' => '<p>احصل على عرضنا الفلاش المتاح الآن ليومين فقط !! اشترك في عضويتنا لمدة 6 أشهر واحصل على 3 أشهر إضافية مجانًا! .</p>',
             ],
             'en' => [
-                'title' => 'JOIN MEMBER NOW! <br>GET 40% OFF',
+                'title' => '<p>JOIN MEMBER NOW! <br>GET 40% OFF</p>',
                 'description' => '<p>Catch our flash offer now available for only two days!! Subscribe to our 6 months membership and get an additional 3 months for free! .</p>',
             ],
         ]);
@@ -42,7 +42,7 @@ class PageSeeder extends Seeder
             'has_image' => 1,
             'has_video' => 0,
             'ar' => [
-                'title' => 'ساعات العمل!',
+                'title' => '<p>ساعات العمل!</p>',
                 'description' => '<ul>
 	<li>أيام العمل :&nbsp; كل يوم</li>
 	<li>من&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; 06:00 صباحاً</li>
@@ -50,7 +50,7 @@ class PageSeeder extends Seeder
 </ul>',
             ],
             'en' => [
-                'title' => 'OPENING HOURS!',
+                'title' => '<p>OPENING HOURS!</p>',
                 'description' => '<ul>
 	<li>WEEKDAYS :&nbsp; Everyday</li>
 	<li>FROM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; 06:00 AM</li>
@@ -72,11 +72,11 @@ class PageSeeder extends Seeder
             'has_image' => 1,
             'has_video' => 0,
             'ar' => [
-                'title' => 'عن نادينا',
+                'title' => '<p>عن نادينا</p>',
                 'description' => '<p>مرحبًا بكم في صالة الألعاب الرياضية لدينا! نحن ملتزمون بمساعدتك على تحقيق أهداف لياقتك في بيئة ترحيبية وداعمة. تقدم منشآتنا أحدث المعدات لتدريب القلب والأوعية الدموية والقوة ، بالإضافة إلى مجموعة واسعة من فصول اللياقة البدنية الجماعية بقيادة مدربين على دراية وتحفيز. يتوفر مدربونا الشخصيون المعتمدون لتقديم التوجيه والدعم الفردي لمساعدتك في الوصول إلى أهداف اللياقة البدنية الفردية الخاصة بك. بالإضافة إلى عروض اللياقة لدينا ، نقدم لك أيضًا مجموعة من خدمات السبا وخطط التغذية للحصول على تجربة لياقة وعافية كاملة.</p>',
             ],
             'en' => [
-                'title' => 'ABOUT OUR GYM',
+                'title' => '<p>ABOUT OUR GYM</p>',
                 'description' => '<p>Welcome to our gym! We are dedicated to helping you achieve your fitness goals in a welcoming and supportive environment. Our facility offers state-of-the-art equipment for cardiovascular and strength training, as well as a wide range of group fitness classes led by knowledgeable and motivating instructors. Our certified personal trainers are available to provide one-on-one guidance and support to help you reach your individual fitness goals. In addition to our fitness offerings, we also provide you with a range of spa services and nutrition plans for a full fitness and wellness experience.</p>',
             ],
         ]);
@@ -112,12 +112,12 @@ class PageSeeder extends Seeder
             'has_image' => 0,
             'has_video' => 0,
             'ar' => [
-                'title' => 'فصولنا',
-                'description' => 'تعال وانضم إلينا واستمتع واستمتع',
+                'title' => '<p>فصولنا</p>',
+                'description' => '<p>تعال وانضم إلينا واستمتع واستمتع</p>',
             ],
             'en' => [
-                'title' => 'OUR CLASSES',
-                'description' => 'Come Join Us, Enjoy and have Fun',
+                'title' => '<p>OUR CLASSES</p>',
+                'description' => '<p>Come Join Us, Enjoy and have Fun</p>',
             ],
         ]);
 
@@ -130,10 +130,10 @@ class PageSeeder extends Seeder
             'has_image' => 1,
             'has_video' => 0,
             'ar' => [
-                'title' => 'فرع النيل فيو',
+                'title' => '<p>فرع النيل فيو</p>',
             ],
             'en' => [
-                'title' => 'Nile View Branch',
+                'title' => '<p>Nile View Branch</p>',
             ],
         ]);
         $branch_view->file()->create([
@@ -150,11 +150,11 @@ class PageSeeder extends Seeder
             'has_image' => 0,
             'has_video' => 0,
             'ar' => [
-                'title' => 'مدربينا',
+                'title' => '<p>مدربينا</p>',
                 'sub_title' => 'تعرف على مدربينا',
             ],
             'en' => [
-                'title' => 'OUR TRAINERS',
+                'title' => '<p>OUR TRAINERS</p>',
                 'sub_title' => 'Meet Our Coaches',
             ],
         ]);
@@ -168,11 +168,11 @@ class PageSeeder extends Seeder
             'has_image' => 1,
             'has_video' => 0,
             'ar' => [
-                'title' => 'احصل على لياقتك في أقل من أسبوعين مع FITX',
+                'title' => '<p>احصل على لياقتك في أقل من أسبوعين مع FITX</p>',
                 'description' => '<p>Aliquam a augue suscipit, luctus neque purus ipsum neque dolor primis libero tempus, tempor posuere ligula varius impedit enim tempor sapien</p>',
             ],
             'en' => [
-                'title' => 'GET FIT IN LESS 2 WEEKS WITH FITX',
+                'title' => '<p>GET FIT IN LESS 2 WEEKS WITH FITX</p>',
                 'description' => '<p>Aliquam a augue suscipit, luctus neque purus ipsum neque dolor primis libero tempus, tempor posuere ligula varius impedit enim tempor sapien</p>',
             ],
         ]);
@@ -190,11 +190,11 @@ class PageSeeder extends Seeder
             'has_image' => 0,
             'has_video' => 0,
             'ar' => [
-                'title' => 'معرض الصور',
+                'title' => '<p>معرض الصور</p>',
                 'sub_title' => 'كن جزءًا من عائلة TFC.',
             ],
             'en' => [
-                'title' => 'Our Gallery',
+                'title' => '<p>Our Gallery</p>',
                 'sub_title' => 'Be Part Of TFC Family.',
             ],
         ]);
@@ -208,12 +208,12 @@ class PageSeeder extends Seeder
             'has_image' => 0,
             'has_video' => 0,
             'ar' => [
-                'title' => 'باقاتنا',
-                'description' => 'سواء كنت قد بدأت للتو رحلة لياقتك أو تتطلع إلى نقل التدريبات الخاصة بك إلى المستوى التالي ، فلدينا باقات مختلفة لتختار منها الأنسب لاحتياجاتك وخطة لياقتك.',
+                'title' => '<p>باقاتنا</p>',
+                'description' => '<p>سواء كنت قد بدأت للتو رحلة لياقتك أو تتطلع إلى نقل التدريبات الخاصة بك إلى المستوى التالي ، فلدينا باقات مختلفة لتختار منها الأنسب لاحتياجاتك وخطة لياقتك.</p>',
             ],
             'en' => [
-                'title' => 'OUR PACKAGES',
-                'description' => 'Whether you\'re just starting your fitness journey or looking to take your workouts to the next level, we have different packages for you to select the one most suitable for your needs and fitness plan.',
+                'title' => '<p>OUR PACKAGES</p>',
+                'description' => '<p>Whether you\'re just starting your fitness journey or looking to take your workouts to the next level, we have different packages for you to select the one most suitable for your needs and fitness plan.</p>',
             ],
         ]);
     }
