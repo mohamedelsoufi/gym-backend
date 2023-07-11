@@ -75,7 +75,7 @@ class HomeController extends Controller
                 'branch_view', 'our_trainers', 'our_package'])->get();
             $features = $this->feature->active()->get();
             $gym_classes = $this->gym_class->active()->take(3)->with('days','branches')->get();
-            $class_schedules = $this->class_schedule->active()->get();
+            $class_schedules = $this->class_schedule->active()->take(3)->get();
             $branchPoints = $this->branchPoint->active()->get();
             $teams = $this->team->active()->get();
             $galleries = $this->gallery->active()->get();
@@ -99,7 +99,6 @@ class HomeController extends Controller
             $data['events'] = EventResource::collection($events);
             return successResponse($data, 'success', 200);
         } catch (\Exception $e) {
-            return failureResponse([],$e->getMessage(), 400);
             return failureResponse([], __('message.something_wrong'), 400);
         }
     }
