@@ -5,16 +5,20 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ClassScheduleResource;
 use App\Http\Resources\GymClassResource;
+use App\Models\ClassSchedule;
 use App\Models\GymClass;
 use Illuminate\Http\Request;
 
 class GymClassesController extends Controller
 {
-   private $gym_class;
-   public function __construct(GymClass $gym_class)
-   {
-       $this->gym_class = $gym_class;
-   }
+    private $gym_class;
+    private $class_schedule;
+
+    public function __construct(GymClass $gym_class, ClassSchedule $class_schedule)
+    {
+        $this->gym_class = $gym_class;
+        $this->class_schedule = $class_schedule;
+    }
 
     public function __invoke(Request $request)
     {
