@@ -49,25 +49,24 @@
                          id="{{ $locale }}" role="tabpanel">
 
                         @if ($page->has_title == true)
-                        <div class="col form-group">
-                            <label>{{ __('words.title') }} - {{ __('words.locale-' . $locale) }}<span
-                                    class="text-danger">
+                            <div class="col form-group">
+                                <label>{{ __('words.title') }} - {{ __('words.locale-' . $locale) }}<span
+                                        class="text-danger">
                                     * </span></label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="flaticon-edit"></i></span>
-                                </div>
-                                <input type="text" name="{{ $locale . '[title]' }}"
-                                       placeholder="{{ __('words.title') }}"
-                                       class="form-control  pl-5 min-h-40px @error($locale . '.title') is-invalid @enderror"
-                                       value="{{ old($locale . '.title', $page->translate($locale)->title) }}">
-                                @error($locale . '[title]')
-                                <span class="invalid-feedback" role="alert">
+                                <div class="col form-group">
+
+                                <textarea type="text" name="{{ $locale . '[title]' }}"
+                                          placeholder="{{ __('words.title') }}"
+                                          class="form-control ckeditor pl-5 min-h-40px @error($locale . '.title') is-invalid @enderror"
+                                          rows="1"
+                                >"{{ old($locale . '.title', $page->translate($locale)->title) }}"</textarea>
+                                    @error($locale . '[title]')
+                                    <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
                         @endif
 
                         @if ($page->has_sub_title == true)
@@ -136,29 +135,29 @@
                 @endif
 
                 @if ($page->has_video == true)
-                        <div class="col-4">
-                            <div class="mb-7 bg-light p-5 rounded h-100">
-                                <video controls style="width: 100%;height: 100%">
-                                    <source src="{{ $page->video }}" type="video/mp4">
-                                    <source src="{{ $page->video }}" type="video/x-flv">
-                                    <source src="{{ $page->video }}" type="application/x-mpegURL">
-                                    <source src="{{ $page->video }}" type="video/MP2T">
-                                    <source src="{{ $page->video }}" type="video/3gpp">
-                                    <source src="{{ $page->video }}" type="video/quicktime">
-                                    <source src="{{ $page->video }}" type="video/x-msvideo">
-                                    <source src="{{ $page->video }}" type="video/x-ms-wmv">
-                                    <source src="{{ $page->video }}" type="video/ogg">
-                                    Your browser does not support HTML video.
-                                </video>
-                            </div>
+                    <div class="col-4">
+                        <div class="mb-7 bg-light p-5 rounded h-100">
+                            <video controls style="width: 100%;height: 100%">
+                                <source src="{{ $page->video }}" type="video/mp4">
+                                <source src="{{ $page->video }}" type="video/x-flv">
+                                <source src="{{ $page->video }}" type="application/x-mpegURL">
+                                <source src="{{ $page->video }}" type="video/MP2T">
+                                <source src="{{ $page->video }}" type="video/3gpp">
+                                <source src="{{ $page->video }}" type="video/quicktime">
+                                <source src="{{ $page->video }}" type="video/x-msvideo">
+                                <source src="{{ $page->video }}" type="video/x-ms-wmv">
+                                <source src="{{ $page->video }}" type="video/ogg">
+                                Your browser does not support HTML video.
+                            </video>
                         </div>
-                        @include('admin.components.files', [
-                       'label' => __('words.video'),
-                       'name' => 'file',
-                       'multi' => '',
-                       'accept' =>
-                           'video/x-flv, video/mp4, application/x-mpegURL,video/MP2T, video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv',
-                   ])
+                    </div>
+                    @include('admin.components.files', [
+                   'label' => __('words.video'),
+                   'name' => 'file',
+                   'multi' => '',
+                   'accept' =>
+                       'video/x-flv, video/mp4, application/x-mpegURL,video/MP2T, video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv',
+               ])
                 @endif
             </div>
 

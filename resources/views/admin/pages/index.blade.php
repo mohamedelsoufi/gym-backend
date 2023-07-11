@@ -86,7 +86,7 @@
                                 </a>
                             @endif
                         </td>
-                        <td>{{ $page->title ? $page->title : '--' }}</td>
+                        <td>{!! $page->title ?? '--' !!}</td>
                         {{--                        <td>{{$page->identifier}}</td> --}}
                         <td>{{ formatDate($page->created_at) }}</td>
                         <td>{{ formatDate($page->created_at) == formatDate($page->updated_at) ? '--' : formatDate($page->updated_at) }}
