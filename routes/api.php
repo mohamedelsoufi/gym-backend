@@ -14,19 +14,22 @@ Route::group(['middleware' => 'APILocalization'], function () {
     });
 
     // home route
-    Route::get('home','HomeController')->name('home.index');
+    Route::get('home', 'HomeController')->name('home.index');
 
     // gym class route
-    Route::get('gym-classes','GymClassesController')->name('gym-classes.index');
+    Route::get('gym-classes', 'GymClassesController')->name('gym-classes.index');
 
     // branch routes
-    Route::get('branches','BranchController')->name('branches.index');
+    Route::get('branches', 'BranchController')->name('branches.index');
 
     // trainer routes
-    Route::get('trainers','TrainerController')->name('trainers.index');
+    Route::get('trainers', 'TrainerController')->name('trainers.index');
+
+    // gallery routes
+    Route::get('galleries', 'GalleryController')->name('galleries.index');
 
     // setting route
-    Route::get('settings','SettingController')->name('settings.index');
+    Route::get('settings', 'SettingController')->name('settings.index');
 
 
 // authenticated routes
