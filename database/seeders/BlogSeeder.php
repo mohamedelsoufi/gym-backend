@@ -51,7 +51,7 @@ class BlogSeeder extends Seeder
                 'status' => 1
             ]);
             $blog->file()->create([
-                'path' => 'seeder/dummy-img-900x500.jpg',
+                'path' => 'seeder/blog.jpg',
                 'type' => 'image'
             ]);
         }
