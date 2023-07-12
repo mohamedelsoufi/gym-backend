@@ -81,7 +81,7 @@ class HomeController extends Controller
             $galleries = $this->gallery->active()->get();
             $packages = $this->package->active()->take(3)->get();
             $partners = $this->partner->active()->get();
-            $blog = $this->blog->active()->first();
+            $blog = $this->blog->active()->latest('id')->first();
             $events = $this->event->active()->take(3)->get();
 
             // resources
