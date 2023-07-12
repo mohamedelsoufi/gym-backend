@@ -79,7 +79,7 @@ class HomeController extends Controller
             $branchPoints = $this->branchPoint->active()->get();
             $teams = $this->team->active()->take(6)->get();
             $galleries = $this->gallery->active()->get();
-            $packages = $this->package->active()->get();
+            $packages = $this->package->active()->take(3)->get();
             $partners = $this->partner->active()->get();
             $blog = $this->blog->active()->first();
             $events = $this->event->active()->take(3)->get();
