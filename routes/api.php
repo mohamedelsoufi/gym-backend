@@ -22,6 +22,9 @@ Route::group(['middleware' => 'APILocalization'], function () {
     // branch routes
     Route::get('branches','BranchController')->name('branches.index');
 
+    // trainer routes
+    Route::get('trainers','TrainerController')->name('trainers.index');
+
     // setting route
     Route::get('settings','SettingController')->name('settings.index');
 
