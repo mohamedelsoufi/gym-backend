@@ -28,6 +28,9 @@ Route::group(['middleware' => 'APILocalization'], function () {
     // gallery routes
     Route::get('galleries', 'GalleryController')->name('galleries.index');
 
+    // blog routes
+    Route::get('blog', 'BlogController')->name('blog.index');
+
     // setting route
     Route::get('settings', 'SettingController')->name('settings.index');
 
