@@ -13,7 +13,7 @@ class BlogResource extends JsonResource
             "image" => $this->image,
             "title" => $this->title,
             "description" => $this->description,
-            "created_at" => $this->created_at
+            "date" => $this->created_at
         ];
     }
 }
