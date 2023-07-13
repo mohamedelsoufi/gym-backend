@@ -15,9 +15,8 @@ class BlogController extends Controller
 {
     private $blog;
     private $event;
-    private $subscriber;
 
-    public function __construct(Blog $blog, Event $event, EventSubscriber $subscriber)
+    public function __construct(Blog $blog, Event $event)
     {
         $this->blog = $blog;
         $this->event = $event;
