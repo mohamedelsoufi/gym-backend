@@ -150,19 +150,6 @@
                             </p>
                         </div>
                     </div>
-
-
-                </div>
-
-                <div class="row">
-                    <div class="col-8">
-                        <a href="{{$event->image}}"
-                           data-toggle="lightbox" data-name="{{$event->name}}"
-                           data-gallery="gallery">
-                            <img src="{{ $event->image }}" class="img-fluid mb-2 image-galley"
-                                 onerror="this.src='{{ asset('uploads/default_image.png') }}'" alt="event image"/>
-                        </a>
-                    </div>
                 </div>
             </div>
 

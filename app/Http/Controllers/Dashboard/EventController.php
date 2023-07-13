@@ -65,7 +65,6 @@ class EventController extends Controller
                 $requested_data['to'] = date('H:i',strtotime($request->to));
             }
             $event = $this->event->create($requested_data);
-            $event->uploadFile();
 
             return redirect()->route('events.index')->with(['success' => __('message.created_successfully')]);
         } catch (\Exception $e) {
@@ -101,8 +100,6 @@ class EventController extends Controller
             }
             $event->update($requested_data);
 
-            $event->updateFile();
-
             return redirect()->route('events.index')->with(['success' => __('message.updated_successfully')]);
         } catch (\Exception $e) {
             return redirect()->back()->with(['error' => __('message.something_wrong')]);
@@ -112,7 +109,6 @@ class EventController extends Controller
     public function destroy(Event $event)
     {
         try {
-            $event->deleteFile();
             $event->delete();
             return redirect()->route('events.index')->with(['success' => __('message.deleted_successfully')]);
         } catch (\Exception $e) {

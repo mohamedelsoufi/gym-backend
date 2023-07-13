@@ -127,16 +127,6 @@
             </div>
 
             <div class="form-group row">
-                @include('admin.components.image', [
-                    'label' => __('words.image'),
-                    'value' => old('image', $event->image),
-                    'name' => 'image',
-                    'id' => 'kt_image_2',
-                    'required' => false,
-                ])
-            </div>
-
-            <div class="form-group row">
                 @include('admin.components.switch', [
                     'label' => __('words.status'),
                     'name' => 'status',

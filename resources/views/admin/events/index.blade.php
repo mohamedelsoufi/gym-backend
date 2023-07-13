@@ -55,7 +55,6 @@
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>{{ __('words.image') }}</th>
                     <th>{{ __('words.title') }}</th>
                     <th>{{ __('words.duration') }}</th>
                     <th>{{ __('words.date') }}</th>
@@ -72,25 +71,6 @@
                     <tr>
 
                         <td>{{ $key + 1 }}</td>
-                        <td>
-                            @if (!$event->image)
-                                <a href="{{asset('uploads/default_image.png')}}"
-                                   data-toggle="lightbox"
-                                   data-gallery="gallery">
-                                    <img class="index_image" src="{{ asset('uploads/default_image.png') }}"
-                                         onerror="this.src='{{ asset('uploads/default_image.png') }}'"
-                                         alt="default-image">
-                                </a>
-                            @else
-                                <a href="{{$event->image}}"
-                                   data-toggle="lightbox"
-                                   data-gallery="gallery">
-                                    <img class="index_image" src="{{ $event->image }}"
-                                         onerror="this.src='{{ asset('uploads/default_image.png') }}'"
-                                         alt="event-image">
-                                </a>
-                            @endif
-                        </td>
                         <td>{{ $event->title }}</td>
                         <td>{{ __('words.'.$event->duration) }}</td>
                         <td>{{ $event->duration !== 'date' ? '--' : date('Y-m-d',strtotime($event->date)) }}</td>

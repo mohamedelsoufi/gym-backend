@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
-    use HasFactory, Translatable, HasFile;
+    use HasFactory, Translatable;
 
 
     protected $table = 'events';
@@ -17,8 +17,6 @@ class Event extends Model
     protected $guarded = [];
 
     public $translatedAttributes = ['title', 'description'];
-
-    public $appends = ['image'];
 
     public $timestamps = true;
 
@@ -38,12 +36,6 @@ class Event extends Model
     // Scopes end
 
     // accessors & Mutator start
-    public function getImageAttribute()
-    {
-        $image = $this->file()->first();
-        return $image ? $image->path : asset('uploads/default_image.png');
-    }
-
     public function getActive()
     {
         return $this->status == 1 ? __('words.active') : __('words.inactive');

@@ -16,7 +16,6 @@ class EventSeeder extends Seeder
         $description_ar = ['نحن نقدم تصميم عالي الجودة في vero eos et accusamus et iusto', 'نحن نقدم تصميم عالي الجودة في vero eos et accusamus et iusto', 'We provide high quality design at vero eos et accusamus et iusto'];
         $description_en = ['We provide high quality design at vero eos et accusamus et iusto', 'We provide high quality design at vero eos et accusamus et iusto', 'نحن نقدم تصميم عالي الجودة في vero eos et accusamus et iusto'];
         $date = ['2023-06-18', '2023-02-18'];
-        $images = ['package2.jpg','zumba.jpg','TRX-Yoga-600x500.jpg'];
 
         for ($e = 0; $e < 3; $e++) {
             $event = Event::create([
@@ -34,10 +33,7 @@ class EventSeeder extends Seeder
                 'to' => '23:00',
                 'status' => 1
             ]);
-            $event->file()->create([
-                'path' => 'seeder/'.$images[$e],
-                'type' => 'image'
-            ]);
+
         }
     }
 }
