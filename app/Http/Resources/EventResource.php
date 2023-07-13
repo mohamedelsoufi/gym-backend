@@ -14,8 +14,8 @@ class EventResource extends JsonResource
             "description" => $this->description,
             "duration" => $this->duration,
             "date" => $this->date,
-            "from" => $this->from,
-            "to" => $this->to,
+            "from" =>  date('h:i A', strtotime($this->from)),
+            "to" =>  date('h:i A', strtotime($this->to)),
             "created_at" => $this->created_at,
         ];
     }
