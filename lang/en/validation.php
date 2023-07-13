@@ -198,6 +198,8 @@ return [
         "from" => "From",
         "to" => "To",
         "date" => "Date",
+        "name" => "Name",
+        "event_id" => "Event id",
 
         "ar" => [
             "title" => "Title In Arabic",
