@@ -22,12 +22,21 @@ class Blog extends Model
     public $timestamps = true;
 
     // relations start
-    public function comments(){
+    public function comments()
+    {
         return $this->hasMany(Comment::class);
     }
     // relations end
 
     // Scopes start
+    public function scopeSearch($query)
+    {
+
+        $query->when(request()->id, function ($q) {
+            return $q->where('id', request()->id);
+        });
+    }
+
     public function scopeActive($query)
     {
         return $query->where('status', 1);

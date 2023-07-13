@@ -23,7 +23,7 @@ class BlogController extends Controller
     public function __invoke()
     {
         try {
-            $data['blogs'] = BlogResource::collection($this->blog->active()->get());
+            $data['blogs'] = BlogResource::collection($this->blog->search()->active()->get());
             $data['events'] = EventResource::collection($this->event->active()->get());
             return successResponse($data, 'success', 200);
         } catch (\Exception $e) {
