@@ -13,7 +13,7 @@ class EventResource extends JsonResource
             "title" => $this->title,
             "description" => $this->description,
             "duration" => __("words." . $this->duration),
-            "date" => $this->date,
+            "date" => $this->date ?? "",
             "from" => date('h:i A', strtotime($this->from)),
             "to" => date('h:i A', strtotime($this->to)),
             "created_at" => $this->created_at,
