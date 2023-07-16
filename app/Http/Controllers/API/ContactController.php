@@ -24,9 +24,8 @@ class ContactController extends Controller
 
             $contact = $this->contact->create($requested_data);
             Mail::to(CONTACTS_MAIL)->send(new ContactMail($contact));
-            return successResponse($contact, 'success', 200);
+            return successResponse($contact, __("message.sent_successfully"), 200);
         } catch (\Exception $e) {
-            return failureResponse([],$e->getMessage(), 400);
             return failureResponse([], __('message.something_wrong'), 400);
         }
     }
