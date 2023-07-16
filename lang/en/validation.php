@@ -200,6 +200,7 @@ return [
         "date" => "Date",
         "name" => "Name",
         "event_id" => "Event id",
+        "subject" => "Subject",
 
         "ar" => [
             "title" => "Title In Arabic",

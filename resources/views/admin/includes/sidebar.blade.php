@@ -754,6 +754,19 @@
                 @endpermission
                 {{-- contact routes end --}}
 
+                {{-- contact requests route start --}}
+                @permission('read-contact_requests')
+                <li class="menu-item {{ request()->routeIs('contact-requests.*') ? 'menu-item-active' : '' }}"
+                    aria-haspopup="true">
+                    <a href="{{route('contact-requests.index')}}" class="menu-link">
+                        <i class="fas fa-phone svg-icon menu-icon"></i>
+
+                        <span class="menu-text">{{__('words.contact_requests')}}</span>
+                    </a>
+                </li>
+                @endpermission
+                {{-- contact requests route end --}}
+
                 {{-- role routes start --}}
                 @permission('read-roles')
                 <li class="menu-item menu-item-submenu {{ request()->routeIs('roles.*') ? 'menu-item-open menu-item-here' : '' }}"

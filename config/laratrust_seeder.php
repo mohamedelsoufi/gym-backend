@@ -8,7 +8,7 @@ return [
         "gym_classes" => ["read", "create", "update", "delete"],
         "days" => ["read", "create", "update", "delete"],
         "class_schedules" => ["read", "create", "update", "delete"],
-        "branch_points" => ["read", "create", "update", "delete","edit_page"],
+        "branch_points" => ["read", "create", "update", "delete", "edit_page"],
         "branches" => ["read", "create", "update", "delete", "edit_nile"],
         "packages" => ["read", "create", "update", "delete", "edit_our_package"],
         "teams" => ["read", "create", "update", "delete", 'edit_our_trainers'],
@@ -19,6 +19,7 @@ return [
         "comments" => ["read", "update", "delete", "approval"],
         "pages" => ["read", "create", "update"],
         "contacts" => ["read", "create", "update", "delete"],
+        "contact_requests" => ["read", "reply", "delete"],
         "settings" => ["read", "update"],
     ],
 ];

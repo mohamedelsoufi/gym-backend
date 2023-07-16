@@ -571,8 +571,8 @@
                     <tr style="border-collapse:collapse">
                         <td align="center" style="padding:0;Margin:0">
                             <table class="es-footer-body" cellspacing="0" cellpadding="0" align="center"
-                                   bgcolor="#2681db"
-                                   style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#2681db;width:600px;color: #ffffff">
+                                   bgcolor="#000000"
+                                   style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#000000;width:600px;color: #ffffff">
                                 <tr style="border-collapse:collapse">
                                     <td align="{{(App::isLocale('ar') ? 'right' : 'left')}}"
                                         style="padding:20px;Margin:0">
@@ -581,7 +581,7 @@
                                             <tr style="border-collapse:collapse">
                                                 <td align="{{(App::isLocale('ar') ? 'right' : 'left')}}"
                                                     style="padding:0;Margin:0;width:560px;text-align: center;font-size: 10px;">
-                                                    {{__('words.rights') . settings()->website_title . '&copy;'. ' ' . now()->year }}
+                                                    {{__('words.rights') . settings()->website_title . '©'. ' ' . now()->year }}
                                                 </td>
                                             </tr>
                                         </table>

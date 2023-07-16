@@ -77,6 +77,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
             //contact routes
             Route::resource('contacts', 'SettingContactController');
 
+            //contact-requests routes
+            Route::resource('contact-requests', 'ContactRequestController')->only('index','show','destroy');
+            Route::get('contact-requests/reply/{id}', 'ContactRequestController@reply')->name('contact-requests.reply');
+            Route::post('contact-requests/send', 'ContactRequestController@send')->name('contact-requests.send');
+
             //setting routes
             Route::resource('settings', 'SettingController');
         });

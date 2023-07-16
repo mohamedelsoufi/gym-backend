@@ -3,6 +3,7 @@
 use App\Models\Permission;
 
 const PAGINATION_COUNT = 10;
+const CONTACTS_MAIL="tl1@marwan.tech";
 
 function successResponse($data = [], $message = "", $status = 200)
 {

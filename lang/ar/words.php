@@ -283,6 +283,10 @@ return [
     "reject" => "مرفوض",
     "website" => "موقع الويب",
 
+    "contact_requests" => "طلبات الإتصال",
+    "show_contact_request" => "عرض طلب الإتصال",
+    "show_contact_requests" => "عرض طلبات الإتصال",
+
     "event" => "الفعالية",
     "events" => "الفعاليات",
     "show_events" => "عرض الفعاليات",

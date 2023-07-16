@@ -431,7 +431,7 @@
                        style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%">
                     <tr style="border-collapse:collapse">
                         <td align="center" style="padding:0;Margin:0">
-                            <table class="es-content-body" cellspacing="0" cellpadding="0" bgcolor="#ffffff"
+                            <table class="es-content-body" cellspacing="0" cellpadding="0" bgcolor="#000000"
                                    align="center"
                                    style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#FFFFFF;width:600px">
                                 <tr style="border-collapse:collapse">
@@ -448,7 +448,7 @@
                                                             <td align="center" style="padding:0;Margin:0;font-size:0px">
                                                                 <a target="_blank" href="{{request()->root()}}"
                                                                    style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#D48344;font-size:14px"><img
-                                                                        src="{{settings()->logo}}"
+                                                                        src="{{asset("uploads/logo.png")}}"
                                                                         class="adapt-img"
                                                                         alt="{{settings()->website_title}}"
                                                                         style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"
@@ -475,7 +475,7 @@
                                                             <td align="center"
                                                                 style="padding:0;Margin:0;padding-top:10px;padding-bottom:15px">
                                                                 <h1 style="Margin:0;line-height:36px;mso-line-height-rule:exactly;font-family:'trebuchet ms', helvetica, sans-serif;font-size:30px;font-style:normal;font-weight:normal;color:#333333">
-                                                                    Welcome To MSE Egypt
+                                                                    {{settings()->website_title}}
                                                                 </h1></td>
                                                         </tr>
                                                     </table>
@@ -492,7 +492,7 @@
                        style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%">
                     <tr style="border-collapse:collapse">
                         <td align="center" style="padding:0;Margin:0">
-                            <table class="es-content-body" cellspacing="0" cellpadding="0" bgcolor="#ffffff"
+                            <table class="es-content-body" cellspacing="0" cellpadding="0" bgcolor="#000000"
                                    align="center"
                                    style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#FFFFFF;width:600px">
                                 <tr style="border-collapse:collapse">
@@ -519,7 +519,7 @@
 
                                                                     <tr style="border-collapse:collapse">
                                                                         <td style="padding:0;Margin:0;font-size:14px;line-height:21px">
-                                                                            {!! $request_data['message'] !!}
+                                                                            {!! $contact['message'] !!}
                                                                         </td>
                                                                     </tr>
                                                                 </table>
@@ -542,8 +542,8 @@
                     <tr style="border-collapse:collapse">
                         <td align="center" style="padding:0;Margin:0">
                             <table class="es-footer-body" cellspacing="0" cellpadding="0" align="center"
-                                   bgcolor="#1d2e40"
-                                   style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#1d2e40;width:600px;color: #ffffff">
+                                   bgcolor="#000000"
+                                   style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#000000;width:600px;color: #ffffff">
                                 <tr style="border-collapse:collapse">
                                     <td align="{{(App::isLocale('ar') ? 'right' : 'left')}}"
                                         style="padding:20px;Margin:0">

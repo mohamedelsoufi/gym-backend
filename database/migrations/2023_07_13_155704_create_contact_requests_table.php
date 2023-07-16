@@ -14,7 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('contact_requests', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('subject')->nullable();
+            $table->string('phone')->nullable();
+            $table->longText('message')->nullable();
             $table->timestamps();
         });
     }

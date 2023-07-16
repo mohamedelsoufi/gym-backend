@@ -283,6 +283,10 @@ return [
     "reject" => "Reject",
     "website" => "Website",
 
+    "contact_requests" => "Contact Requests",
+    "show_contact_requests" => "Show Contact Requests",
+    "show_contact_request" => "Show Contact Request",
+
     "event" => "Event",
     "events" => "Events",
     "show_events" => "Show Events",
