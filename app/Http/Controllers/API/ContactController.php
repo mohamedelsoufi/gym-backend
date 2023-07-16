@@ -27,6 +27,7 @@ class ContactController extends Controller
             return successResponse($contact, __("message.sent_successfully"), 200);
         } catch (\Exception $e) {
             return failureResponse([], __('message.something_wrong'), 400);
+
         }
     }
 }
