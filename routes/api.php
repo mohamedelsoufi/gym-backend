@@ -33,7 +33,7 @@ Route::group(['middleware' => 'APILocalization'], function () {
     Route::post('event/subscribe', 'BlogController@subscribe');
 
     // contact routes
-    Route::post('contacts', 'ContactController');
+    Route::post('contact', 'ContactController');
 
     // setting route
     Route::get('settings', 'SettingController')->name('settings.index');
