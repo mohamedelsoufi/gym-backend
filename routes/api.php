@@ -30,7 +30,10 @@ Route::group(['middleware' => 'APILocalization'], function () {
 
     // blog routes
     Route::get('blog', 'BlogController@index')->name('blog.index');
-    Route::post('event/subscribe', 'BlogController@subscribe');
+
+    // events routes
+    Route::get('events', 'EventController@index')->name('blog.index');
+    Route::post('events/subscribe', 'EventController@subscribe');
 
     // contact routes
     Route::post('contact', 'ContactController');

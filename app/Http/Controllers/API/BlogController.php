@@ -26,20 +26,8 @@ class BlogController extends Controller
     {
         try {
             $data['blogs'] = BlogResource::collection($this->blog->search()->active()->get());
-            $data['events'] = EventResource::collection($this->event->active()->get());
+            $data['events'] = EventResource::collection($this->event->active()->take(3)->get());
             return successResponse($data, 'success', 200);
-        } catch (\Exception $e) {
-            return failureResponse([], __('message.something_wrong'), 400);
-        }
-    }
-
-    public function subscribe(SubscriberRequest $request)
-    {
-        try {
-            $requested_data = $request->only(["name", "email", "phone"]);
-            $event = $this->event->find($request->event_id);
-            $event->subscribers()->create($requested_data);
-            return successResponse([], __("message.joined"), 200);
         } catch (\Exception $e) {
             return failureResponse([], __('message.something_wrong'), 400);
         }
