@@ -448,7 +448,9 @@
                                                             <td align="center" style="padding:0;Margin:0;font-size:0px">
                                                                 <a target="_blank" href="{{request()->root()}}"
                                                                    style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#D48344;font-size:14px"><img
-                                                                        class="adapt-img" alt
+                                                                        src="{{asset("uploads/logo.png")}}"
+                                                                        class="adapt-img"
+                                                                        alt="{{settings()->website_title}}"
                                                                         style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"
                                                                         width="160"></a></td>
                                                         </tr>
