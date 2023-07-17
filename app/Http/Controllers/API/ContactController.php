@@ -23,7 +23,7 @@ class ContactController extends Controller
             $requested_data = $request->only(['name', 'email', 'phone', 'subject', 'message']);
 
             $contact = $this->contact->create($requested_data);
-            Mail::to(CONTACTS_MAIL)->send(new ContactMail($contact));
+            Mail::to(settings()->contact_email)->send(new ContactMail($contact));
             return successResponse($contact, __("message.sent_successfully"), 200);
         } catch (\Exception $e) {
             return failureResponse([], __('message.something_wrong'), 400);

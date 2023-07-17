@@ -302,7 +302,9 @@ return [
     'yearly' => 'كل سنة',
     'subscribers' => 'المشتركين',
     'show_subscribers' => 'عرض المشتركين',
-    'subscribed_at' => 'تاريخ الإشتراك',
+    'subscribed_at' => 'تاريخ الإنضمام',
+    'joining_mail_subject' => 'مستخدم جديد إنضم إلى فاعلية',
+
 
     "contact_details" => "تفاصيل الإتصال",
     "contact_request" => "طلب إتصال مقدم من: ",

@@ -10,7 +10,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class ContactReplyMail extends Mailable
+class JoinedMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -25,14 +25,14 @@ class ContactReplyMail extends Mailable
     {
         return new Envelope(
             from: new Address(settings()->contact_email, env('APP_NAME')),
-            subject: $this->contact['subject'],
+            subject: __("words.joining_mail_subject"),
         );
     }
 
     public function content()
     {
         return new Content(
-            view: 'mail.reply_contact_mail',
+            view: 'mail.joined_user',
         );
     }
 

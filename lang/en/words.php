@@ -302,7 +302,8 @@ return [
     'yearly' => 'Every Year',
     'subscribers' => 'Subscribers',
     'show_subscribers' => 'Show Subscribers',
-    'subscribed_at' => 'Subscribed at',
+    'subscribed_at' => 'Joined at',
+    'joining_mail_subject' => 'New User Joined To Event',
 
     "contact_details" => "Contact Details",
     "contact_request" => "Contact request from: ",

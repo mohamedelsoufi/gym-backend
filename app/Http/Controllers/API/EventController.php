@@ -5,8 +5,10 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\API\SubscriberRequest;
 use App\Http\Resources\EventResource;
+use App\Mail\JoinedMail;
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class EventController extends Controller
 {
@@ -32,9 +34,11 @@ class EventController extends Controller
         try {
             $requested_data = $request->only(["name", "email", "phone"]);
             $event = $this->event->find($request->event_id);
-            $event->subscribers()->create($requested_data);
+            $subscriber = $event->subscribers()->create($requested_data);
+            Mail::to($subscriber->email)->send(new JoinedMail($subscriber));
             return successResponse([], __("message.joined"), 200);
         } catch (\Exception $e) {
+            return failureResponse([], $e->getMessage(), 400);
             return failureResponse([], __('message.something_wrong'), 400);
         }
     }
