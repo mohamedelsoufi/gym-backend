@@ -39,7 +39,7 @@ class BlogController extends Controller
             $requested_data = $request->only(["name", "email", "phone"]);
             $event = $this->event->find($request->event_id);
             $event->subscribers()->create($requested_data);
-            return successResponse([], __("message.subscribed"), 200);
+            return successResponse([], __("message.joined"), 200);
         } catch (\Exception $e) {
             return failureResponse([], __('message.something_wrong'), 400);
         }

@@ -19,5 +19,6 @@ return [
     'sent_successfully' => 'تم الإرسال بنجاح',
     'unsubscribed' => 'تم إلغاء الاشتراك بنجاح',
     'subscribed' => 'تم الاشتراك بنجاح',
+    'joined' => 'تم الإنضمام بنجاح',
 ];
 

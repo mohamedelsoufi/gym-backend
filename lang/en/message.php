@@ -19,4 +19,5 @@ return [
     'sent_successfully' => 'Sent successfully',
     'unsubscribed' => 'Unsubscribed successfully',
     'subscribed' => 'Subscribed successfully',
+    'joined' => 'Joined successfully',
 ];
