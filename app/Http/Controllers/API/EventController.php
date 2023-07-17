@@ -38,7 +38,6 @@ class EventController extends Controller
             Mail::to($subscriber->email)->send(new JoinedMail($subscriber));
             return successResponse([], __("message.joined"), 200);
         } catch (\Exception $e) {
-            return failureResponse([], $e->getMessage(), 400);
             return failureResponse([], __('message.something_wrong'), 400);
         }
     }
