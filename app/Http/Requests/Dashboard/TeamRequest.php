@@ -16,8 +16,8 @@ class TeamRequest extends FormRequest
     {
         $rules = [
             'image' => 'required_without:id|max:900|image',
-            'facebook' => ["required_without:id", "url", "unique:teams,facebook," . $this->id,],
-            'instagram' => ["required_without:id", "url", "unique:teams,instagram," . $this->id,],
+            'facebook' => ["required", "url", "unique:teams,facebook," . $this->id,],
+            'instagram' => ["required", "url", "unique:teams,instagram," . $this->id,],
 
         ];
         foreach (config('translatable.locales') as $locale) {

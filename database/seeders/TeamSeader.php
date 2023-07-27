@@ -26,8 +26,8 @@ class TeamSeader extends Seeder
                     'name' => $name_en[$t],
                     'job_title' => $job_title_en[$t],
                 ],
-                'facebook' => 'https://facebook.com',
-                'instagram' => 'https://www.instagram.com/',
+                'facebook' => 'https://facebook.com/'.$t,
+                'instagram' => 'https://www.instagram.com/'.$t,
                 'status' => 1
             ]);
             $team->file()->create([
