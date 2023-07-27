@@ -52,7 +52,7 @@
                         <td>{{ $key + 1 }}</td>
                         <td>{{ $subscriber->name }}</td>
                         <td>{{ $subscriber->email }}</td>
-                        <td>{{ $subscriber->phone }}</td>
+                        <td dir="ltr" style="text-align: match-parent;">{{ $subscriber->phone }}</td>
                         <td>{{ $subscriber->event->title }}</td>
 
                         <td>{{ formatDate($subscriber->subscribed_at) }}</td>
